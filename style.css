@@ -4,7 +4,7 @@ body {
 }
 
 .content {
-    height: 100vh; /* 페이지의 각 섹션을 화면 높이만큼 채움 */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +13,7 @@ body {
 
 .image-text {
     text-align: center;
-    opacity: 0; /* 기본 상태에서 보이지 않음 */
+    opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
@@ -28,22 +28,20 @@ body {
     color: #333;
 }
 
-/* 첫 번째 요소: 왼쪽에서 나타나는 애니메이션 */
 .image-text.left {
-    transform: translateX(-50px); /* 처음에 왼쪽으로 이동된 상태 */
+    transform: translateX(-50px);
 }
 
 .image-text.left.visible {
     opacity: 1;
-    transform: translateX(0); /* 화면에 보이면 원래 위치로 이동 */
+    transform: translateX(0);
 }
 
-/* 두 번째 요소: 오른쪽에서 나타나는 애니메이션 */
 .image-text.right {
-    transform: translateX(50px); /* 처음에 오른쪽으로 이동된 상태 */
+    transform: translateX(50px);
 }
 
 .image-text.right.visible {
     opacity: 1;
-    transform: translateX(0); /* 화면에 보이면 원래 위치로 이동 */
+    transform: translateX(0);
 }
