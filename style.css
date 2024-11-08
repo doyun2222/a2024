@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .content {
@@ -8,52 +11,64 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
 }
 
-.image-text {
-    text-align: center;
+/* 상단 섹션에 배경 이미지 image1 */
+.content.top {
+    background-image: url('image1.jpg');
+}
+
+/* 하단 섹션에 배경 이미지 image2 */
+.content.bottom {
+    background-image: url('image2.jpg');
+}
+
+/* 공통 도형 스타일 */
+.shape {
+    height: 75vh; /* 높이는 화면 높이의 75% */
     opacity: 0;
+    position: absolute;
+    top: 12.5vh; /* 화면 가운데에 위치시키기 위해 위에서 12.5vh 내려줌 */
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.image-text img {
-    width: 200px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.image-text p {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-/* 왼쪽에서 나타나고 사라지는 첫 번째 요소 */
-.image-text.left {
+/* 첫 번째 도형: 주황색 다각형 모양 */
+.shape1 {
+    width: 75vw; /* 폭은 화면 너비의 75% */
+    background-color: orange;
+    clip-path: polygon(0% 0%, 100% 20%, 80% 100%, 0% 80%);
     transform: translateX(-50px);
+    left: 0; /* 화면 왼쪽에 고정 */
 }
 
-.image-text.left.visible {
+.shape1.visible {
     opacity: 1;
-    transform: translateX(0); /* 화면에 보이면 원래 위치로 이동 */
+    transform: translateX(0); /* 왼쪽에서 나타남 */
 }
 
-.image-text.left:not(.visible) {
+.shape1:not(.visible) {
     opacity: 0;
-    transform: translateX(-50px); /* 화면에서 사라질 때 왼쪽으로 이동 */
+    transform: translateX(-50px); /* 왼쪽으로 사라짐 */
 }
 
-/* 오른쪽에서 나타나고 사라지는 두 번째 요소 */
-.image-text.right {
+/* 두 번째 도형: 하늘색 대칭 다각형 모양 */
+.shape2 {
+    width: 75vw; /* 폭은 화면 너비의 75% */
+    background-color: skyblue;
+    clip-path: polygon(100% 0%, 0% 20%, 20% 100%, 100% 80%); /* 첫 번째 도형의 대칭 */
     transform: translateX(50px);
+    right: 0; /* 화면 오른쪽에 고정 */
 }
 
-.image-text.right.visible {
+.shape2.visible {
     opacity: 1;
-    transform: translateX(0); /* 화면에 보이면 원래 위치로 이동 */
+    transform: translateX(0); /* 오른쪽에서 나타남 */
 }
 
-.image-text.right:not(.visible) {
+.shape2:not(.visible) {
     opacity: 0;
-    transform: translateX(50px); /* 화면에서 사라질 때 오른쪽으로 이동 */
+    transform: translateX(50px); /* 오른쪽으로 사라짐 */
 }
