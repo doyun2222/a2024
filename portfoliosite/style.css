@@ -57,7 +57,76 @@ main {
     padding-top: 80px; /* 배너 아래 공간 확보 */
 }
 
-section {
-    padding: 20px;
+/* 각 섹션별 스타일 */
+
+/* Home 섹션 스타일 */
+#home {
+    padding: 40px;
     min-height: 100vh;
+    background-color: #e0f7fa; /* 연한 청록색 배경 */
+    border-left: 8px solid #007bff; /* 파란색 테두리 */
+}
+
+#home h1 {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+#home p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* About 섹션 스타일 */
+#about {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #fffde7; /* 연한 노란색 배경 */
+    border-left: 8px solid #ffca28; /* 노란색 테두리 */
+}
+
+#about h2 {
+    font-size: 1.8rem;
+    color: #ffca28;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Projects 섹션 스타일 */
+#projects {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #e1bee7; /* 연한 보라색 배경 */
+    border-left: 8px solid #8e24aa; /* 보라색 테두리 */
+}
+
+#projects h2 {
+    font-size: 1.8rem;
+    color: #8e24aa;
+}
+
+#projects p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Contact 섹션 스타일 */
+#contact {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #e8f5e9; /* 연한 초록색 배경 */
+    border-left: 8px solid #43a047; /* 초록색 테두리 */
+}
+
+#contact h2 {
+    font-size: 1.8rem;
+    color: #43a047;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    color: #333;
 }
