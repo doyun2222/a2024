@@ -28,20 +28,32 @@ body {
     color: #333;
 }
 
+/* 왼쪽에서 나타나고 사라지는 첫 번째 요소 */
 .image-text.left {
     transform: translateX(-50px);
 }
 
 .image-text.left.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0); /* 화면에 보이면 원래 위치로 이동 */
 }
 
+.image-text.left:not(.visible) {
+    opacity: 0;
+    transform: translateX(-50px); /* 화면에서 사라질 때 왼쪽으로 이동 */
+}
+
+/* 오른쪽에서 나타나고 사라지는 두 번째 요소 */
 .image-text.right {
     transform: translateX(50px);
 }
 
 .image-text.right.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0); /* 화면에 보이면 원래 위치로 이동 */
+}
+
+.image-text.right:not(.visible) {
+    opacity: 0;
+    transform: translateX(50px); /* 화면에서 사라질 때 오른쪽으로 이동 */
 }
