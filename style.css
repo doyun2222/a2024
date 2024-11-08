@@ -18,12 +18,12 @@ body {
 
 /* 상단 섹션에 배경 이미지 image1 */
 .content.top {
-    background-image: url('image1.jpg');
+    background-image: url('./image1.jpg');
 }
 
 /* 하단 섹션에 배경 이미지 image2 */
 .content.bottom {
-    background-image: url('image2.jpg');
+    background-image: url('./image2.jpg');
 }
 
 /* 공통 도형 스타일 */
