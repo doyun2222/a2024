@@ -49,7 +49,7 @@ body {
 }
 
 .menu a:hover {
-    color: #ccc; /* 링크에 마우스를 올릴 때 색 변경 */
+    color: #ccc;
 }
 
 /* 본문 내용 스타일 */
@@ -57,7 +57,58 @@ main {
     padding-top: 80px; /* 배너 아래 공간 확보 */
 }
 
-section {
-    padding: 20px;
+/* 각 섹션별 스타일 */
+
+/* 채용 공고 섹션 스타일 */
+#recruitment {
+    padding: 40px;
     min-height: 100vh;
+    background-color: #f0f8ff;
+    border-left: 8px solid #007bff;
+}
+
+#recruitment h1 {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+#recruitment p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* 직무정보 섹션 스타일 */
+#jobinfo {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #fff5e6;
+    border-left: 8px solid #ffa500;
+}
+
+#jobinfo h2 {
+    font-size: 1.8rem;
+    color: #ffa500;
+}
+
+#jobinfo p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* 회사정보 섹션 스타일 */
+#companyinfo {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #e6f7ff;
+    border-left: 8px solid #00bfff;
+}
+
+#companyinfo h2 {
+    font-size: 1.8rem;
+    color: #00bfff;
+}
+
+#companyinfo p {
+    font-size: 1.1rem;
+    color: #333;
 }
