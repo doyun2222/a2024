@@ -14,3 +14,14 @@ const observer = new IntersectionObserver(entries => {
 
 // 요소들에 observer 연결
 elements.forEach(element => observer.observe(element));
+
+// 상단 고정 배너 크기 조절
+const banner = document.querySelector('.fixed-banner');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        banner.classList.add('shrink'); // 스크롤이 내려가면 배너 축소
+    } else {
+        banner.classList.remove('shrink'); // 최상단으로 돌아가면 배너 원래 크기로 복귀
+    }
+});
