@@ -1,16 +1,13 @@
-// 모든 "image-text" 요소를 선택
 const elements = document.querySelectorAll('.image-text');
 
-// Intersection Observer 설정
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible'); // 요소가 화면에 보이면 'visible' 클래스 추가
+            entry.target.classList.add('visible');
         } else {
-            entry.target.classList.remove('visible'); // 요소가 화면에서 사라지면 'visible' 클래스 제거
+            entry.target.classList.remove('visible');
         }
     });
-}, { threshold: 0.1 }); // 요소가 10% 이상 화면에 보일 때 트리거
+}, { threshold: 0.2 });
 
-// 요소들에 observer 연결
 elements.forEach(element => observer.observe(element));
