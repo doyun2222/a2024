@@ -16,14 +16,14 @@ body {
     background-position: center;
 }
 
-/* 상단 섹션에 배경 이미지 image1 */
+/* 상단 섹션에 배경 이미지와 그라데이션 오버레이 */
 .content.top {
-    background-image: url('./image1.jpg');
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)), url('./image1.jpg');
 }
 
-/* 하단 섹션에 배경 이미지 image2 */
+/* 하단 섹션에 배경 이미지와 그라데이션 오버레이 */
 .content.bottom {
-    background-image: url('./image2.jpg');
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)), url('./image2.jpg');
 }
 
 /* 고정 배너 스타일 */
@@ -32,7 +32,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* 기본 높이 */
+    height: 50px;
     background-color: white;
     color: black;
     display: flex;
@@ -94,7 +94,7 @@ body {
 }
 
 .portfolio-link:hover {
-    color: #555; /* 링크에 마우스를 올릴 때 색상이 살짝 변경됨 */
+    color: #555;
 }
 
 /* 두 번째 도형: 하늘색 대칭 다각형 모양 */
@@ -123,15 +123,15 @@ body {
 .footer {
     background-color: #333;
     color: #ddd;
-    text-align: left; /* 왼쪽 정렬 */
-    padding: 10px 20px; /* 위아래 10px, 좌우 20px 패딩 */
+    text-align: left;
+    padding: 10px 20px;
     font-size: 14px;
-    line-height: 1.4; /* 줄 간격 조절 */
+    line-height: 1.4;
     width: 100%;
 }
 
 .footer p {
-    margin: 5px 0; /* 각 줄 사이 간격 */
+    margin: 5px 0;
 }
 
 .footer a {
