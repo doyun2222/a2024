@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.content {
+    height: 100vh; /* 페이지의 각 섹션을 화면 높이만큼 채움 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+.image-text {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.image-text img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.image-text p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* 요소가 화면에 나타날 때 활성화되는 클래스 */
+.image-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
