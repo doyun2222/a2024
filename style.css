@@ -14,7 +14,6 @@ body {
 .image-text {
     text-align: center;
     opacity: 0;
-    transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
@@ -29,8 +28,22 @@ body {
     color: #333;
 }
 
-/* 요소가 화면에 나타날 때 활성화되는 클래스 */
-.image-text.visible {
+/* 왼쪽에서 나타나는 애니메이션 */
+.image-text.left {
+    transform: translateX(-50px); /* 처음에 왼쪽으로 이동된 상태 */
+}
+
+.image-text.left.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0); /* 화면에 보이면 제자리로 이동 */
+}
+
+/* 오른쪽에서 나타나는 애니메이션 */
+.image-text.right {
+    transform: translateX(50px); /* 처음에 오른쪽으로 이동된 상태 */
+}
+
+.image-text.right.visible {
+    opacity: 1;
+    transform: translateX(0); /* 화면에 보이면 제자리로 이동 */
 }
