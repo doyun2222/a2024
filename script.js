@@ -5,7 +5,9 @@ const elements = document.querySelectorAll('.image-text');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible'); // 화면에 보이면 visible 클래스 추가
+            entry.target.classList.add('visible'); // 요소가 화면에 보이면 'visible' 클래스 추가
+        } else {
+            entry.target.classList.remove('visible'); // 요소가 화면에서 사라지면 'visible' 클래스 제거
         }
     });
 }, { threshold: 0.1 }); // 요소가 10% 이상 화면에 보일 때 트리거
