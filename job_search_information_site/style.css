@@ -29,7 +29,7 @@ body {
 }
 
 .portfolio-banner.shrink {
-    height: 40px; /* 스크롤 시 줄어든 높이 */
+    height: 40px;
 }
 
 .menu {
@@ -56,7 +56,6 @@ main {
 #recruitment {
     padding: 40px;
     min-height: 100vh;
-    background-color: #f0f8ff;
     border-left: 8px solid #007bff;
 }
 
@@ -74,7 +73,6 @@ main {
 #jobinfo {
     padding: 40px;
     min-height: 100vh;
-    background-color: #fff5e6;
     border-left: 8px solid #ffa500;
 }
 
@@ -91,7 +89,6 @@ main {
 #companyinfo {
     padding: 40px;
     min-height: 100vh;
-    background-color: #e6f7ff;
     border-left: 8px solid #00bfff;
 }
 
