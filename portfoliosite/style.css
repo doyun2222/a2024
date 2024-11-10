@@ -73,8 +73,7 @@ main {
 #about {
     padding: 40px;
     min-height: 100vh;
-    background-color: #fffde7; /* 연한 노란색 배경 */
-    border-left: 8px solid #ffca28; /* 노란색 테두리 */
+    border-left: 8px solid #ffca28;
 }
 
 #about h2 {
@@ -90,8 +89,7 @@ main {
 #projects {
     padding: 40px;
     min-height: 100vh;
-    background-color: #e1bee7; /* 연한 보라색 배경 */
-    border-left: 8px solid #8e24aa; /* 보라색 테두리 */
+    border-left: 8px solid #8e24aa;
 }
 
 #projects h2 {
@@ -107,8 +105,7 @@ main {
 #contact {
     padding: 40px;
     min-height: 100vh;
-    background-color: #e8f5e9; /* 연한 초록색 배경 */
-    border-left: 8px solid #43a047; /* 초록색 테두리 */
+    border-left: 8px solid #43a047;
 }
 
 #contact h2 {
