@@ -1,4 +1,4 @@
-const elements = document.querySelectorAll('.shape');
+const elements = document.querySelectorAll('.image-container');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
