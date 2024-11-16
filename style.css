@@ -17,11 +17,11 @@ body {
 }
 
 .content.top {
-    background-image: url('./image1.jpg');
+    background-image: url('https://github.com/doyun2222/a2024/blob/main/image1.jpg?raw=true');
 }
 
 .content.bottom {
-    background-image: url('./image2.jpg');
+    background-image: url('https://github.com/doyun2222/a2024/blob/main/image2.jpg?raw=true');
 }
 
 .fixed-banner {
@@ -50,35 +50,63 @@ body {
     text-align: center;
 }
 
-.image-container {
-    height: 75vh;
-    opacity: 0; /* 초기 상태: 투명 */
-    position: absolute;
-    top: 12.5vh;
+.image{
+    height: auto;
+    width: auto;
+    opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.image-container.visible {
+.image.left.visible {
+    opacity: 1;
+    transform: translateX(-70%);
+}
+
+.left:not(.visible) {
+    opacity: 0;
+    transform: translateX(-120%);
+}
+
+.image.right.visible {
     opacity: 1; /* 보이는 상태 */
-    transform: scale(1);
+    transform: translateX(90%);
 }
 
-.image-container.hidden {
-    transform: scale(0.9); /* 숨겨진 상태 */
+.right:not(.visible) {
+    opacity: 0;
+    transform: translateX(150%);
 }
 
-.dynamic-image {
-    max-width: 75vw;
-    max-height: 100%;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.image-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
-.dynamic-image:hover {
+/* 두 번째 사진 크기 조정 */
+.image.right img{
+    width: 400px; 
+    height: auto; 
+}
+
+.image.left:hover {
     transform: scale(1.05);
+}
+
+.image.right:hover {
+    transform: scale(1.05);
+}
+
+
+.text-content {
+    position: absolute;
+    top: 54%;
+    left: 65%; 
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+    font-weight: bold; 
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 .footer {
