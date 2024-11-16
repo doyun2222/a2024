@@ -51,11 +51,10 @@ body {
 }
 
 .image-container {
-    height: auto;
-    width: auto;
-    position: relative;
-    opacity: 0;
-    transform: translateX(-100%); /* 시작 상태: 화면 왼쪽 */
+    height: 75vh;
+    opacity: 0; /* 초기 상태: 투명 */
+    position: absolute;
+    top: 12.5vh;
     transition: opacity 1s ease-out, transform 1s ease-out;
     display: flex;
     align-items: center;
@@ -63,35 +62,23 @@ body {
 }
 
 .image-container.visible {
-    opacity: 1;
-    transform: translateX(0); /* 화면 안으로 들어옴 */
+    opacity: 1; /* 보이는 상태 */
+    transform: scale(1);
 }
 
 .image-container.hidden {
-    transform: translateX(-100%); /* 다시 화면 왼쪽으로 사라짐 */
-}
-
-.image-wrapper {
-    position: relative;
-    display: inline-block;
+    transform: scale(0.9); /* 숨겨진 상태 */
 }
 
 .dynamic-image {
-    width: 150%; /* 기존 크기보다 2배 */
-    height: auto;
-    display: block;
+    max-width: 75vw;
+    max-height: 100%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 32px; /* 글씨 크기 */
-    font-weight: bold; /* 글씨 굵기 */
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    pointer-events: none; /* 글씨 클릭 방지 */
+.dynamic-image:hover {
+    transform: scale(1.05);
 }
 
 .footer {
