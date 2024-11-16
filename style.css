@@ -10,7 +10,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 이미지를 왼쪽에 배치 */
+    justify-content: center;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -55,17 +55,20 @@ body {
     width: auto;
     position: relative;
     opacity: 0;
-    transform: translateX(-100%); /* 왼쪽에서 시작 */
+    transform: translateX(-100%); /* 시작 상태: 화면 왼쪽 */
     transition: opacity 1s ease-out, transform 1s ease-out;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 왼쪽 정렬 */
-    margin-left: 20px; /* 섹션에서 약간 떨어뜨림 */
+    justify-content: center;
 }
 
 .image-container.visible {
     opacity: 1;
     transform: translateX(0); /* 화면 안으로 들어옴 */
+}
+
+.image-container.hidden {
+    transform: translateX(-100%); /* 다시 화면 왼쪽으로 사라짐 */
 }
 
 .image-wrapper {
@@ -84,8 +87,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 32px; /* 글씨 크기 */
+    font-weight: bold; /* 글씨 굵기 */
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     pointer-events: none; /* 글씨 클릭 방지 */
