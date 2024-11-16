@@ -1,4 +1,4 @@
-const elements = document.querySelectorAll('.image-container');
+const elements = document.querySelectorAll('.image');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -8,7 +8,7 @@ const observer = new IntersectionObserver(entries => {
             entry.target.classList.remove('visible');
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
 
 elements.forEach(element => observer.observe(element));
 
