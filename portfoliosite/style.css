@@ -80,11 +80,6 @@ main {
     color: #ffca28;
 }
 
-#resume p {
-    font-size: 1.1rem;
-    color: #333;
-}
-
 #resume .title {
     text-align: center;
     font-size: 24px;
@@ -284,11 +279,17 @@ main {
     color: #333;
 }
 
-/*태블릿*/
+/* --- 반응형 미디어 쿼리 --- */
+
+/* 태블릿 (화면 크기 768px 이하) */
 @media (max-width: 768px) {
     .menu {
         flex-direction: column;
         align-items: center;
+    }
+
+    .portfolio-banner {
+        height: 50px;
     }
 
     #home h1 {
@@ -297,10 +298,6 @@ main {
 
     #home p {
         font-size: 1rem;
-    }
-
-    .portfolio-banner {
-        height: 50px;
     }
 
     #resume .table,
@@ -314,10 +311,22 @@ main {
     }
 }
 
-/*모바일*/
+/* 모바일 (화면 크기 480px 이하) */
 @media (max-width: 480px) {
+    .menu {
+        flex-direction: column;
+        font-size: 14px;
+    }
+
     .menu a {
         font-size: 14px;
+        padding: 5px;
+    }
+
+    .portfolio-banner {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
     }
 
     #home h1 {
@@ -328,13 +337,22 @@ main {
         font-size: 0.9rem;
     }
 
-    #intro .table th, #intro .table td {
+    #resume .table,
+    #intro .table {
         font-size: 10px;
-        padding: 5px;
+    }
+
+    #resume .table th, #resume .table td,
+    #intro .table th, #intro .table td {
+        padding: 4px;
     }
 
     #resume .title,
     #intro .title {
         font-size: 18px;
+    }
+
+    .photo {
+        width: 80px;
     }
 }
