@@ -50,7 +50,7 @@ body {
     text-align: center;
 }
 
-.image{
+.image {
     height: auto;
     width: auto;
     opacity: 0;
@@ -83,9 +83,9 @@ body {
 }
 
 /* 두 번째 사진 크기 조정 */
-.image.right img{
-    width: 400px; 
-    height: auto; 
+.image.right img {
+    width: 400px;
+    height: auto;
 }
 
 .image.left:hover {
@@ -96,15 +96,14 @@ body {
     transform: scale(1.05);
 }
 
-
 .text-content {
     position: absolute;
     top: 54%;
-    left: 65%; 
+    left: 65%;
     transform: translate(-50%, -50%);
     font-size: 26px;
-    font-weight: bold; 
-    color: white; 
+    font-weight: bold;
+    color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
 }
@@ -130,4 +129,72 @@ body {
 
 .footer a:hover {
     color: #aaa;
+}
+
+/* 스마트폰 */
+@media (max-width: 600px) {
+    .fixed-banner {
+        height: 40px;
+    }
+
+    .fixed-banner.shrink {
+        height: 25px;
+    }
+
+    .banner-content {
+        font-size: 14px;
+    }
+
+    .content {
+        height: auto;
+        padding: 20px;
+    }
+
+    .image.right img {
+        width: 200px;
+        height: auto;
+    }
+
+    .text-content {
+        font-size: 18px;
+        left: 50%;
+    }
+
+    .footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+/* 테블릿 */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .fixed-banner {
+        height: 45px;
+    }
+
+    .fixed-banner.shrink {
+        height: 30px;
+    }
+
+    .banner-content {
+        font-size: 16px;
+    }
+
+    .content {
+        height: auto;
+        padding: 40px;
+    }
+
+    .image.right img {
+        width: 300px;
+        height: auto;
+    }
+
+    .text-content {
+        font-size: 22px;
+    }
+
+    .footer {
+        font-size: 13px;
+        padding: 15px;
+    }
 }
