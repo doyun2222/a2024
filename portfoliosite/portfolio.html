@@ -9,29 +9,385 @@
 <body>
     <header class="portfolio-banner">
         <nav class="menu">
-            <a href="https://doyun2222.github.io/a2024/" target="_blank">Home</a>
-            <a href="#about">내정보</a>
-            <a href="#projects">프로젝트</a>
-            <a href="#contact">(추가내용)</a>
+            <a href="https://doyun2222.github.io/a2024/" target="_blank" class="menu-home">Home</a>
+            <a href="#resume" class="menu-resume">이력서</a>
+            <a href="#cv" class="menu-cv">CV</a>
+            <a href="#intro" class="menu-intro">자기소개서</a>
+            <a href="#projects" class="menu-projects">프로젝트</a>
         </nav>
     </header>
 
     <main>
         <section id="home">
-            <h1>Welcome to My Portfolio</h1>
-            <p>포트폴리오 내용.</p>
+            <h1>내 정보</h1>
+            <p>이름: 권도윤</p>
+            <p>연락처: 010-5474-9248</p>
+            <p>Github: <a href="https://github.com/doyun2222">https://github.com/doyun2222</a></p>
         </section>
-        <section id="about">
-            <h2>내 정보</h2>
-            <p>내 정보 넣기</p>
+        <section id="resume">
+            <h1 class="title">이 력 서</h1>
+            <table class="table">
+                <!-- 사진과 기본 정보 -->
+                <tr>
+                    <td rowspan="6" class="photo-cell">
+                        <img src="photo.jpg" alt="사진" class="photo">
+                    </td>
+                    <th class="metadata">성 명</th>
+                    <td colspan="2">(한글) 권도윤</td>
+                    <td class="metadata">(한문) 權度潤</td>
+                </tr>
+                <tr>
+                    <th class="metadata">주민등록번호</th>
+                    <td colspan="3">020110-3XXXXXX</td>
+                </tr>
+                <tr>
+                    <th class="metadata">E-mail</th>
+                    <td colspan="3">vividsu1@naver.com</td>
+                </tr>
+                <tr>
+                    <th class="metadata">전화번호</th>
+                    <td>-</td>
+                    <th class="metadata">휴 대 폰</th>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <th class="metadata">우편번호</th>
+                    <td>-</td>
+                    <th class="metadata">구 분</th>
+                    <td>신입</td>
+                </tr>
+                <tr>
+                    <th class="metadata">주 소</th>
+                    <td colspan="3">-</td>
+                </tr>
+                <!-- 호적관계 -->
+                <tr>
+                    <th class="metadata">호적관계</th>
+                    <td colspan="4">
+                        <table class="inner-table">
+                            <tr>
+                                <th class="metadata">호주성명</th>
+                                <td>권XX</td>
+                                <th class="metadata">호주와의 관계</th>
+                                <td>부자(父子)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 신상 -->
+                <tr>
+                    <th class="metadata">신상</th>
+                    <td colspan="4">
+                        <table class="inner-table">
+                            <tr>
+                                <th class="metadata">최종학력</th>
+                                <td>고등학교 졸업</td>
+                                <th class="metadata">결혼여부</th>
+                                <td>미혼</td>
+                            </tr>
+                            <tr>
+                                <th class="metadata">종 교</th>
+                                <td>무교</td>
+                                <th class="metadata">신 장</th>
+                                <td>174Cm</td>
+                            </tr>
+                            <tr>
+                                <th class="metadata">체 중</th>
+                                <td>72Kg</td>
+                                <th class="metadata">혈액형</th>
+                                <td>A형</td>
+                            </tr>
+                            <tr>
+                                <th class="metadata">시 력</th>
+                                <td>좌: 0.3 / 우: 0.6</td>
+                                <th class="metadata">취 미</th>
+                                <td>음악 감상</td>
+                            </tr>
+                            <tr>
+                                <th class="metadata">특 기</th>
+                                <td colspan="3">가창</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 학력 -->
+                <tr>
+                    <th class="metadata">학력</th>
+                    <td colspan="4">
+                        <table class="inner-table">
+                            <tr>
+                                <th class="metadata">입학년월</th>
+                                <th class="metadata">졸업년월</th>
+                                <th class="metadata">학교명</th>
+                                <th class="metadata">전공</th>
+                                <th class="metadata">학점</th>
+                                <th class="metadata">졸업구분</th>
+                                <th class="metadata">소재지</th>
+                            </tr>
+                            <tr>
+                                <td>2017년 3월</td>
+                                <td>2020년 2월</td>
+                                <td>영진고등학교</td>
+                                <td>자연 계열</td>
+                                <td>1.8</td>
+                                <td>졸업</td>
+                                <td>대구</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 자격 사항 -->
+                <tr>
+                    <th class="metadata">자격사항</th>
+                    <td colspan="4">
+                        <table class="inner-table">
+                            <tr>
+                                <th class="metadata">취득일자</th>
+                                <th class="metadata">종류</th>
+                                <th class="metadata">발급기관</th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="metadata">OA</th>
+                    <td colspan="4">
+                        <table class="inner-table">
+                            <tr>
+                                <th class="metadata">종류</th>
+                                <th class="metadata">능력</th>
+                            </tr>
+                            <tr>
+                                <td>워드(한글/MS워드)</td>
+                                <td>중</td>
+                            </tr>
+                            <tr>
+                                <td>프리젠테이션(파워포인트)</td>
+                                <td>중</td>
+                            </tr>
+                            <tr>
+                                <td>스프레드시트(액셀)</td>
+                                <td>중</td>
+                            </tr>
+                            <tr>
+                                <td>인터넷활용</td>
+                                <td>중</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 가족 사항 -->
+                <tr>
+                    <th class="metadata">가족사항</th>
+                    <td colspan="4">
+                        <table class="inner-table">
+                            <tr>
+                                <th class="metadata">관계</th>
+                                <th class="metadata">성명</th>
+                                <th class="metadata">연령</th>
+                                <th class="metadata">근무처</th>
+                                <th class="metadata">직위</th>
+                                <th class="metadata">동거</th>
+                                <th class="metadata">외국어</th>
+                                <th class="metadata">능력</th>
+                                <th class="metadata" colspan="2">공인시험</th>
+
+                            </tr>
+                            <tr>
+                                <td>부</td>
+                                <td>권XX</td>
+                                <td>50대</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>X</td>
+                                <td rowspan="3">영어</td>
+                                <td rowspan="3">중</td>
+                                <td rowspan="3">TOEFL: -</td>
+                                <td rowspan="3">TOEIC: -</td>
+                            </tr>
+                            <tr>
+                                <td>모</td>
+                                <td>고XX</td>
+                                <td>40대</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>X</td>
+                            </tr>
+                            <tr>
+                                <td>제</td>
+                                <td>권XX</td>
+                                <td>10대</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>X</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section id="cv">
+            <h1 class="cv-title">CV (Curriculum Vitae)</h1>
+            <header class="header">
+                <h1 class="name">Do-Yun Kwon</h1>
+                <p class="title">AI Designer</p>
+            </header>
+            <section class="personal-data">
+                <h2>Personal Data</h2>
+                <table>
+                    <tr>
+                        <th>Address</th>
+                        <td>232, Gongneung-ro, Nowon-gu, Seoul, Republic of Korea</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>+82 10-5474-9248</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>vividsu1@naver.com</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="projects">
+                <h2>Projects and Activities</h2>
+                <ul>
+                    <li>
+                        <strong>Creating a best machine learning model using binary classification data (Mar. 2024 - May. 2024)</strong>
+                        <p>Create a machine learning model that achieves the highest accuracy using EGG-based alcohol addiction data</p>
+                    </li>
+                    <li>
+                        <strong>Data Analysis and Visualization Using R (Mar. 2024 – Apr. 2024)</strong>
+                        <p>Data analysis and visualization using the happiness score dataset by country using R</p>
+                    </li>
+                    <li>
+                        <strong>Finding the Shortest Path in a Subway Network (Apr. 2024 – May. 2024)</strong>
+                        <p>Design and implementation of a shortest path algorithm considering time and space complexity</p>
+                    </li>
+                    <li>
+                        <strong>Artificial Intelligence Club (A.I.ng) (Mar. 2024 – Aug. 2024)</strong>
+                        <p>Artificial Intelligence model study and paper analysis</p>
+                    </li>
+                    <li>
+                        <strong>Creating a best deep learning model using binary classification image data (Nov. 2024 - Dec. 2024)</strong>
+                        <p>Create a deep learning model that achieves the highest accuracy using zelkova tree disease image data</p>
+                    </li>
+                    <li>
+                        <strong>Implementing a Compiler Using Java (Nov. 2024 - Dec. 2024)</strong>
+                        <p>Implementing a lexer, parser, interpreter, and type checker for a custom language S using Java</p>
+                    </li>
+                    <li>
+                        <strong>Creating a Database Service (Nov. 2024 - Dec. 2024)</strong>
+                        <p>Making a simple service utilizing a database</p>
+                    </li>
+                    <li>
+                        <strong>Web Page Development (Nov. 2024 - Dec. 2024)</strong>
+                        <p>Creating a simple web page using HTML, CSS, and JavaScript</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="education">
+                <h2>Education</h2>
+                <p>Seoul National University of Science and Technology, Seoul, Korea</p>
+                <p>Major: Artificial Intelligence (Mar. 2021 – Feb. 2027)</p>
+            </section>
+            <section class="award">
+                <h2>Award</h2>
+                <p>–</p>
+            </section>
+            <section class="certificate">
+                <h2>Certificate</h2>
+                <p>–</p>
+            </section>
+            <section class="skills">
+                <h2>Skills</h2>
+                <table>
+                    <tr>
+                        <th>Python</th>
+                        <td>★★★☆☆</td>
+                    </tr>
+                    <tr>
+                        <th>C & C#</th>
+                        <td>★★★☆☆</td>
+                    </tr>
+                    <tr>
+                        <th>Spotfire</th>
+                        <td>★★★☆☆</td>
+                    </tr>
+                    <tr>
+                        <th>English</th>
+                        <td>★★★☆☆</td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+
+        <section id="intro">
+            <h1 class="title">자 기 소 개 서</h1>
+            <table class="table">
+                <tr>
+                    <th>OO전자에 지원한 이유와 입사 후 회사에서 이루고 싶은 꿈을 기술하십시오.</th>
+                </tr>
+                <tr>
+                    <td>
+                        "더 나은 삶을 위한 기술"
+                        <br><br>
+                        저는 각종 기계학습에 관한 지식과 연구 경험을 바탕으로 인공지능 소프트웨어 개발에 이바지하기 위해 지원했습니다. 회사의 본질은 이익만을 추구하는 것이 아니라고 생각합니다. 회사의 서비스와 제품을 사용하는 사람들에게 더 쉽고 편리한 생활을 할 수 있도록 돕는 것이 회사라고 생각합니다. 현재 자동화 시스템이 중요해짐에 따라 그것의 기본이 되는 AI또한 그 중요성이 커지고 있습니다. OO전자에 입사여 누구나 쉽고 간단하게 사용할 수 있는 인공지능 소프트웨어 개발 전문가가 되고 싶습니다. OO전자는 고객에게 더 나은 서비스와 제품을 제공하기 위해 노력하고 있습니다. 고객 경험 개선을 위해 피드백을 수용하여 제품의 설계 및 사용자 인터페이스를 개선하고, 더 나아가 환경보호와 지속가능한 발전을 위해 노력하고 있습니다.
+                        <br><br>여러 제품에 AI를 적용하고 그것을 연결하는 ‘초연결’시대에 앞서가기 위해 OO전자는 공간AI기술로 집안 환경을 더 잘 파악하고 기기들을 통합적으로 사용할 수 있는 스마트 사물 인터넷 플랫폼을 개발하였습니다. 또한 빅스비와 연동을 통해 스마트 홈 경험을 더 풍부하게 하기위해 노력 중입니다. 이런 OO전자에서 일해보며 직무 역량을 개발하고 한 분야의 전문가가 되어 회사와 함께 성장하고 싶습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <th>본인의 성장과정을 간략히 기술하되 현재의 자신에게 가장 큰 영향을 끼친 사건, 인물 등을 포함하여 기술하시기 바랍니다.(작품 속 가상 인물도 가능)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        “모든 경험은 도움이 된다.”
+                        <br><br>
+                        필요 없는 경험은 없다고 생각하며 이때까지 할 수 있는 무엇이든 해왔습니다. 학부 시절 인공지능과 관련된 모든 내용은  훗날 도움이 된다고 생각하여 전공과목은 수강할 수 있는 한 모두 이수했고 그것을 통해 기초를 다졌습니다. 혼자 학습하는 중에도 조금의 흥미만 있다면 일단 뛰어들었습니다. 이렇게 얻은 지식들이 이후 많은 프로젝트를 함에 있어 관련 내용을 이해하는 데에 도움이 되었고 그 과정에서 의미 없는 활동은 없다는 것을 알았습니다. 이 깨달음을 계기로 학부 연구생과 석사 과정에 도전하여 직무 관련 능력을 향상시켰습니다. 또한 자격증에도 관심이 생겨 도전해본 결과 인공지능 학습 데이터 전문가 1급, 빅데이터 분석 기사 자격증을 획득했습니다. 그리고 제가 원하는 분야를 찾는 데에 도움도 되었습니다. 
+                        <br><br>“노력을 배우다.”
+                        <br><br>부족한 점이 있다면 그 이유를 찾고 해결을 위해 노력하게 되었습니다. 군 복무 초기 훈련소에서 굉장히 말을 잘 하는 분을 만났습니다. 철학과 역사에 관심이 많은 사람이었는데 이 분을 통해 평소 보이지 않는 노력을 재능으로 치부해버리던 저를 발견하고 고치게 되었습니다. 저의 부족한 점 중 하나가 머릿속에 있는 말을 조리 있게 밖으로 내보내지 못하는 것이었습니다. 훈련 대기시간때마다 그분의 역사 이야기와 철학에 관한 스토리 텔링 전문가 수준의 설명을 들으며 제가 하지 못하는 것을 잘하는 모습을 보니 그분의 재능이 부러웠습니다. 어느 날 동기중 한 명이 어떻게 말을 그 정도로 잘 할 수 있냐 물어보았는데 답변을 듣고 머리를 한 대 맞은 느낌이 들었습니다. 본인은 못한다는 생각이 들었을 때 무조건 잘할 때 까지 노력을 한다고 했습니다. 그렇게 잘 알고 있던 역사도 관심은 있었지만 무지했던 사람이 기초 내용을 공부한 다음 논문을 파헤쳐 본 결과이고. 입담 또한 토론대회에 나가서 말 못하는 자신을 보고 너무 부끄러워서 타인의 발표 영상 수십 개를 보며 연습하자 늘었다고 했습니다. 타인의 재능이라 판단했던 것이 노력의 산물이었다는 것을 알게 된 뒤 그날부터 못하는 것이 보이면 바로 원인을 분석하고 해결해 나가는 태도를 갖게 되었습니다.
+                    </td>
+                </tr>
+                <tr>
+                    <th>최근 사회이슈 중 중요하다고 생각되는 한가지를 선택하고 이에 관한 자신의 견해를 기술해 주시기 바랍니다.</th>
+                </tr>
+                <tr>
+                    <td>
+                        “생성형 AI의 중요성”
+                        <br><br>
+                        과거부터 AI에 관한 수많은 연구가 진행되면서 현재 AI가 접목된 다양한 서비스와 제품이 계속해서 늘어나는 중입니다. 그 과정에서 기술이 발달함에 따라 인간과 상호작용을 통해 새로움을 생산하는 생성형 AI가 탄생했습니다. 인공지능 기술의 트렌드가 생성형 AI로 넘어가는 과도기라 할 수 있는 지금 생성형 AI는 인간의 삶에 큰 변화를 줄 사회 이슈 중 하나입니다. 현재 그것의 대표라 할 수 있는 chatGPT만 보아도 많은 관심을 받고 있고 여러 사람들에게 도움이 되고 있습니다. 또한 이 인공지능 하나에서 얻어내는 방대한 수익만 보아도 이곳에 달려들어 입지를 높여야 한다는 것을 알 수 있습니다.
+                        <br><br>“생성형 AI와 제품의 결합”
+                        <br><br>생성형 AI를 만들어내는 데에는 여러 어려움이 존재합니다. 학습 데이터 출처의 불분명함과 거대한 데이터를 가지고 있어야 한다는 게 어려움 중 하나입니다. 그러나 OO에서는 이런 문제들로부터 벗어나 있다고 할 수 있습니다. OO만의 제품들을 통해 막대한 양의 사용자 데이터를 얻을 수 있기 때문입니다. 이미 OO전자에서도 이런 생성형 AI의 중요성을 인식해 연구, 개발에 착수하여 ‘OO 가우스’라는 자체 생성형 AI를 만들어 작년 말 최초 공개했습니다. 초기에는 사내에서 회사 내 업무 혁신을 추진하는 데에 사용되겠지만 점차 그 범위를 넓혀 나가야 할 것입니다. 현재 비스포크와 같은 AI를 활용한 상품들을 출시하며 초석을 마련해 놓았습니다. 이제 더 나아가 자체 생산 가능한 수많은 데이터를 활용하여 생성형 AI가 탑재된 제품들을 생산해 낸다면 여러 세계적인 기업들 사이에서 한 발짝 더 앞서 나갈 수 있을 것입니다.
+                    </td>
+                </tr>
+                <tr>
+                    <th>지원 직문 관련 프로젝트 과제 중 기술적으로 가장 어려웠던 과제와 해결방안에 대해 구체적으로 서술하여 주시기 바랍니다.
+                    (과제 개요, 어려웠던 점, 해결방법, 결과포함)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        학부생 당시 머신러닝1 과목에서 알코올 중독 분류 예측 모델 만들기 프로젝트를 한적이 있습니다. 총1080개의 데이터와 16384개의 특징을 갖고 있는 데이터 셋을 활용하여 케글을 통해 테스트 데이터에 대한 최고의 정확도를 뽑아내는 것이 이 프로젝트의 주요 목표였습니다. 이 프로젝트 당시 수많은 시도에도 정확도가 오르지 않는 문제에 직면했던 경험이 있습니다. 원인을 분석하고 해결하는 데에 다음과 같은 과정을 거쳤습니다.<br><br>
+                        1.	기본적인 모델을 만들고 학습데이터와 검증 데이터의 loss와 정확도를 그래프로 시각화 하여 봄으로써 문제가 과적합에 있다는 것을 확인했습니다. (검증 데이터는 하이퍼 파라미터 조정에 사용하지만 테스트 데이터에 대한 레이블이 케글에 있어 정확도 예측에 사용했습니다.)또한 검증 데이터에 대한 정확도가 일정하지 않아 교차 검증 방법을 사용했습니다.<br>
+                        2.	그럼에도 문제는 해결되지 않아 데이터셋이 문제가 있다고 판단하여 이상치를 제거해보았습니다. 그러자 정확도가 소량 상승했습니다.<br>
+                        3.	계속해서 모델이 복잡하여 발생할 것이라는 추론 하에 PCA차원 축소 기법을 사용했습니다. 그러자 정확도가 0.3퍼센트 상승했습니다.<br>
+                        4.	로지스틱 회귀모델을 최적화해 나가다가 정확도가 더 이상 오르지 않자 알고리즘에 문제가 있다고 판단하여 다른 이진 분류 알고리즘에 대해 알아보고 학습한 SVM, Random forest, XG부스터 알고리즘을 활용한 모델을 다시 제작했습니다. 제작과정에서 데이터 분포와 그 쓰임에 맞는 알고리즘을 선택했습니다. 그러자 하이퍼 파라미터를 최적화하지 않았음에도 로지스틱 회귀를 사용 한 것과 비슷한 퍼포먼스를 보여주었습니다. <br>
+                        5.	마지막으로 optuna를 활용하여 파라미터를 최적화하자 90퍼센트 이상의 정확도를 달성했습니다.<br><br>
+                        처음 데이터가 어떤 특성을 가지는지 확인도 하지 않은 채 무작정 로지스틱회귀를 사용하여 분류하려다 보니 이 과정에서 굉장히 많은 시간을 보냈습니다. 그러나 이과정을 통해 데이터의 특징을 파악하고 거기에 맞는 알고리즘을 사용하는 것이 얼마나 중요한지 깨달았습니다. 그리고 과적합 문제는 기계학습 알고리즘을 다루다 보면 아주 흔히 격는 문제입니다. 이 프로젝트를 통해 그런 상황에서 어떻게 대처해야 되는지 알게 되었고 데이터의 특징부터 파악하는 습관을 가지게 되었으며  머신러닝에 대한 이해를 높일 수 있었습니다.
+
+                    </td>
+                </tr>
+            </table>
         </section>
         <section id="projects">
             <h2>프로젝트</h2>
-            <p>프로젝트 넣기</p>
-        </section>
-        <section id="contact">
-            <h2>(추가내용)</h2>
-            <p>(추가내용넣기)</p>
+            <p>프로젝트 내용을 추가하세요.</p>
         </section>
     </main>
 
