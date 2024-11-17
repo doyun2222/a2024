@@ -1,16 +1,37 @@
-const elements = document.querySelectorAll('.image');
+const leftImage = document.querySelector('.image.left');
+const rightImage = document.querySelector('.image.right');
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        } else {
-            entry.target.classList.remove('visible');
-        }
-    });
-}, { threshold: 0.2 });
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY; 
+    const windowHeight = window.innerHeight;
 
-elements.forEach(element => observer.observe(element));
+
+    if (scrollY < windowHeight) {
+        const progress = scrollY / windowHeight;
+        leftImage.style.opacity = 1 - progress;
+        leftImage.style.transform = `translateX(${-50 - progress * 50}%)`;
+    } else {
+        leftImage.style.opacity = 0;
+    }
+
+    if (scrollY > windowHeight / 2) {
+        const progress = (scrollY - windowHeight / 2) / (windowHeight / 2);
+        rightImage.style.opacity = Math.min(progress, 1);
+        rightImage.style.transform = `translateX(${50 - progress * 50}%)`;
+    } else {
+        rightImage.style.opacity = 0;
+    }
+});
+
+
+const banner = document.querySelector('.fixed-banner');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        banner.classList.add('shrink');
+    } else {
+        banner.classList.remove('shrink');
+    }
+});
 
 const banner = document.querySelector('.fixed-banner');
 
