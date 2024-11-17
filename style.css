@@ -146,18 +146,24 @@ body {
     }
 
     .content {
+        background-size: contain;
+        background-position: center;
         height: auto;
-        padding: 20px;
     }
 
-    .image.right img {
-        width: 200px;
+    .image {
+        width: 100%;
         height: auto;
+    }
+
+    .image-wrapper {
+        margin: 0 auto;
     }
 
     .text-content {
-        font-size: 18px;
-        left: 50%;
+        font-size: 14px;
+        left: 50%; /* 중앙 정렬 */
+        top: 60%; /* 위치 조정 */
     }
 
     .footer {
@@ -180,17 +186,20 @@ body {
     }
 
     .content {
+        background-size: contain;
+        background-position: center;
         height: auto;
-        padding: 40px;
     }
 
-    .image.right img {
-        width: 300px;
+    .image {
+        width: 80%;
         height: auto;
+        margin: 0 auto;
     }
 
     .text-content {
-        font-size: 22px;
+        font-size: 18px;
+        left: 50%;
     }
 
     .footer {
