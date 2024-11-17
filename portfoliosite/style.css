@@ -213,11 +213,11 @@ main {
     padding: 0;
 }
 
-#cv p{
+#cv p {
     font-size: 12px;
 }
 
-#cv ul li p{
+#cv ul li p {
     font-size: 12px;
     margin-bottom: 10px;
 }
@@ -255,13 +255,12 @@ main {
     margin-top: 20px;
 }
 
-#intro .table th, #intro .table td{
+#intro .table th, #intro .table td {
     border: 1px solid #ddd;
     padding: 10px;
     vertical-align: top;
     text-align: left;
 }
-
 
 #intro .table th {
     background-color: #e0f7fa;
@@ -283,4 +282,59 @@ main {
 #projects p {
     font-size: 1.1rem;
     color: #333;
+}
+
+/*태블릿*/
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home h1 {
+        font-size: 1.8rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    .portfolio-banner {
+        height: 50px;
+    }
+
+    #resume .table,
+    #intro .table {
+        font-size: 12px;
+    }
+
+    #resume .table th, #resume .table td,
+    #intro .table th, #intro .table td {
+        padding: 6px;
+    }
+}
+
+/*모바일*/
+@media (max-width: 480px) {
+    .menu a {
+        font-size: 14px;
+    }
+
+    #home h1 {
+        font-size: 1.5rem;
+    }
+
+    #home p {
+        font-size: 0.9rem;
+    }
+
+    #intro .table th, #intro .table td {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    #resume .title,
+    #intro .title {
+        font-size: 18px;
+    }
 }
