@@ -7,7 +7,7 @@ body {
 }
 
 .content {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,10 +18,14 @@ body {
 
 .content.top {
     background-image: url('https://github.com/doyun2222/a2024/blob/main/image1.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
 }
 
 .content.bottom {
     background-image: url('https://github.com/doyun2222/a2024/blob/main/image2.jpg?raw=true');
+    background-size: cover;
+    background-position: center;
 }
 
 .fixed-banner {
@@ -51,10 +55,12 @@ body {
 }
 
 .image {
-    position: absolute;
+    position: relative;
     height: auto;
     width: auto;
-    opacity: 0; /* 초기값: 완전히 투명 */
+    max-width: 100%;
+    opacity: 1;
+    transform: translateX(0);
     transition: transform 0.1s linear, opacity 0.1s linear;
 }
 
@@ -68,30 +74,35 @@ body {
 
 .image-wrapper {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.image.right img {
-    width: 400px;
+.image img {
+    max-width: 100%;
     height: auto;
+    display: block;
 }
 
 .text-content {
     position: absolute;
     top: 54%;
-    left: 65%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 26px;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
+    white-space: nowrap;
 }
 
 .footer {
     background-color: #333;
     color: #ddd;
-    text-align: left;
+    text-align: center;
     padding: 10px 20px;
     font-size: 14px;
     line-height: 1.4;
@@ -111,7 +122,7 @@ body {
     color: #aaa;
 }
 
-/* 스마트폰 */
+/* 모바일 화면 */
 @media (max-width: 600px) {
     .fixed-banner {
         height: 40px;
@@ -126,12 +137,16 @@ body {
     }
 
     .content {
-        height: auto;
+        min-height: auto;
         padding: 20px;
     }
 
-    .image.right img {
-        width: 200px;
+    .image-wrapper {
+        padding: 10px;
+    }
+
+    .image img {
+        width: 100%;
         height: auto;
     }
 
@@ -145,7 +160,8 @@ body {
         padding: 10px;
     }
 }
-/* 테블릿 */
+
+/* 테블릿 화면 */
 @media (min-width: 601px) and (max-width: 1024px) {
     .fixed-banner {
         height: 45px;
@@ -161,11 +177,15 @@ body {
 
     .content {
         height: auto;
-        padding: 40px;
+        padding: 20px;
     }
 
-    .image.right img {
-        width: 300px;
+    .image-wrapper {
+        padding: 15px;
+    }
+
+    .image img {
+        max-width: 80%;
         height: auto;
     }
 
