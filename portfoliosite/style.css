@@ -281,10 +281,9 @@ main {
 
 /* --- 반응형 미디어 쿼리 --- */
 
-/* 태블릿 (화면 크기 768px 이하) */
+/* 태블릿  */
 @media (max-width: 768px) {
     .menu {
-        flex-direction: column;
         align-items: center;
     }
 
@@ -311,10 +310,9 @@ main {
     }
 }
 
-/* 모바일 (화면 크기 480px 이하) */
+/* 모바일 */
 @media (max-width: 480px) {
     .menu {
-        flex-direction: column;
         font-size: 14px;
     }
 
