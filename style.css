@@ -51,30 +51,19 @@ body {
 }
 
 .image {
+    position: absolute;
     height: auto;
     width: auto;
-    opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    opacity: 0; /* 초기값: 완전히 투명 */
+    transition: transform 0.1s linear, opacity 0.1s linear;
 }
 
-.image.left.visible {
-    opacity: 1;
-    transform: translateX(-70%);
+.image.left {
+    transform: translateX(-50%);
 }
 
-.left:not(.visible) {
-    opacity: 0;
-    transform: translateX(-120%);
-}
-
-.image.right.visible {
-    opacity: 1; /* 보이는 상태 */
-    transform: translateX(90%);
-}
-
-.right:not(.visible) {
-    opacity: 0;
-    transform: translateX(150%);
+.image.right {
+    transform: translateX(50%);
 }
 
 .image-wrapper {
@@ -82,18 +71,9 @@ body {
     display: inline-block;
 }
 
-/* 두 번째 사진 크기 조정 */
 .image.right img {
     width: 400px;
     height: auto;
-}
-
-.image.left:hover {
-    transform: scale(1.05);
-}
-
-.image.right:hover {
-    transform: scale(1.05);
 }
 
 .text-content {
