@@ -9,22 +9,23 @@ window.addEventListener('scroll', () => {
 });
 
 
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const apiUrl = "https://apis.data.go.kr/1051000/recruitment";
 const apiKey =
     "pKNkTBCcfio%2B4XDb3xpeAScbhWpzcdlcXlYBMywYpX%2Bu0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw%3D%3D";
 
 function fetchJobListings() {
     const queryParams = `?serviceKey=${apiKey}&resultType=json&pageNo=1&numOfRows=10`;
-    const url = apiUrl + queryParams;
+    const url = proxyUrl + apiUrl + queryParams;
 
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true); // 비동기 요청
+    xhr.open("GET", url, true);
     xhr.setRequestHeader("Accept", "application/json");
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-            console.log("응답 상태 코드:", xhr.status); // 상태 코드 확인
-            console.log("응답 본문:", xhr.responseText); // 응답 데이터 확인
+            console.log("응답 상태 코드:", xhr.status);
+            console.log("응답 본문:", xhr.responseText);
 
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText);
@@ -37,27 +38,27 @@ function fetchJobListings() {
         }
     };
 
-    xhr.send(); // 요청 전송
+    xhr.send();
 }
 
 function renderJobListings(data) {
     const jobListingsContainer = document.getElementById("job-listings");
     jobListingsContainer.innerHTML = "";
 
-    if (!data.result || !data.result.length) {
+    if (!data.response || !data.response.body || !data.response.body.items) {
         jobListingsContainer.innerHTML = "<p>채용공고가 없습니다.</p>";
         return;
     }
 
-    data.result.forEach((job) => {
+    data.response.body.items.forEach((job) => {
         const jobItem = document.createElement("div");
         jobItem.className = "job-item";
         jobItem.innerHTML = `
-            <h3>${job.item.recrutPbancTtl}</h3>
-            <p><strong>기관명:</strong> ${job.item.instNm}</p>
-            <p><strong>공고 시작일:</strong> ${job.item.pbancBgngYmd}</p>
-            <p><strong>공고 종료일:</strong> ${job.item.pbancEndYmd}</p>
-            <a href="${job.item.srcUrl}" target="_blank">공고 상세보기</a>
+            <h3>${job.title}</h3>
+            <p><strong>기관명:</strong> ${job.agencyName}</p>
+            <p><strong>공고일자:</strong> ${job.postingDate}</p>
+            <p><strong>마감일자:</strong> ${job.expirationDate}</p>
+            <a href="${job.url}" target="_blank">공고 상세보기</a>
         `;
         jobListingsContainer.appendChild(jobItem);
     });
