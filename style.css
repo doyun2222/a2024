@@ -61,7 +61,7 @@ body {
     max-width: 100%;
     opacity: 1;
     transform: translateX(0);
-    transition: transform 0.1s linear, opacity 0.1s linear;
+    transition: transform 0.3s ease-in-out, opacity 0.1s linear; /* 부드러운 확대와 기존 이동 효과 */
 }
 
 .image.left {
@@ -72,6 +72,20 @@ body {
     transform: translateX(50%);
 }
 
+.image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* 마우스 오버 효과 */
+}
+
+.image.left img:hover {
+    transform: scale(1.05);
+}
+
+.image.right img:hover {
+    transform: scale(1.05); 
+}
 .image-wrapper {
     position: relative;
     display: flex;
@@ -88,8 +102,8 @@ body {
 
 .text-content {
     position: absolute;
-    top: 54%;
-    left: 50%;
+    top: 62%;
+    left: 63%;
     transform: translate(-50%, -50%);
     font-size: 26px;
     font-weight: bold;
@@ -99,10 +113,11 @@ body {
     white-space: nowrap;
 }
 
+
 .footer {
     background-color: #333;
     color: #ddd;
-    text-align: center;
+    text-align: left;
     padding: 10px 20px;
     font-size: 14px;
     line-height: 1.4;
