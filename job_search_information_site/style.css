@@ -73,12 +73,12 @@ main {
 #jobinfo {
     padding: 40px;
     min-height: 100vh;
-    border-left: 8px solid #ffa500;
+    border-left: 8px solid #bba500;
 }
 
 #jobinfo h2 {
     font-size: 1.8rem;
-    color: #ffa500;
+    color: #bba500;
 }
 
 #jobinfo p {
@@ -115,18 +115,40 @@ main {
     text-decoration: underline;
 }
 
-#companyinfo {
+
+#tips {
     padding: 40px;
+    border-left: 8px solid #ffa500;
     min-height: 100vh;
-    border-left: 8px solid #00bfff;
 }
 
-#companyinfo h2 {
+#tips h2 {
+    font-size: 2rem;
+    color: #ffa500;
+    margin-bottom: 20px;
+}
+
+.tip-section {
+    margin-bottom: 50px;
+}
+
+.tip-section h3 {
     font-size: 1.8rem;
-    color: #00bfff;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-#companyinfo p {
-    font-size: 1.1rem;
-    color: #333;
+.video-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.video-container iframe {
+    min-width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
