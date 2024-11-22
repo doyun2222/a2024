@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts@3.40.0/dist/apexcharts.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.40.0/dist/apexcharts.min.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Information</title>
@@ -21,7 +23,10 @@
     <main>
         <section id="recruitment">
             <h1>채용 공고</h1>
-            <p>채용 공고 정보 추가하기.</p>
+            <p>아래는 최신 공공기관 채용공고입니다.</p>
+            <div id="job-listings">
+                <!-- 채용공고가 여기에 동적으로 삽입됩니다 -->
+            </div>
         </section>
         <section id="jobinfo">
             <h2>직무정보</h2>
