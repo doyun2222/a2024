@@ -265,7 +265,7 @@ main {
 
 #projects {
     padding: 40px;
-    min-height: 100vh;
+    min-height: 50vh;
     border-left: 8px solid #1ecee5;
 }
 
