@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
 
 
 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const apiUrl = "https://apis.data.go.kr/1051000/recruitment";
+const apiUrl = "https://apis.data.go.kr/1051000/recruitment/list";
 const apiKey =
     "pKNkTBCcfio%2B4XDb3xpeAScbhWpzcdlcXlYBMywYpX%2Bu0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw%3D%3D";
 
