@@ -68,7 +68,33 @@ main {
     font-size: 1.1rem;
     color: #333;
 }
+.filter-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
 
+select,input,button {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    color: white;
+    background-color: #007bff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#resultTable {
+    margin-top: 20px;
+}
 
 #jobinfo {
     padding: 40px;
