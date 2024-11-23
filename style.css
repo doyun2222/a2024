@@ -58,7 +58,6 @@ body {
     position: relative;
     height: auto;
     width: auto;
-    max-width: 100%;
     opacity: 1;
     transform: translateX(0);
     transition: transform 0.3s ease-in-out, opacity 0.1s linear; /* 부드러운 확대와 기존 이동 효과 */
@@ -66,17 +65,25 @@ body {
 
 .image.left {
     transform: translateX(-50%);
+    margin-left: -20%;
 }
 
 .image.right {
     transform: translateX(50%);
+    margin-left: auto;
+    margin-right: 15%;
 }
 
 .image img {
-    max-width: 100%;
+
     height: auto;
     display: block;
-    transition: transform 0.3s ease-in-out; /* 마우스 오버 효과 */
+    transition: transform 0.3s ease-in-out;
+}
+
+.image.right img {
+    width: 130%;
+    height: auto;
 }
 
 .image.left img:hover {
@@ -92,12 +99,6 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-
-.image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
 }
 
 .text-content {
