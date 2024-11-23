@@ -8,60 +8,90 @@ window.addEventListener('scroll', () => {
     }
 });
 
+const reqUrl = "https://apis.data.go.kr/1051000/recruitment/list";
+const serviceKey = "pKNkTBCcfio+4XDb3xpeAScbhWpzcdlcXlYBMywYpX+u0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw==";
 
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const apiUrl = "https://apis.data.go.kr/1051000/recruitment/list";
-const apiKey =
-    "pKNkTBCcfio%2B4XDb3xpeAScbhWpzcdlcXlYBMywYpX%2Bu0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw%3D%3D";
+// Tabulator 테이블 설정
+const table = new Tabulator("#resultTable", {
+  layout: "fitDataStretch",
+  pagination: "local", // 데이터를 로컬로 페이징 처리
+  paginationSize: 5, // 한 페이지에 표시할 행 수
+  columns: [
+    { title: "#", field: "recrutPblntSn" },
+    { title: "상태", field: "ongoingYn" },
+    { title: "공시기관", field: "pblntInstNm" },
+    { title: "제목", field: "recrutPbancTtl" },
+    { title: "시작일", field: "pbancBgngYmd" },
+    { title: "종료일", field: "pbancEndYmd" },
+    { title: "채용분야", field: "ncsCdNmLst" },
+    { title: "고용형태", field: "hireTypeNmLst" },
+    { title: "채용구분", field: "recrutSeNm" },
+    { title: "채용인원", field: "recrutNope" },
+    { title: "근무지", field: "workRgnNmLst" },
+  ],
+});
 
-function fetchJobListings() {
-    const queryParams = `?serviceKey=${apiKey}&resultType=json&pageNo=1&numOfRows=10`;
-    const url = proxyUrl + apiUrl + queryParams;
+// 검색 버튼 클릭 시 API 요청 및 테이블 데이터 설정
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const params = {
+    serviceKey,
+    acbgCondLst: document.getElementById("acbgCondLst").value || "",
+    hireTypeLst: document.getElementById("hireTypeLst").value || "",
+    instClsf: document.getElementById("instClsf").value || "",
+    instType: document.getElementById("instType").value || "",
+    ncsCdLst: document.getElementById("ncsCdLst").value || "",
+    numOfRows: 1000,
+    ongoingYn: document.getElementById("ongoingYn").value || "Y",
+    pageNo: 1,
+    pbancBgngYmd: document.getElementById("pbancBgngYmd").value || "",
+    pbancEndYmd: document.getElementById("pbancEndYmd").value || "",
+    pblntInstCd: document.getElementById("pblntInstCd").value || "",
+    recrutPbancTtl: document.getElementById("recrutPbancTtl").value || "",
+    recrutSe: document.getElementById("recrutSe").value || "",
+    replmprYn: document.getElementById("replmprYn").value || "",
+    resultType: "json",
+    workRgnLst: document.getElementById("workRgnLst").value || "",
+  };
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.setRequestHeader("Accept", "application/json");
+  fetchData(params);
+});
 
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            console.log("응답 상태 코드:", xhr.status);
-            console.log("응답 본문:", xhr.responseText);
+// API 데이터를 가져와서 Tabulator 테이블에 반영
+function fetchData(params) {
+  const queryString = new URLSearchParams(params).toString();
+  const fullUrl = `${reqUrl}?${queryString}`;
 
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                console.log("API 응답 데이터:", response);
-                renderJobListings(response);
-            } else {
-                console.error("에러 발생:", xhr.status, xhr.statusText);
-                document.getElementById("job-listings").innerHTML = `<p>채용 정보를 가져오는 데 실패했습니다. 상태 코드: ${xhr.status}, 에러: ${xhr.statusText}</p>`;
-            }
-        }
-    };
-
-    xhr.send();
-}
-
-function renderJobListings(data) {
-    const jobListingsContainer = document.getElementById("job-listings");
-    jobListingsContainer.innerHTML = "";
-
-    if (!data.response || !data.response.body || !data.response.body.items) {
-        jobListingsContainer.innerHTML = "<p>채용공고가 없습니다.</p>";
-        return;
-    }
-
-    data.response.body.items.forEach((job) => {
-        const jobItem = document.createElement("div");
-        jobItem.className = "job-item";
-        jobItem.innerHTML = `
-            <h3>${job.title}</h3>
-            <p><strong>기관명:</strong> ${job.agencyName}</p>
-            <p><strong>공고일자:</strong> ${job.postingDate}</p>
-            <p><strong>마감일자:</strong> ${job.expirationDate}</p>
-            <a href="${job.url}" target="_blank">공고 상세보기</a>
-        `;
-        jobListingsContainer.appendChild(jobItem);
+  fetch(fullUrl, {
+    method: "GET",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.result && data.result.length > 0) {
+        const tableData = data.result.map((item, index) => ({
+          recrutPblntSn: item.recrutPblntSn || "정보 없음",
+          ongoingYn: item.ongoingYn || "정보 없음",
+          pblntInstNm: item.instNm || "정보 없음",
+          recrutPbancTtl: item.recrutPbancTtl || "정보 없음",
+          pbancBgngYmd: item.pbancBgngYmd || "정보 없음",
+          pbancEndYmd: item.pbancEndYmd || "정보 없음",
+          ncsCdNmLst: item.ncsCdNmLst || "정보 없음",
+          hireTypeNmLst: item.hireTypeNmLst || "정보 없음",
+          recrutSeNm: item.recrutSeNm || "정보 없음",
+          recrutNope: item.recrutNope || "정보 없음",
+          workRgnNmLst: item.workRgnNmLst || "정보 없음",
+        }));
+        table.setData(tableData); // Tabulator에 데이터 설정
+      } else {
+        document.getElementById("error").textContent = "조건에 맞는 데이터가 없습니다.";
+        table.clearData(); // 테이블 데이터 초기화
+      }
+    })
+    .catch((error) => {
+      document.getElementById("error").textContent = `API 요청 실패: ${error.message}`;
     });
 }
-
-document.addEventListener("DOMContentLoaded", fetchJobListings);
