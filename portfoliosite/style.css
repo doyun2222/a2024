@@ -134,12 +134,12 @@ main {
 #cv {
     padding: 40px;
     min-height: 100vh;
-    border-left: 8px solid #8e24aa;
+    border-left: 8px solid #4caf50;
 }
 
 #cv h2 {
     font-size: 1.8rem;
-    color: #8e24aa;
+    color: #4caf50;
 }
 
 #cv p {
@@ -231,7 +231,7 @@ main {
     padding: 40px;
     background-color: #f9f9f9;
     min-height: 100vh;
-    border-left: 8px solid #43a047;
+    border-left: 8px solid #8e24aa;
 }
 
 #intro .title {
@@ -239,7 +239,7 @@ main {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    border-bottom: 2px solid #43a047;
+    border-bottom: 2px solid #8e24aa;
     padding-bottom: 10px;
 }
 
@@ -266,17 +266,28 @@ main {
 #projects {
     padding: 40px;
     min-height: 100vh;
-    border-left: 8px solid #1e88e5;
+    border-left: 8px solid #1ecee5;
 }
 
 #projects h2 {
     font-size: 1.8rem;
-    color: #1e88e5;
+    color: #1ecee5;
 }
 
 #projects p {
     font-size: 1.1rem;
     color: #333;
+}
+
+.project-link {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #1565c0;
+    text-decoration: underline;
 }
 
 /* --- 반응형 미디어 쿼리 --- */
