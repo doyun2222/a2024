@@ -18,982 +18,982 @@
     </header>
     <main>
         <section id="recruitment">
-        <h1>공공기관 채용정보 조회</h1>
-        <div class="filter-container">
-          <!-- 기관유형 -->
-          <select id="instType" name="instType">
-            <option value="">기관유형 (전체)</option>
-            <option value="A2001">공기업(시장형)</option>
-            <option value="A2002">공기업(준시장형)</option>
-            <option value="A2003">준정부기관(기금관리형)</option>
-            <option value="A2004">준정부기관(위탁집행형)</option>
-            <option value="A2005">기타공공기관</option>
-          </select>
+            <h1>공공기관 채용정보 조회</h1>
+            <div class="filter-container">
+                <!-- 기관유형 -->
+                <select id="instType" name="instType">
+                    <option value="">기관유형 (전체)</option>
+                    <option value="A2001">공기업(시장형)</option>
+                    <option value="A2002">공기업(준시장형)</option>
+                    <option value="A2003">준정부기관(기금관리형)</option>
+                    <option value="A2004">준정부기관(위탁집행형)</option>
+                    <option value="A2005">기타공공기관</option>
+                </select>
 
-          <!-- 기관분류 -->
-          <select id="instClsf" name="instClsf">
-            <option value="">기관분류 (전체)</option>
-            <option value="01">SOC</option>
-            <option value="02">금융</option>
-            <option value="03">에너지</option>
-            <option value="04">고용보건복지</option>
-            <option value="05">문화예술외교법무</option>
-            <option value="06">농림수산환경</option>
-            <option value="07">산업진흥정보화</option>
-            <option value="08">연구교육</option>
-            <option value="99">기타</option>
-          </select>
+                <!-- 기관분류 -->
+                <select id="instClsf" name="instClsf">
+                    <option value="">기관분류 (전체)</option>
+                    <option value="01">SOC</option>
+                    <option value="02">금융</option>
+                    <option value="03">에너지</option>
+                    <option value="04">고용보건복지</option>
+                    <option value="05">문화예술외교법무</option>
+                    <option value="06">농림수산환경</option>
+                    <option value="07">산업진흥정보화</option>
+                    <option value="08">연구교육</option>
+                    <option value="99">기타</option>
+                </select>
 
-          <!-- 기관코드 -->
-          <select id="pblntInstCd" name="pblntInstCd">
+                <!-- 기관코드 -->
+                <select id="pblntInstCd" name="pblntInstCd">
                     <option value="">전체</option>
-                    
-                        <option value="C0031">국제방송교류재단</option>
-                    
-                        <option value="C0866">국제식물검역인증원</option>
-                    
-                        <option value="C0318">국토교통과학기술진흥원</option>
-                    
-                        <option value="C0032">국토연구원</option>
-                    
-                        <option value="C0357">그랜드코리아레저(주)</option>
-                    
-                        <option value="C0035">근로복지공단</option>
-                    
-                        <option value="C0038">기술보증기금</option>
-                    
-                        <option value="C0856">기초과학연구원</option>
-                    
-                        <option value="C0173">노사발전재단</option>
-                    
-                        <option value="C0860">농림수산식품교육문화정보원</option>
-                    
-                        <option value="C0404">농림식품기술기획평가원</option>
-                    
-                        <option value="C0422">한국농업기술진흥원</option>
-                    
-                        <option value="C0542">농업정책보험금융원</option>
-                    
-                        <option value="C0049">대구경북과학기술원</option>
-                    
-                        <option value="C0894">대구경북첨단의료산업진흥재단</option>
-                    
-                        <option value="C0051">대외경제정책연구원</option>
-                    
-                        <option value="C0054">대한무역투자진흥공사</option>
-                    
-                        <option value="C0055">대한법률구조공단</option>
-                    
-                        <option value="C0057">대한석탄공사</option>
-                    
-                        <option value="C0315">대한장애인체육회</option>
-                    
-                        <option value="C0059">대한적십자사</option>
-                    
-                        <option value="C0063">대한체육회</option>
-                    
-                        <option value="C0064">한국도로교통공단</option>
-                    
-                        <option value="C0065">독립기념관</option>
-                    
-                        <option value="C0358">동북아역사재단</option>
-                    
-                        <option value="C0068">민주화운동기념사업회</option>
-                    
-                        <option value="C0069">별정우체국연금관리단</option>
-                    
-                        <option value="C0071">부산대학교병원</option>
-                    
-                        <option value="C0853">부산대학교치과병원</option>
-                    
-                        <option value="C0072">부산항만공사</option>
-                    
-                        <option value="C0449">북한이탈주민지원재단</option>
-                    
-                        <option value="C0893">사단법인 한국기술자격검정원</option>
-                    
-                        <option value="C1059">사단법인 한국산학연협회</option>
-                    
-                        <option value="C0075">사립학교교직원연금공단</option>
-                    
-                        <option value="C0411">한국사회보장정보원</option>
-                    
-                        <option value="C0078">산업연구원</option>
-                    
-                        <option value="C1046">서민금융진흥원</option>
-                    
-                        <option value="C0083">서울대학교병원</option>
-                    
-                        <option value="C0084">서울대학교치과병원</option>
-                    
-                        <option value="C0029">서울올림픽기념국민체육진흥공단</option>
-                    
-                        <option value="C0087">한국해양교통안전공단</option>
-                    
-                        <option value="C0867">세종학당재단</option>
-                    
-                        <option value="C0903">소상공인시장진흥공단</option>
-                    
-                        <option value="C0089">수도권매립지관리공사</option>
-                    
-                        <option value="C1033">시청자미디어재단</option>
-                    
-                        <option value="C0661">식품안전정보원</option>
-                    
-                        <option value="C0091">신용보증기금</option>
-                    
-                        <option value="C0112">신용보증재단중앙회</option>
-                    
-                        <option value="C0869">아시아문화원(22.01.17 해산)</option>
-                    
-                        <option value="C0223">한국수출입은행</option>
-                    
-                        <option value="C0224">한국승강기안전공단</option>
-                    
-                        <option value="C0225">국토안전관리원</option>
-                    
-                        <option value="C1100">한국식품안전관리인증원</option>
-                    
-                        <option value="C0226">한국식품연구원</option>
-                    
-                        <option value="C0594">한국양성평등교육진흥원</option>
-                    
-                        <option value="C0335">한국어촌어항공단</option>
-                    
-                        <option value="C0412">한국언론진흥재단</option>
-                    
-                        <option value="C0097">한국에너지공단</option>
-                    
-                        <option value="C0229">한국에너지기술연구원</option>
-                    
-                        <option value="C0389">한국에너지기술평가원</option>
-                    
-                        <option value="C0233">한국에너지정보문화재단</option>
-                    
-                        <option value="C0902">한국여성인권진흥원</option>
-                    
-                        <option value="C0231">한국여성정책연구원</option>
-                    
-                        <option value="C0388">한국연구재단</option>
-                    
-                        <option value="C0232">한국영상자료원</option>
-                    
-                        <option value="C0868">한국예술인복지재단</option>
-                    
-                        <option value="C0131">한국예탁결제원</option>
-                    
-                        <option value="C0234">한국원자력안전기술원</option>
-                    
-                        <option value="C0932">한국원자력안전재단</option>
-                    
-                        <option value="C0235">한국원자력연구원</option>
-                    
-                        <option value="C0104">한국원자력의학원</option>
-                    
-                        <option value="C0020">한국원자력통제기술원</option>
-                    
-                        <option value="C0371">한국원자력환경공단</option>
-                    
-                        <option value="C0865">한국의료기기안전정보원</option>
-                    
-                        <option value="C0870">한국의료분쟁조정중재원</option>
-                    
-                        <option value="C0862">한국의약품안전관리원</option>
-                    
-                        <option value="C0399">한국인터넷진흥원</option>
-                    
-                        <option value="C0857">한국임업진흥원</option>
-                    
-                        <option value="C0240">한국자산관리공사</option>
-                    
-                        <option value="C0859">한국잡월드</option>
-                    
-                        <option value="C0243">한국장애인개발원</option>
-                    
-                        <option value="C0242">한국장애인고용공단</option>
-                    
-                        <option value="C0415">한국장학재단</option>
-                    
-                        <option value="C1042">한국재정정보원</option>
-                    
-                        <option value="C1049">한국저작권보호원</option>
-                    
-                        <option value="C0390">한국저작권위원회</option>
-                    
-                        <option value="C0244">한국전기안전공사</option>
-                    
-                        <option value="C0245">한국전기연구원</option>
-                    
-                        <option value="C0246">한국전력거래소</option>
-                    
-                        <option value="C1318">재단법인 건설기술교육원</option>
-                    
-                        <option value="C1324">국립항공박물관</option>
-                    
-                        <option value="C1327">공간정보품질관리원</option>
-                    
-                        <option value="C1333">국립해양과학관</option>
-                    
-                        <option value="C1334">국립호남권생물자원관</option>
-                    
-                        <option value="C1330">차세대수치예보모델개발사업단</option>
-                    
-                        <option value="C1319">한국고용노동교육원</option>
-                    
-                        <option value="C1294">한국도로공사서비스(주)</option>
-                    
-                        <option value="C1352">한전MCS(주)</option>
-                    
-                        <option value="C0344">국립박물관문화재단</option>
-                    
-                        <option value="C1051">국립부산과학관</option>
-                    
-                        <option value="C0879">국립생태원</option>
-                    
-                        <option value="C0023">국립암센터</option>
-                    
-                        <option value="C0446">국립중앙의료원</option>
-                    
-                        <option value="C1016">국립해양박물관</option>
-                    
-                        <option value="C1021">국립해양생물자원관</option>
-                    
-                        <option value="C0026">국민건강보험공단</option>
-                    
-                        <option value="C0028">국민연금공단</option>
-                    
-                        <option value="C0345">국방과학연구소</option>
-                    
-                        <option value="C0347">국방기술품질원</option>
-                    
-                        <option value="C1030">(재)축산환경관리원</option>
-                    
-                        <option value="C1303">아동권리보장원</option>
-                    
-                        <option value="C0861">재단법인 한국자활복지개발원</option>
-                    
-                        <option value="C0844">한국등산·트레킹지원센터</option>
-                    
-                        <option value="C1119">한국해양진흥공사</option>
-                    
-                        <option value="C1131">한국해외인프라도시개발지원공사</option>
-                    
-                        <option value="C0247">한국전력공사</option>
-                    
-                        <option value="C1070">한국전력국제원자력대학원대학교</option>
-                    
-                        <option value="C0248">한국전력기술주식회사</option>
-                    
-                        <option value="C0251">한국전자통신연구원</option>
-                    
-                        <option value="C0392">한국지능정보사회진흥원</option>
-                    
-                        <option value="C0256">한국조세재정연구원</option>
-                    
-                        <option value="C0257">한국조폐공사</option>
-                    
-                        <option value="C0258">한국주택금융공사</option>
-                    
-                        <option value="C0259">한국중부발전(주)</option>
-                    
-                        <option value="C0416">한국지식재산보호원</option>
-                    
-                        <option value="C0407">한국지식재산연구원</option>
-                    
-                        <option value="C0261">한국지역난방공사</option>
-                    
-                        <option value="C0263">한국지질자원연구원</option>
-                    
-                        <option value="C0264">한국직업능력연구원</option>
-                    
-                        <option value="C0266">한국천문연구원</option>
-                    
-                        <option value="C0268">한국철도공사</option>
-                    
-                        <option value="C1120">국가생명윤리정책원</option>
-                    
-                        <option value="C1138">한국식품산업클러스터진흥원</option>
-                    
-                        <option value="C1130">새만금개발공사</option>
-                    
-                        <option value="C1102">재단법인 한국공공조직은행</option>
-                    
-                        <option value="C1127">한국수자원조사기술원</option>
-                    
-                        <option value="C0269">한국철도기술연구원</option>
-                    
-                        <option value="C0270">국가철도공단</option>
-                    
-                        <option value="C0278">한국청소년상담복지개발원</option>
-                    
-                        <option value="C0276">한국청소년정책연구원</option>
-                    
-                        <option value="C0447">한국청소년활동진흥원</option>
-                    
-                        <option value="C0280">한국체육산업개발(주)</option>
-                    
-                        <option value="C0149">한국출판문화산업진흥원</option>
-                    
-                        <option value="C0395">한국콘텐츠진흥원</option>
-                    
-                        <option value="C0396">한국토지주택공사</option>
-                    
-                        <option value="C0284">한국투자공사</option>
-                    
-                        <option value="C0899">한국특허전략개발원</option>
-                    
-                        <option value="C0340">한국특허정보원</option>
-                    
-                        <option value="C0286">한국표준과학연구원</option>
-                    
-                        <option value="C0290">한국학중앙연구원</option>
-                    
-                        <option value="C0291">한국한의학연구원</option>
-                    
-                        <option value="C0292">한국항공우주연구원</option>
-                    
-                        <option value="C0373">한국항로표지기술원</option>
-                    
-                        <option value="C0297">한국해양과학기술원</option>
-                    
-                        <option value="C0295">한국해양수산개발원</option>
-                    
-                        <option value="C0296">한국해양수산연수원</option>
-                    
-                        <option value="C0654">한국해양조사협회</option>
-                    
-                        <option value="C0298">한국행정연구원</option>
-                    
-                        <option value="C0299">한국형사·법무정책연구원</option>
-                    
-                        <option value="C0300">한국화학연구원</option>
-                    
-                        <option value="C0400">한국환경공단</option>
-                    
-                        <option value="C0391">한국환경산업기술원</option>
-                    
-                        <option value="C0302">한국환경연구원</option>
-                    
-                        <option value="C1053">한국한의약진흥원</option>
-                    
-                        <option value="C0306">한전KDN</option>
-                    
-                        <option value="C0305">한전KPS(주)</option>
-                    
-                        <option value="C0236">한전원자력연료주식회사</option>
-                    
-                        <option value="C0900">항공안전기술원</option>
-                    
-                        <option value="C0374">해양수산과학기술진흥원</option>
-                    
-                        <option value="C0533">해양환경공단</option>
-                    
-                        <option value="C1062">한국환경보전원</option>
-                    
-                        <option value="C0441">국가수리과학연구소</option>
-                    
-                        <option value="C0906">소프트웨어정책연구소</option>
-                    
-                        <option value="C0908">정보통신기획평가원</option>
-                    
-                        <option value="C0858">한국특허기술진흥원</option>
-                    
-                        <option value="C0384">안전성평가연구소</option>
-                    
-                        <option value="C0383">극지연구소</option>
-                    
-                        <option value="C0905">선박해양플랜트연구소</option>
-                    
-                        <option value="C0431">세계김치연구소</option>
-                    
-                        <option value="C0382">한국핵융합에너지연구원</option>
-                    
-                        <option value="C0381">한국재료연구원</option>
-                    
-                        <option value="C0385">고등과학원</option>
-                    
-                        <option value="C0436">나노종합기술원</option>
-                    
-                        <option value="C0938">한국과학영재학교</option>
-                    
-                        <option value="C0878">국가녹색기술연구소</option>
-                    
-                        <option value="C0457">국가과학기술인력개발원</option>
-                    
-                        <option value="C0437">KDI국제정책대학원</option>
-                    
-                        <option value="C0448">동남권원자력의학원</option>
-                    
-                        <option value="C0444">분당서울대학교병원</option>
-                    
-                        <option value="C0877">한국뇌연구원</option>
-                    
-                        <option value="C0438">건축공간연구원</option>
-                    
-                        <option value="C0459">국민건강보험공단 일산병원</option>
-                    
-                        <option value="C0939">서울요양원</option>
-                    
-                        <option value="C0440">육아정책연구소</option>
-                    
-                        <option value="C0096">에너지경제연구원</option>
-                    
-                        <option value="C0281">여수광양항만공사</option>
-                    
-                        <option value="C0050">연구개발특구진흥재단</option>
-                    
-                        <option value="C0098">영상물등급위원회</option>
-                    
-                        <option value="C0099">영화진흥위원회</option>
-                    
-                        <option value="C0101">예금보험공사</option>
-                    
-                        <option value="C0102">예술의전당</option>
-                    
-                        <option value="C0896">오송첨단의료산업진흥재단</option>
-                    
-                        <option value="C0664">울산과학기술원</option>
-                    
-                        <option value="C0365">울산항만공사</option>
-                    
-                        <option value="C1063">의료법인 한전의료재단 한일병원</option>
-                    
-                        <option value="C0105">인천국제공항공사</option>
-                    
-                        <option value="C0107">인천항만공사</option>
-                    
-                        <option value="C0406">재단법인 국악방송</option>
-                    
-                        <option value="C1108">재단법인 대한건설기계안전관리원</option>
-                    
-                        <option value="C1064">의료기관평가인증원</option>
-                    
-                        <option value="C1017">재단법인 장애인기업종합지원센터</option>
-                    
-                        <option value="C1109">재단법인 한국에너지재단</option>
-                    
-                        <option value="C0901">한국여성과학기술인육성재단</option>
-                    
-                        <option value="C1103">재단법인 한국장기조직기증원</option>
-                    
-                        <option value="C0110">재외동포재단</option>
-                    
-                        <option value="C0113">전남대학교병원</option>
-                    
-                        <option value="C0367">전략물자관리원</option>
-                    
-                        <option value="C0114">전북대학교병원</option>
-                    
-                        <option value="C0115">전쟁기념사업회</option>
-                    
-                        <option value="C0394">정보통신산업진흥원</option>
-                    
-                        <option value="C0120">정보통신정책연구원</option>
-                    
-                        <option value="C0376">정부법무공단</option>
-                    
-                        <option value="C0121">제주국제자유도시개발센터</option>
-                    
-                        <option value="C0122">제주대학교병원</option>
-                    
-                        <option value="C1024">(주)공영홈쇼핑</option>
-                    
-                        <option value="C0364">주식회사 부산항보안공사</option>
-                    
-                        <option value="C1044">주식회사 에스알</option>
-                    
-                        <option value="C0366">주식회사 인천항보안공사</option>
-                    
-                        <option value="C0124">주택관리공단(주)</option>
-                    
-                        <option value="C0061">주택도시보증공사</option>
-                    
-                        <option value="C0129">중소기업기술정보진흥원</option>
-                    
-                        <option value="C0126">중소기업유통센터</option>
-                    
-                        <option value="C0127">중소기업은행</option>
-                    
-                        <option value="C0130">중소벤처기업진흥공단</option>
-                    
-                        <option value="C0451">창업진흥원</option>
-                    
-                        <option value="C0134">축산물품질평가원</option>
-                    
-                        <option value="C0135">충남대학교병원</option>
-                    
-                        <option value="C0136">충북대학교병원</option>
-                    
-                        <option value="C0314">코레일관광개발(주)</option>
-                    
-                        <option value="C0327">코레일네트웍스(주)</option>
-                    
-                        <option value="C0140">코레일로지스(주)</option>
-                    
-                        <option value="C0272">코레일유통(주)</option>
-                    
-                        <option value="C0387">코레일테크(주)</option>
-                    
-                        <option value="C0409">태권도진흥재단</option>
-                    
-                        <option value="C0141">통일연구원</option>
-                    
-                        <option value="C0144">학교법인한국폴리텍</option>
-                    
-                        <option value="C0147">한국가스공사</option>
-                    
-                        <option value="C0148">한국가스안전공사</option>
-                    
-                        <option value="C0150">한국부동산원</option>
-                    
-                        <option value="C0151">한국개발연구원</option>
-                    
-                        <option value="C0845">한국건강가정진흥원</option>
-                    
-                        <option value="C0854">한국건강증진개발원</option>
-                    
-                        <option value="C0154">한국건설기술연구원</option>
-                    
-                        <option value="C0321">한국고용정보원</option>
-                    
-                        <option value="C0067">한국고전번역원</option>
-                    
-                        <option value="C0452">한국공예디자인문화진흥원</option>
-                    
-                        <option value="C0655">한국공정거래조정원</option>
-                    
-                        <option value="C0157">한국공항공사</option>
-                    
-                        <option value="C0158">한국과학기술기획평가원</option>
-                    
-                        <option value="C0159">한국과학기술연구원</option>
-                    
-                        <option value="C0160">한국과학기술원</option>
-                    
-                        <option value="C0161">한국과학기술정보연구원</option>
-                    
-                        <option value="C0163">한국과학창의재단</option>
-                    
-                        <option value="C0165">한국관광공사</option>
-                    
-                        <option value="C0053">한국광물자원공사(21.09.10 해산)</option>
-                    
-                        <option value="C0086">한국광해관리공단(21.09.10 해산)</option>
-                    
-                        <option value="C0167">한국교육개발원</option>
-                    
-                        <option value="C0168">한국교육과정평가원</option>
-                    
-                        <option value="C0145">한국교육학술정보원</option>
-                    
-                        <option value="C0019">한국교통안전공단</option>
-                    
-                        <option value="C0170">한국교통연구원</option>
-                    
-                        <option value="C0171">한국국방연구원</option>
-                    
-                        <option value="C0172">한국국제교류재단</option>
-                    
-                        <option value="C0379">한국국제보건의료재단</option>
-                    
-                        <option value="C0146">한국국제협력단</option>
-                    
-                        <option value="C0062">한국국토정보공사</option>
-                    
-                        <option value="C0174">한국기계연구원</option>
-                    
-                        <option value="C0864">한국기상산업기술원</option>
-                    
-                        <option value="C0175">한국기술교육대학교</option>
-                    
-                        <option value="C0177">한국기초과학지원연구원</option>
-                    
-                        <option value="C0631">한국나노기술원</option>
-                    
-                        <option value="C0042">한국남동발전(주)</option>
-                    
-                        <option value="C0043">한국남부발전(주)</option>
-                    
-                        <option value="C0179">한국노동연구원</option>
-                    
-                        <option value="C0378">한국노인인력개발원</option>
-                    
-                        <option value="C0045">한국농수산식품유통공사</option>
-                    
-                        <option value="C0046">한국농어촌공사</option>
-                    
-                        <option value="C0181">한국농촌경제연구원</option>
-                    
-                        <option value="C0527">한국데이터산업진흥원</option>
-                    
-                        <option value="C0183">한국도로공사</option>
-                    
-                        <option value="C0922">한국도박문제예방치유원</option>
-                    
-                        <option value="C0066">한국동서발전(주)</option>
-                    
-                        <option value="C0184">한국디자인진흥원</option>
-                    
-                        <option value="C0450">한국로봇산업진흥원</option>
-                    
-                        <option value="C0185">한국마사회</option>
-                    
-                        <option value="C0222">한국무역보험공사</option>
-                    
-                        <option value="C0188">한국문학번역원</option>
-                    
-                        <option value="C0189">한국문화관광연구원</option>
-                    
-                        <option value="C0320">한국문화예술교육진흥원</option>
-                    
-                        <option value="C0190">한국문화예술위원회</option>
-                    
-                        <option value="C0191">국가유산진흥원</option>
-                    
-                        <option value="C0663">한국문화정보원</option>
-                    
-                        <option value="C0192">한국문화진흥주식회사</option>
-                    
-                        <option value="C0348">한국발명진흥회</option>
-                    
-                        <option value="C0196">한국방송광고진흥공사</option>
-                    
-                        <option value="C0187">한국방송통신전파진흥원</option>
-                    
-                        <option value="C0152">한국법무보호복지공단</option>
-                    
-                        <option value="C0198">한국법제연구원</option>
-                    
-                        <option value="C0199">한국벤처투자</option>
-                    
-                        <option value="C0070">한국보건복지인재원</option>
-                    
-                        <option value="C0200">한국보건사회연구원</option>
-                    
-                        <option value="C1027">국방전직교육원</option>
-                    
-                        <option value="C0571">한국마약퇴치운동본부</option>
-                    
-                        <option value="C1060">(재)한국통계정보원</option>
-                    
-                        <option value="C1383">재외동포협력센터</option>
-                    
-                        <option value="C1386">한국치산기술협회</option>
-                    
-                        <option value="C1304">(재)한국보건의료정보원</option>
-                    
-                        <option value="C1364">한국광해광업공단</option>
-                    
-                        <option value="C1124">한국제품안전관리원</option>
-                    
-                        <option value="C1368">한국탄소산업진흥원</option>
-                    
-                        <option value="C0201">한국보건산업진흥원</option>
-                    
-                        <option value="C0662">한국보건의료연구원</option>
-                    
-                        <option value="C0202">한국보건의료인국가시험원</option>
-                    
-                        <option value="C0849">한국보육진흥원</option>
-                    
-                        <option value="C0203">한국보훈복지의료공단</option>
-                    
-                        <option value="C0205">한국사학진흥재단</option>
-                    
-                        <option value="C0377">한국사회복지협의회</option>
-                    
-                        <option value="C0456">한국사회적기업진흥원</option>
-                    
-                        <option value="C1055">한국산림복지진흥원</option>
-                    
-                        <option value="C0076">한국산업기술시험원</option>
-                    
-                        <option value="C0393">한국산업기술진흥원</option>
-                    
-                        <option value="C0397">한국산업기술기획평가원</option>
-                    
-                        <option value="C0208">한국산업단지공단</option>
-                    
-                        <option value="C0209">한국산업안전보건공단</option>
-                    
-                        <option value="C0210">한국산업은행</option>
-                    
-                        <option value="C0211">한국산업인력공단</option>
-                    
-                        <option value="C0620">한국상하수도협회</option>
-                    
-                        <option value="C0212">한국생명공학연구원</option>
-                    
-                        <option value="C0213">한국생산기술연구원</option>
-                    
-                        <option value="C0082">한국서부발전(주)</option>
-                    
-                        <option value="C0214">한국석유공사</option>
-                    
-                        <option value="C0215">한국석유관리원</option>
-                    
-                        <option value="C0103">한국세라믹기술원</option>
-                    
-                        <option value="C0217">한국소방산업기술원</option>
-                    
-                        <option value="C0218">한국소비자원</option>
-                    
-                        <option value="C0220">한국수력원자력(주)</option>
-                    
-                        <option value="C1107">한국수목원정원관리원</option>
-                    
-                        <option value="C0455">한국수산자원공단</option>
-                    
-                        <option value="C0221">한국수자원공사</option>
-                    
-                        <option value="C0847">(사)남북교류협력지원협회</option>
-                    
-                        <option value="C0918">(재)APEC기후센터</option>
-                    
-                        <option value="C0916">한국원산지정보원</option>
-                    
-                        <option value="C0454">(재)예술경영지원센터</option>
-                    
-                        <option value="C0352">(재)우체국금융개발원</option>
-                    
-                        <option value="C0331">(재)우체국물류지원단</option>
-                    
-                        <option value="C0368">(재)우체국시설관리단</option>
-                    
-                        <option value="C0931">(재)일제강제동원피해자지원재단</option>
-                    
-                        <option value="C0116">(재)정동극장</option>
-                    
-                        <option value="C0884">중소벤처기업연구원</option>
-                    
-                        <option value="C0881">(재)한국스마트그리드사업단</option>
-                    
-                        <option value="C0354">(재)한국우편사업진흥원</option>
-                    
-                        <option value="C0919">(재)한국형수치예보모델개발사업단</option>
-                    
-                        <option value="C0920">한식진흥원</option>
-                    
-                        <option value="C0005">(주)강원랜드</option>
-                    
-                        <option value="C0840">수자원환경산업진흥(주)</option>
-                    
-                        <option value="C0125">(주)한국가스기술공사</option>
-                    
-                        <option value="C0153">(주)한국건설관리공사</option>
-                    
-                        <option value="C0001">88관광개발(주)</option>
-                    
-                        <option value="C0926">이민정책연구원</option>
-                    
-                        <option value="C0002">가축위생방역지원본부</option>
-                    
-                        <option value="C0003">강릉원주대학교치과병원</option>
-                    
-                        <option value="C0004">강원대학교병원</option>
-                    
-                        <option value="C0006">건강보험심사평가원</option>
-                    
-                        <option value="C0672">건설근로자공제회</option>
-                    
-                        <option value="C0402">게임물관리위원회</option>
-                    
-                        <option value="C0008">경북대학교병원</option>
-                    
-                        <option value="C1031">경북대학교치과병원</option>
-                    
-                        <option value="C0009">경상국립대학교병원</option>
-                    
-                        <option value="C0010">경제인문사회연구회</option>
-                    
-                        <option value="C0013">공무원연금공단</option>
-                    
-                        <option value="C1038">과학기술사업화진흥원</option>
-                    
-                        <option value="C0017">과학기술정책연구원</option>
-                    
-                        <option value="C0018">광주과학기술원</option>
-                    
-                        <option value="C0909">국가과학기술연구회</option>
-                    
-                        <option value="C0410">국가평생교육진흥원</option>
-                    
-                        <option value="C0021">국립공원공단</option>
-                    
-                        <option value="C0923">국립광주과학관</option>
-                    
-                        <option value="C1018">국립낙동강생물자원관</option>
-                    
-                        <option value="C0924">국립대구과학관</option>
-                                  
-          </select>
+                            
+                                <option value="C0031">국제방송교류재단</option>
+                            
+                                <option value="C0866">국제식물검역인증원</option>
+                            
+                                <option value="C0318">국토교통과학기술진흥원</option>
+                            
+                                <option value="C0032">국토연구원</option>
+                            
+                                <option value="C0357">그랜드코리아레저(주)</option>
+                            
+                                <option value="C0035">근로복지공단</option>
+                            
+                                <option value="C0038">기술보증기금</option>
+                            
+                                <option value="C0856">기초과학연구원</option>
+                            
+                                <option value="C0173">노사발전재단</option>
+                            
+                                <option value="C0860">농림수산식품교육문화정보원</option>
+                            
+                                <option value="C0404">농림식품기술기획평가원</option>
+                            
+                                <option value="C0422">한국농업기술진흥원</option>
+                            
+                                <option value="C0542">농업정책보험금융원</option>
+                            
+                                <option value="C0049">대구경북과학기술원</option>
+                            
+                                <option value="C0894">대구경북첨단의료산업진흥재단</option>
+                            
+                                <option value="C0051">대외경제정책연구원</option>
+                            
+                                <option value="C0054">대한무역투자진흥공사</option>
+                            
+                                <option value="C0055">대한법률구조공단</option>
+                            
+                                <option value="C0057">대한석탄공사</option>
+                            
+                                <option value="C0315">대한장애인체육회</option>
+                            
+                                <option value="C0059">대한적십자사</option>
+                            
+                                <option value="C0063">대한체육회</option>
+                            
+                                <option value="C0064">한국도로교통공단</option>
+                            
+                                <option value="C0065">독립기념관</option>
+                            
+                                <option value="C0358">동북아역사재단</option>
+                            
+                                <option value="C0068">민주화운동기념사업회</option>
+                            
+                                <option value="C0069">별정우체국연금관리단</option>
+                            
+                                <option value="C0071">부산대학교병원</option>
+                            
+                                <option value="C0853">부산대학교치과병원</option>
+                            
+                                <option value="C0072">부산항만공사</option>
+                            
+                                <option value="C0449">북한이탈주민지원재단</option>
+                            
+                                <option value="C0893">사단법인 한국기술자격검정원</option>
+                            
+                                <option value="C1059">사단법인 한국산학연협회</option>
+                            
+                                <option value="C0075">사립학교교직원연금공단</option>
+                            
+                                <option value="C0411">한국사회보장정보원</option>
+                            
+                                <option value="C0078">산업연구원</option>
+                            
+                                <option value="C1046">서민금융진흥원</option>
+                            
+                                <option value="C0083">서울대학교병원</option>
+                            
+                                <option value="C0084">서울대학교치과병원</option>
+                            
+                                <option value="C0029">서울올림픽기념국민체육진흥공단</option>
+                            
+                                <option value="C0087">한국해양교통안전공단</option>
+                            
+                                <option value="C0867">세종학당재단</option>
+                            
+                                <option value="C0903">소상공인시장진흥공단</option>
+                            
+                                <option value="C0089">수도권매립지관리공사</option>
+                            
+                                <option value="C1033">시청자미디어재단</option>
+                            
+                                <option value="C0661">식품안전정보원</option>
+                            
+                                <option value="C0091">신용보증기금</option>
+                            
+                                <option value="C0112">신용보증재단중앙회</option>
+                            
+                                <option value="C0869">아시아문화원(22.01.17 해산)</option>
+                            
+                                <option value="C0223">한국수출입은행</option>
+                            
+                                <option value="C0224">한국승강기안전공단</option>
+                            
+                                <option value="C0225">국토안전관리원</option>
+                            
+                                <option value="C1100">한국식품안전관리인증원</option>
+                            
+                                <option value="C0226">한국식품연구원</option>
+                            
+                                <option value="C0594">한국양성평등교육진흥원</option>
+                            
+                                <option value="C0335">한국어촌어항공단</option>
+                            
+                                <option value="C0412">한국언론진흥재단</option>
+                            
+                                <option value="C0097">한국에너지공단</option>
+                            
+                                <option value="C0229">한국에너지기술연구원</option>
+                            
+                                <option value="C0389">한국에너지기술평가원</option>
+                            
+                                <option value="C0233">한국에너지정보문화재단</option>
+                            
+                                <option value="C0902">한국여성인권진흥원</option>
+                            
+                                <option value="C0231">한국여성정책연구원</option>
+                            
+                                <option value="C0388">한국연구재단</option>
+                            
+                                <option value="C0232">한국영상자료원</option>
+                            
+                                <option value="C0868">한국예술인복지재단</option>
+                            
+                                <option value="C0131">한국예탁결제원</option>
+                            
+                                <option value="C0234">한국원자력안전기술원</option>
+                            
+                                <option value="C0932">한국원자력안전재단</option>
+                            
+                                <option value="C0235">한국원자력연구원</option>
+                            
+                                <option value="C0104">한국원자력의학원</option>
+                            
+                                <option value="C0020">한국원자력통제기술원</option>
+                            
+                                <option value="C0371">한국원자력환경공단</option>
+                            
+                                <option value="C0865">한국의료기기안전정보원</option>
+                            
+                                <option value="C0870">한국의료분쟁조정중재원</option>
+                            
+                                <option value="C0862">한국의약품안전관리원</option>
+                            
+                                <option value="C0399">한국인터넷진흥원</option>
+                            
+                                <option value="C0857">한국임업진흥원</option>
+                            
+                                <option value="C0240">한국자산관리공사</option>
+                            
+                                <option value="C0859">한국잡월드</option>
+                            
+                                <option value="C0243">한국장애인개발원</option>
+                            
+                                <option value="C0242">한국장애인고용공단</option>
+                            
+                                <option value="C0415">한국장학재단</option>
+                            
+                                <option value="C1042">한국재정정보원</option>
+                            
+                                <option value="C1049">한국저작권보호원</option>
+                            
+                                <option value="C0390">한국저작권위원회</option>
+                            
+                                <option value="C0244">한국전기안전공사</option>
+                            
+                                <option value="C0245">한국전기연구원</option>
+                            
+                                <option value="C0246">한국전력거래소</option>
+                            
+                                <option value="C1318">재단법인 건설기술교육원</option>
+                            
+                                <option value="C1324">국립항공박물관</option>
+                            
+                                <option value="C1327">공간정보품질관리원</option>
+                            
+                                <option value="C1333">국립해양과학관</option>
+                            
+                                <option value="C1334">국립호남권생물자원관</option>
+                            
+                                <option value="C1330">차세대수치예보모델개발사업단</option>
+                            
+                                <option value="C1319">한국고용노동교육원</option>
+                            
+                                <option value="C1294">한국도로공사서비스(주)</option>
+                            
+                                <option value="C1352">한전MCS(주)</option>
+                            
+                                <option value="C0344">국립박물관문화재단</option>
+                            
+                                <option value="C1051">국립부산과학관</option>
+                            
+                                <option value="C0879">국립생태원</option>
+                            
+                                <option value="C0023">국립암센터</option>
+                            
+                                <option value="C0446">국립중앙의료원</option>
+                            
+                                <option value="C1016">국립해양박물관</option>
+                            
+                                <option value="C1021">국립해양생물자원관</option>
+                            
+                                <option value="C0026">국민건강보험공단</option>
+                            
+                                <option value="C0028">국민연금공단</option>
+                            
+                                <option value="C0345">국방과학연구소</option>
+                            
+                                <option value="C0347">국방기술품질원</option>
+                            
+                                <option value="C1030">(재)축산환경관리원</option>
+                            
+                                <option value="C1303">아동권리보장원</option>
+                            
+                                <option value="C0861">재단법인 한국자활복지개발원</option>
+                            
+                                <option value="C0844">한국등산·트레킹지원센터</option>
+                            
+                                <option value="C1119">한국해양진흥공사</option>
+                            
+                                <option value="C1131">한국해외인프라도시개발지원공사</option>
+                            
+                                <option value="C0247">한국전력공사</option>
+                            
+                                <option value="C1070">한국전력국제원자력대학원대학교</option>
+                            
+                                <option value="C0248">한국전력기술주식회사</option>
+                            
+                                <option value="C0251">한국전자통신연구원</option>
+                            
+                                <option value="C0392">한국지능정보사회진흥원</option>
+                            
+                                <option value="C0256">한국조세재정연구원</option>
+                            
+                                <option value="C0257">한국조폐공사</option>
+                            
+                                <option value="C0258">한국주택금융공사</option>
+                            
+                                <option value="C0259">한국중부발전(주)</option>
+                            
+                                <option value="C0416">한국지식재산보호원</option>
+                            
+                                <option value="C0407">한국지식재산연구원</option>
+                            
+                                <option value="C0261">한국지역난방공사</option>
+                            
+                                <option value="C0263">한국지질자원연구원</option>
+                            
+                                <option value="C0264">한국직업능력연구원</option>
+                            
+                                <option value="C0266">한국천문연구원</option>
+                            
+                                <option value="C0268">한국철도공사</option>
+                            
+                                <option value="C1120">국가생명윤리정책원</option>
+                            
+                                <option value="C1138">한국식품산업클러스터진흥원</option>
+                            
+                                <option value="C1130">새만금개발공사</option>
+                            
+                                <option value="C1102">재단법인 한국공공조직은행</option>
+                            
+                                <option value="C1127">한국수자원조사기술원</option>
+                            
+                                <option value="C0269">한국철도기술연구원</option>
+                            
+                                <option value="C0270">국가철도공단</option>
+                            
+                                <option value="C0278">한국청소년상담복지개발원</option>
+                            
+                                <option value="C0276">한국청소년정책연구원</option>
+                            
+                                <option value="C0447">한국청소년활동진흥원</option>
+                            
+                                <option value="C0280">한국체육산업개발(주)</option>
+                            
+                                <option value="C0149">한국출판문화산업진흥원</option>
+                            
+                                <option value="C0395">한국콘텐츠진흥원</option>
+                            
+                                <option value="C0396">한국토지주택공사</option>
+                            
+                                <option value="C0284">한국투자공사</option>
+                            
+                                <option value="C0899">한국특허전략개발원</option>
+                            
+                                <option value="C0340">한국특허정보원</option>
+                            
+                                <option value="C0286">한국표준과학연구원</option>
+                            
+                                <option value="C0290">한국학중앙연구원</option>
+                            
+                                <option value="C0291">한국한의학연구원</option>
+                            
+                                <option value="C0292">한국항공우주연구원</option>
+                            
+                                <option value="C0373">한국항로표지기술원</option>
+                            
+                                <option value="C0297">한국해양과학기술원</option>
+                            
+                                <option value="C0295">한국해양수산개발원</option>
+                            
+                                <option value="C0296">한국해양수산연수원</option>
+                            
+                                <option value="C0654">한국해양조사협회</option>
+                            
+                                <option value="C0298">한국행정연구원</option>
+                            
+                                <option value="C0299">한국형사·법무정책연구원</option>
+                            
+                                <option value="C0300">한국화학연구원</option>
+                            
+                                <option value="C0400">한국환경공단</option>
+                            
+                                <option value="C0391">한국환경산업기술원</option>
+                            
+                                <option value="C0302">한국환경연구원</option>
+                            
+                                <option value="C1053">한국한의약진흥원</option>
+                            
+                                <option value="C0306">한전KDN</option>
+                            
+                                <option value="C0305">한전KPS(주)</option>
+                            
+                                <option value="C0236">한전원자력연료주식회사</option>
+                            
+                                <option value="C0900">항공안전기술원</option>
+                            
+                                <option value="C0374">해양수산과학기술진흥원</option>
+                            
+                                <option value="C0533">해양환경공단</option>
+                            
+                                <option value="C1062">한국환경보전원</option>
+                            
+                                <option value="C0441">국가수리과학연구소</option>
+                            
+                                <option value="C0906">소프트웨어정책연구소</option>
+                            
+                                <option value="C0908">정보통신기획평가원</option>
+                            
+                                <option value="C0858">한국특허기술진흥원</option>
+                            
+                                <option value="C0384">안전성평가연구소</option>
+                            
+                                <option value="C0383">극지연구소</option>
+                            
+                                <option value="C0905">선박해양플랜트연구소</option>
+                            
+                                <option value="C0431">세계김치연구소</option>
+                            
+                                <option value="C0382">한국핵융합에너지연구원</option>
+                            
+                                <option value="C0381">한국재료연구원</option>
+                            
+                                <option value="C0385">고등과학원</option>
+                            
+                                <option value="C0436">나노종합기술원</option>
+                            
+                                <option value="C0938">한국과학영재학교</option>
+                            
+                                <option value="C0878">국가녹색기술연구소</option>
+                            
+                                <option value="C0457">국가과학기술인력개발원</option>
+                            
+                                <option value="C0437">KDI국제정책대학원</option>
+                            
+                                <option value="C0448">동남권원자력의학원</option>
+                            
+                                <option value="C0444">분당서울대학교병원</option>
+                            
+                                <option value="C0877">한국뇌연구원</option>
+                            
+                                <option value="C0438">건축공간연구원</option>
+                            
+                                <option value="C0459">국민건강보험공단 일산병원</option>
+                            
+                                <option value="C0939">서울요양원</option>
+                            
+                                <option value="C0440">육아정책연구소</option>
+                            
+                                <option value="C0096">에너지경제연구원</option>
+                            
+                                <option value="C0281">여수광양항만공사</option>
+                            
+                                <option value="C0050">연구개발특구진흥재단</option>
+                            
+                                <option value="C0098">영상물등급위원회</option>
+                            
+                                <option value="C0099">영화진흥위원회</option>
+                            
+                                <option value="C0101">예금보험공사</option>
+                            
+                                <option value="C0102">예술의전당</option>
+                            
+                                <option value="C0896">오송첨단의료산업진흥재단</option>
+                            
+                                <option value="C0664">울산과학기술원</option>
+                            
+                                <option value="C0365">울산항만공사</option>
+                            
+                                <option value="C1063">의료법인 한전의료재단 한일병원</option>
+                            
+                                <option value="C0105">인천국제공항공사</option>
+                            
+                                <option value="C0107">인천항만공사</option>
+                            
+                                <option value="C0406">재단법인 국악방송</option>
+                            
+                                <option value="C1108">재단법인 대한건설기계안전관리원</option>
+                            
+                                <option value="C1064">의료기관평가인증원</option>
+                            
+                                <option value="C1017">재단법인 장애인기업종합지원센터</option>
+                            
+                                <option value="C1109">재단법인 한국에너지재단</option>
+                            
+                                <option value="C0901">한국여성과학기술인육성재단</option>
+                            
+                                <option value="C1103">재단법인 한국장기조직기증원</option>
+                            
+                                <option value="C0110">재외동포재단</option>
+                            
+                                <option value="C0113">전남대학교병원</option>
+                            
+                                <option value="C0367">전략물자관리원</option>
+                            
+                                <option value="C0114">전북대학교병원</option>
+                            
+                                <option value="C0115">전쟁기념사업회</option>
+                            
+                                <option value="C0394">정보통신산업진흥원</option>
+                            
+                                <option value="C0120">정보통신정책연구원</option>
+                            
+                                <option value="C0376">정부법무공단</option>
+                            
+                                <option value="C0121">제주국제자유도시개발센터</option>
+                            
+                                <option value="C0122">제주대학교병원</option>
+                            
+                                <option value="C1024">(주)공영홈쇼핑</option>
+                            
+                                <option value="C0364">주식회사 부산항보안공사</option>
+                            
+                                <option value="C1044">주식회사 에스알</option>
+                            
+                                <option value="C0366">주식회사 인천항보안공사</option>
+                            
+                                <option value="C0124">주택관리공단(주)</option>
+                            
+                                <option value="C0061">주택도시보증공사</option>
+                            
+                                <option value="C0129">중소기업기술정보진흥원</option>
+                            
+                                <option value="C0126">중소기업유통센터</option>
+                            
+                                <option value="C0127">중소기업은행</option>
+                            
+                                <option value="C0130">중소벤처기업진흥공단</option>
+                            
+                                <option value="C0451">창업진흥원</option>
+                            
+                                <option value="C0134">축산물품질평가원</option>
+                            
+                                <option value="C0135">충남대학교병원</option>
+                            
+                                <option value="C0136">충북대학교병원</option>
+                            
+                                <option value="C0314">코레일관광개발(주)</option>
+                            
+                                <option value="C0327">코레일네트웍스(주)</option>
+                            
+                                <option value="C0140">코레일로지스(주)</option>
+                            
+                                <option value="C0272">코레일유통(주)</option>
+                            
+                                <option value="C0387">코레일테크(주)</option>
+                            
+                                <option value="C0409">태권도진흥재단</option>
+                            
+                                <option value="C0141">통일연구원</option>
+                            
+                                <option value="C0144">학교법인한국폴리텍</option>
+                            
+                                <option value="C0147">한국가스공사</option>
+                            
+                                <option value="C0148">한국가스안전공사</option>
+                            
+                                <option value="C0150">한국부동산원</option>
+                            
+                                <option value="C0151">한국개발연구원</option>
+                            
+                                <option value="C0845">한국건강가정진흥원</option>
+                            
+                                <option value="C0854">한국건강증진개발원</option>
+                            
+                                <option value="C0154">한국건설기술연구원</option>
+                            
+                                <option value="C0321">한국고용정보원</option>
+                            
+                                <option value="C0067">한국고전번역원</option>
+                            
+                                <option value="C0452">한국공예디자인문화진흥원</option>
+                            
+                                <option value="C0655">한국공정거래조정원</option>
+                            
+                                <option value="C0157">한국공항공사</option>
+                            
+                                <option value="C0158">한국과학기술기획평가원</option>
+                            
+                                <option value="C0159">한국과학기술연구원</option>
+                            
+                                <option value="C0160">한국과학기술원</option>
+                            
+                                <option value="C0161">한국과학기술정보연구원</option>
+                            
+                                <option value="C0163">한국과학창의재단</option>
+                            
+                                <option value="C0165">한국관광공사</option>
+                            
+                                <option value="C0053">한국광물자원공사(21.09.10 해산)</option>
+                            
+                                <option value="C0086">한국광해관리공단(21.09.10 해산)</option>
+                            
+                                <option value="C0167">한국교육개발원</option>
+                            
+                                <option value="C0168">한국교육과정평가원</option>
+                            
+                                <option value="C0145">한국교육학술정보원</option>
+                            
+                                <option value="C0019">한국교통안전공단</option>
+                            
+                                <option value="C0170">한국교통연구원</option>
+                            
+                                <option value="C0171">한국국방연구원</option>
+                            
+                                <option value="C0172">한국국제교류재단</option>
+                            
+                                <option value="C0379">한국국제보건의료재단</option>
+                            
+                                <option value="C0146">한국국제협력단</option>
+                            
+                                <option value="C0062">한국국토정보공사</option>
+                            
+                                <option value="C0174">한국기계연구원</option>
+                            
+                                <option value="C0864">한국기상산업기술원</option>
+                            
+                                <option value="C0175">한국기술교육대학교</option>
+                            
+                                <option value="C0177">한국기초과학지원연구원</option>
+                            
+                                <option value="C0631">한국나노기술원</option>
+                            
+                                <option value="C0042">한국남동발전(주)</option>
+                            
+                                <option value="C0043">한국남부발전(주)</option>
+                            
+                                <option value="C0179">한국노동연구원</option>
+                            
+                                <option value="C0378">한국노인인력개발원</option>
+                            
+                                <option value="C0045">한국농수산식품유통공사</option>
+                            
+                                <option value="C0046">한국농어촌공사</option>
+                            
+                                <option value="C0181">한국농촌경제연구원</option>
+                            
+                                <option value="C0527">한국데이터산업진흥원</option>
+                            
+                                <option value="C0183">한국도로공사</option>
+                            
+                                <option value="C0922">한국도박문제예방치유원</option>
+                            
+                                <option value="C0066">한국동서발전(주)</option>
+                            
+                                <option value="C0184">한국디자인진흥원</option>
+                            
+                                <option value="C0450">한국로봇산업진흥원</option>
+                            
+                                <option value="C0185">한국마사회</option>
+                            
+                                <option value="C0222">한국무역보험공사</option>
+                            
+                                <option value="C0188">한국문학번역원</option>
+                            
+                                <option value="C0189">한국문화관광연구원</option>
+                            
+                                <option value="C0320">한국문화예술교육진흥원</option>
+                            
+                                <option value="C0190">한국문화예술위원회</option>
+                            
+                                <option value="C0191">국가유산진흥원</option>
+                            
+                                <option value="C0663">한국문화정보원</option>
+                            
+                                <option value="C0192">한국문화진흥주식회사</option>
+                            
+                                <option value="C0348">한국발명진흥회</option>
+                            
+                                <option value="C0196">한국방송광고진흥공사</option>
+                            
+                                <option value="C0187">한국방송통신전파진흥원</option>
+                            
+                                <option value="C0152">한국법무보호복지공단</option>
+                            
+                                <option value="C0198">한국법제연구원</option>
+                            
+                                <option value="C0199">한국벤처투자</option>
+                            
+                                <option value="C0070">한국보건복지인재원</option>
+                            
+                                <option value="C0200">한국보건사회연구원</option>
+                            
+                                <option value="C1027">국방전직교육원</option>
+                            
+                                <option value="C0571">한국마약퇴치운동본부</option>
+                            
+                                <option value="C1060">(재)한국통계정보원</option>
+                            
+                                <option value="C1383">재외동포협력센터</option>
+                            
+                                <option value="C1386">한국치산기술협회</option>
+                            
+                                <option value="C1304">(재)한국보건의료정보원</option>
+                            
+                                <option value="C1364">한국광해광업공단</option>
+                            
+                                <option value="C1124">한국제품안전관리원</option>
+                            
+                                <option value="C1368">한국탄소산업진흥원</option>
+                            
+                                <option value="C0201">한국보건산업진흥원</option>
+                            
+                                <option value="C0662">한국보건의료연구원</option>
+                            
+                                <option value="C0202">한국보건의료인국가시험원</option>
+                            
+                                <option value="C0849">한국보육진흥원</option>
+                            
+                                <option value="C0203">한국보훈복지의료공단</option>
+                            
+                                <option value="C0205">한국사학진흥재단</option>
+                            
+                                <option value="C0377">한국사회복지협의회</option>
+                            
+                                <option value="C0456">한국사회적기업진흥원</option>
+                            
+                                <option value="C1055">한국산림복지진흥원</option>
+                            
+                                <option value="C0076">한국산업기술시험원</option>
+                            
+                                <option value="C0393">한국산업기술진흥원</option>
+                            
+                                <option value="C0397">한국산업기술기획평가원</option>
+                            
+                                <option value="C0208">한국산업단지공단</option>
+                            
+                                <option value="C0209">한국산업안전보건공단</option>
+                            
+                                <option value="C0210">한국산업은행</option>
+                            
+                                <option value="C0211">한국산업인력공단</option>
+                            
+                                <option value="C0620">한국상하수도협회</option>
+                            
+                                <option value="C0212">한국생명공학연구원</option>
+                            
+                                <option value="C0213">한국생산기술연구원</option>
+                            
+                                <option value="C0082">한국서부발전(주)</option>
+                            
+                                <option value="C0214">한국석유공사</option>
+                            
+                                <option value="C0215">한국석유관리원</option>
+                            
+                                <option value="C0103">한국세라믹기술원</option>
+                            
+                                <option value="C0217">한국소방산업기술원</option>
+                            
+                                <option value="C0218">한국소비자원</option>
+                            
+                                <option value="C0220">한국수력원자력(주)</option>
+                            
+                                <option value="C1107">한국수목원정원관리원</option>
+                            
+                                <option value="C0455">한국수산자원공단</option>
+                            
+                                <option value="C0221">한국수자원공사</option>
+                            
+                                <option value="C0847">(사)남북교류협력지원협회</option>
+                            
+                                <option value="C0918">(재)APEC기후센터</option>
+                            
+                                <option value="C0916">한국원산지정보원</option>
+                            
+                                <option value="C0454">(재)예술경영지원센터</option>
+                            
+                                <option value="C0352">(재)우체국금융개발원</option>
+                            
+                                <option value="C0331">(재)우체국물류지원단</option>
+                            
+                                <option value="C0368">(재)우체국시설관리단</option>
+                            
+                                <option value="C0931">(재)일제강제동원피해자지원재단</option>
+                            
+                                <option value="C0116">(재)정동극장</option>
+                            
+                                <option value="C0884">중소벤처기업연구원</option>
+                            
+                                <option value="C0881">(재)한국스마트그리드사업단</option>
+                            
+                                <option value="C0354">(재)한국우편사업진흥원</option>
+                            
+                                <option value="C0919">(재)한국형수치예보모델개발사업단</option>
+                            
+                                <option value="C0920">한식진흥원</option>
+                            
+                                <option value="C0005">(주)강원랜드</option>
+                            
+                                <option value="C0840">수자원환경산업진흥(주)</option>
+                            
+                                <option value="C0125">(주)한국가스기술공사</option>
+                            
+                                <option value="C0153">(주)한국건설관리공사</option>
+                            
+                                <option value="C0001">88관광개발(주)</option>
+                            
+                                <option value="C0926">이민정책연구원</option>
+                            
+                                <option value="C0002">가축위생방역지원본부</option>
+                            
+                                <option value="C0003">강릉원주대학교치과병원</option>
+                            
+                                <option value="C0004">강원대학교병원</option>
+                            
+                                <option value="C0006">건강보험심사평가원</option>
+                            
+                                <option value="C0672">건설근로자공제회</option>
+                            
+                                <option value="C0402">게임물관리위원회</option>
+                            
+                                <option value="C0008">경북대학교병원</option>
+                            
+                                <option value="C1031">경북대학교치과병원</option>
+                            
+                                <option value="C0009">경상국립대학교병원</option>
+                            
+                                <option value="C0010">경제인문사회연구회</option>
+                            
+                                <option value="C0013">공무원연금공단</option>
+                            
+                                <option value="C1038">과학기술사업화진흥원</option>
+                            
+                                <option value="C0017">과학기술정책연구원</option>
+                            
+                                <option value="C0018">광주과학기술원</option>
+                            
+                                <option value="C0909">국가과학기술연구회</option>
+                            
+                                <option value="C0410">국가평생교육진흥원</option>
+                            
+                                <option value="C0021">국립공원공단</option>
+                            
+                                <option value="C0923">국립광주과학관</option>
+                            
+                                <option value="C1018">국립낙동강생물자원관</option>
+                            
+                                <option value="C0924">국립대구과학관</option>
+                                        
+                </select>
 
-          <!-- 채용분야 -->
-          <select id="ncsCdLst" name="ncsCdLst">
+                <!-- 채용분야 -->
+                <select id="ncsCdLst" name="ncsCdLst">
+                            <option value="">전체</option>
+                            
+                                <option value="R600001">사업관리</option>
+                            
+                                <option value="R600002">경영.회계.사무</option>
+                            
+                                <option value="R600003">금융.보험</option>
+                            
+                                <option value="R600004">교육.자연.사회과학</option>
+                            
+                                <option value="R600005">법률.경찰.소방.교도.국방</option>
+                            
+                                <option value="R600006">보건.의료</option>
+                            
+                                <option value="R600007">사회복지.종교</option>
+                            
+                                <option value="R600008">문화.예술.디자인.방송</option>
+                            
+                                <option value="R600009">운전.운송</option>
+                            
+                                <option value="R600010">영업판매</option>
+                            
+                                <option value="R600011">경비.청소</option>
+                            
+                                <option value="R600012">이용.숙박.여행.오락.스포츠</option>
+                            
+                                <option value="R600013">음식서비스</option>
+                            
+                                <option value="R600014">건설</option>
+                            
+                                <option value="R600015">기계</option>
+                            
+                                <option value="R600016">재료</option>
+                            
+                                <option value="R600017">화학</option>
+                            
+                                <option value="R600018">섬유.의복</option>
+                            
+                                <option value="R600019">전기.전자</option>
+                            
+                                <option value="R600020">정보통신</option>
+                            
+                                <option value="R600021">식품가공</option>
+                            
+                                <option value="R600022">인쇄.목재.가구.공예</option>
+                            
+                                <option value="R600023">환경.에너지.안전</option>
+                            
+                                <option value="R600024">농림어업</option>
+                            
+                                <option value="R600025">연구</option>
+                                        
+                </select>
+
+                <!-- 근무지역 -->
+                <select id="workRgnLst" name="workRgnLst">
+                            <option value="">전체</option>
+                            
+                                <option value="R3010">서울</option>
+                            
+                                <option value="R3011">인천</option>
+                            
+                                <option value="R3012">대전</option>
+                            
+                                <option value="R3013">대구</option>
+                            
+                                <option value="R3014">부산</option>
+                            
+                                <option value="R3015">광주</option>
+                            
+                                <option value="R3016">울산</option>
+                            
+                                <option value="R3017">경기</option>
+                            
+                                <option value="R3018">강원</option>
+                            
+                                <option value="R3019">충남</option>
+                            
+                                <option value="R3020">충북</option>
+                            
+                                <option value="R3021">경북</option>
+                            
+                                <option value="R3022">경남</option>
+                            
+                                <option value="R3023">전남</option>
+                            
+                                <option value="R3024">전북</option>
+                            
+                                <option value="R3025">제주</option>
+                            
+                                <option value="R3026">세종</option>
+                            
+                                <option value="R3030">해외</option>
+                                        
+                </select>
+
+                <!-- 필요학력 -->
+                <select id="acbgCondLst" name="acbgCondLst">
+                            <option value="">전체</option>
+                            
+                                <option value="R7010">학력무관</option>
+                            
+                                <option value="R7020">중졸이하</option>
+                            
+                                <option value="R7030">고졸</option>
+                            
+                                <option value="R7040">대졸(2~3년)</option>
+                            
+                                <option value="R7050">대졸(4년)</option>
+                            
+                                <option value="R7060">석사</option>
+                            
+                                <option value="R7070">박사</option>
+                            
+                </select>
+
+                <!-- 고용형태 -->
+                <select id="hireTypeLst" name="hireTypeLst">
+                    <option value="">고용형태 (전체)</option>
+                    <option value="R1010">정규직</option>
+                    <option value="R1030">무기계약직</option>
+                    <option value="R1040">비정규직</option>
+                    <option value="R1060">청년인턴(체험형)</option>
+                    <option value="R1070">청년인턴(채용형)</option>
+                </select>
+
+                <!-- 채용구분 -->
+                <select id="recrutSe" name="recrutSe">
+                    <option value="">채용구분 (전체)</option>
+                    <option value="R2010">신입</option>
+                    <option value="R2020">경력</option>
+                    <option value="R2030">신입+경력</option>
+                    <option value="R2040">외국인 전형</option>
+                </select>
+
+                <!-- 대체인력 -->
+                <select id="replmprYn" name="replmprYn">
+                    <option value="">대체인력 (전체)</option>
+                    <option value="Y">예</option>
+                    <option value="N">아니오</option>
+                </select>
+
+                <!-- 상태 -->
+                <select id="ongoingYn" name="ongoingYn">
                     <option value="">전체</option>
-                    
-                        <option value="R600001">사업관리</option>
-                    
-                        <option value="R600002">경영.회계.사무</option>
-                    
-                        <option value="R600003">금융.보험</option>
-                    
-                        <option value="R600004">교육.자연.사회과학</option>
-                    
-                        <option value="R600005">법률.경찰.소방.교도.국방</option>
-                    
-                        <option value="R600006">보건.의료</option>
-                    
-                        <option value="R600007">사회복지.종교</option>
-                    
-                        <option value="R600008">문화.예술.디자인.방송</option>
-                    
-                        <option value="R600009">운전.운송</option>
-                    
-                        <option value="R600010">영업판매</option>
-                    
-                        <option value="R600011">경비.청소</option>
-                    
-                        <option value="R600012">이용.숙박.여행.오락.스포츠</option>
-                    
-                        <option value="R600013">음식서비스</option>
-                    
-                        <option value="R600014">건설</option>
-                    
-                        <option value="R600015">기계</option>
-                    
-                        <option value="R600016">재료</option>
-                    
-                        <option value="R600017">화학</option>
-                    
-                        <option value="R600018">섬유.의복</option>
-                    
-                        <option value="R600019">전기.전자</option>
-                    
-                        <option value="R600020">정보통신</option>
-                    
-                        <option value="R600021">식품가공</option>
-                    
-                        <option value="R600022">인쇄.목재.가구.공예</option>
-                    
-                        <option value="R600023">환경.에너지.안전</option>
-                    
-                        <option value="R600024">농림어업</option>
-                    
-                        <option value="R600025">연구</option>
-                                  
-          </select>
+                    <option value="Y">진행</option>
+                    <option value="N">종료</option>
+                </select>
 
-          <!-- 근무지역 -->
-          <select id="workRgnLst" name="workRgnLst">
-                    <option value="">전체</option>
-                    
-                        <option value="R3010">서울</option>
-                    
-                        <option value="R3011">인천</option>
-                    
-                        <option value="R3012">대전</option>
-                    
-                        <option value="R3013">대구</option>
-                    
-                        <option value="R3014">부산</option>
-                    
-                        <option value="R3015">광주</option>
-                    
-                        <option value="R3016">울산</option>
-                    
-                        <option value="R3017">경기</option>
-                    
-                        <option value="R3018">강원</option>
-                    
-                        <option value="R3019">충남</option>
-                    
-                        <option value="R3020">충북</option>
-                    
-                        <option value="R3021">경북</option>
-                    
-                        <option value="R3022">경남</option>
-                    
-                        <option value="R3023">전남</option>
-                    
-                        <option value="R3024">전북</option>
-                    
-                        <option value="R3025">제주</option>
-                    
-                        <option value="R3026">세종</option>
-                    
-                        <option value="R3030">해외</option>
-                                  
-          </select>
+                <!-- 시작일 -->
+                <input type="date" id="pbancBgngYmd" name="pbancBgngYmd" placeholder="시작일" />
 
-          <!-- 필요학력 -->
-          <select id="acbgCondLst" name="acbgCondLst">
-                    <option value="">전체</option>
-                    
-                        <option value="R7010">학력무관</option>
-                    
-                        <option value="R7020">중졸이하</option>
-                    
-                        <option value="R7030">고졸</option>
-                    
-                        <option value="R7040">대졸(2~3년)</option>
-                    
-                        <option value="R7050">대졸(4년)</option>
-                    
-                        <option value="R7060">석사</option>
-                    
-                        <option value="R7070">박사</option>
-                      
-          </select>
+                <!-- 종료일 -->
+                <input type="date" id="pbancEndYmd" name="pbancEndYmd" placeholder="종료일" />
 
-          <!-- 고용형태 -->
-          <select id="hireTypeLst" name="hireTypeLst">
-            <option value="">고용형태 (전체)</option>
-            <option value="R1010">정규직</option>
-            <option value="R1030">무기계약직</option>
-            <option value="R1040">비정규직</option>
-            <option value="R1060">청년인턴(체험형)</option>
-            <option value="R1070">청년인턴(채용형)</option>
-          </select>
+                <!-- 공시제목 -->
+                <input type="text" id="recrutPbancTtl" name="recrutPbancTtl" placeholder="공시제목" />
 
-          <!-- 채용구분 -->
-          <select id="recrutSe" name="recrutSe">
-            <option value="">채용구분 (전체)</option>
-            <option value="R2010">신입</option>
-            <option value="R2020">경력</option>
-            <option value="R2030">신입+경력</option>
-            <option value="R2040">외국인 전형</option>
-          </select>
+                 <!-- 검색 버튼 -->
+                <button id="searchBtn">검색</button>
+            </div>
 
-          <!-- 대체인력 -->
-          <select id="replmprYn" name="replmprYn">
-            <option value="">대체인력 (전체)</option>
-            <option value="Y">예</option>
-            <option value="N">아니오</option>
-          </select>
-
-          <!-- 상태 -->
-          <select id="ongoingYn" name="ongoingYn">
-            <option value="">전체</option>
-            <option value="Y">진행</option>
-            <option value="N">종료</option>
-          </select>
-
-          <!-- 시작일 -->
-          <input type="date" id="pbancBgngYmd" name="pbancBgngYmd" placeholder="시작일" />
-
-          <!-- 종료일 -->
-          <input type="date" id="pbancEndYmd" name="pbancEndYmd" placeholder="종료일" />
-
-          <!-- 공시제목 -->
-          <input type="text" id="recrutPbancTtl" name="recrutPbancTtl" placeholder="공시제목" />
-
-          <!-- 검색 버튼 -->
-          <button id="searchBtn">검색</button>
-          </div>
-
-          <div id="resultTable"></div>
-              <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5.4.4/dist/js/tabulator.min.js"></script>
+            <div id="resultTable"></div>
+            <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5.4.4/dist/js/tabulator.min.js"></script>
         </section>
 
         <section id="jobinfo">
