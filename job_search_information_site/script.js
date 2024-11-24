@@ -25,7 +25,7 @@ const table = new Tabulator("#resultTable", {
             title: "제목",
             field: "recrutPbancTtl",
             formatter: function (cell) {
-                const id = cell.getRow().getData().recrutPblntSn; // 해당 행의 ID 가져오기
+                const id = cell.getRow().getData().recrutPblntSn; // 해당 행의 ID 가져오기 //이걸로 채용공고 detail 나타내는 페이지로 이동시킬예정입니다.
                 if (id) {
                     return `<a href="https://doyun2222.github.io/a2024/job_search_information_site/detail.html?sn=${id}" target="_blank" style="text-decoration: underline; color: blue;">${cell.getValue()}</a>`;
                 }
@@ -40,9 +40,6 @@ const table = new Tabulator("#resultTable", {
         { title: "채용인원", field: "recrutNope" },
         { title: "근무지", field: "workRgnNmLst" },
     ],
-    rowFormatter: function (row) {
-        row.getElement().style.cursor = "pointer"; // 마우스 커서 변경
-    }
 });
 
 // 검색 버튼 클릭 시 API 요청 및 테이블 데이터 설정
