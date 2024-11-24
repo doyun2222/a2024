@@ -40,10 +40,22 @@
                 sn,
             });
 
+            console.log("Fetching detail with SN:", sn); // 디버깅용 로그
+            console.log("Request URL:", `${reqUrl}?${params.toString()}`); // 요청 URL 확인
+
             fetch(`${reqUrl}?${params.toString()}`)
-                .then((response) => response.json())
-                .then((data) => renderJobDetail(data))
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log("API Response:", data); // API 응답 데이터 확인
+                    renderJobDetail(data);
+                })
                 .catch((error) => {
+                    console.error("Error fetching job detail:", error); // 에러 로그
                     document.getElementById("detail-container").innerHTML = `<p>데이터를 불러오는 중 오류가 발생했습니다: ${error.message}</p>`;
                 });
         }
@@ -51,8 +63,8 @@
         // 데이터 렌더링
         function renderJobDetail(data) {
             const container = document.getElementById("detail-container");
-            if (data && data.response && data.response.body) {
-                const detail = data.response.body;
+            if (data && data.response && data.response.body && data.response.body.items) {
+                const detail = data.response.body.items[0]; // 첫 번째 항목 가져오기
 
                 container.innerHTML = `
                     <h2>${detail.recrutPbancTtl || "제목 없음"}</h2>
@@ -65,7 +77,8 @@
                     <p><strong>상세정보:</strong> <a href="${detail.detailUrl || "#"}" target="_blank">공고 보기</a></p>
                 `;
             } else {
-                container.innerHTML = `<p>상세 정보를 가져올 수 없습니다.</p>`;
+                container.innerHTML = `<p>상세 정보를 가져올 수 없습니다. 응답 데이터 확인이 필요합니다.</p>`;
+                console.warn("Unexpected response structure:", data); // 경고 메시지
             }
         }
 
