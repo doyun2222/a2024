@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>채용공고 상세정보</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5.4.4/dist/css/tabulator.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,107 +60,90 @@
 
     <script>
         const apiUrl = "https://apis.data.go.kr/1051000/recruitment/detail";
-        const serviceKey = "pKNkTBCcfio+4XDb3xpeAScbhWpzcdlcXlYBMywYpX+u0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw==";
+        const serviceKey = "pKNkTBCcfio%2B4XDb3xpeAScbhWpzcdlcXlYBMywYpX%2Bu0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw%3D%3D";
 
-        // URL에서 sn 파라미터 추출
         const urlParams = new URLSearchParams(window.location.search);
         const sn = urlParams.get("sn");
 
-        // API 호출 및 데이터 표시
         if (sn) {
             const fullUrl = `${apiUrl}?serviceKey=${serviceKey}&resultType=json&sn=${sn}`;
-            console.log("API 호출 URL:", fullUrl);
 
             fetch(fullUrl)
-                .then(response => {
-                    console.log("HTTP Status:", response.status); // 응답 상태 코드 확인
-                    return response.text(); // 응답 내용을 텍스트로 가져오기
-                })
+                .then(response => response.json())
                 .then(data => {
-                    console.log("API 응답 데이터:", data); // 응답 데이터 출력
+                    const result = data.result;
+                    const container = document.getElementById("detailContainer");
 
-                    // JSON 파싱 시도
-                    try {
-                        const jsonData = JSON.parse(data);
-                        const result = jsonData.result;
+                    if (result) {
+                        container.innerHTML = `
+                            <div class="section">
+                                <h2 class="section-title">공고 기본정보</h2>
+                                <table>
+                                    <tr><th>공고명</th><td>${result.recrutPbancTtl || "정보 없음"}</td></tr>
+                                    <tr><th>공시기관</th><td>${result.instNm || "정보 없음"}</td></tr>
+                                    <tr><th>시작일</th><td>${result.pbancBgngYmd || "정보 없음"}</td></tr>
+                                    <tr><th>종료일</th><td>${result.pbancEndYmd || "정보 없음"}</td></tr>
+                                    <tr><th>채용분야</th><td>${result.ncsCdNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>고용형태</th><td>${result.hireTypeNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>근무지</th><td>${result.workRgnNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>채용구분</th><td>${result.recrutSeNm || "정보 없음"}</td></tr>
+                                    <tr><th>채용인원</th><td>${result.recrutNope || "정보 없음"}</td></tr>
+                                </table>
+                            </div>
+                            
+                            <div class="section">
+                                <h2 class="section-title">지원 자격 및 조건</h2>
+                                <table>
+                                    <tr><th>우대조건</th><td>${result.prefCondCn || "정보 없음"}</td></tr>
+                                    <tr><th>지원 자격</th><td>${result.aplyQlfcCn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
+                                    <tr><th>결격 사유</th><td>${result.disqlfcRsn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
+                                </table>
+                            </div>
 
-                        const container = document.getElementById("detailContainer");
+                            <div class="section">
+                                <h2 class="section-title">전형방법</h2>
+                                <table>
+                                    <tr><th>방법</th><td>${result.scrnprcdrMthdExpln.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
+                                    <tr><th>우대사항</th><td>${result.prefCn || "정보 없음"}</td></tr>
+                                </table>
+                            </div>
 
-                        if (result) {
-                            container.innerHTML = `
-                                <div class="section">
-                                    <h2 class="section-title">공고 기본정보</h2>
-                                    <table>
-                                        <tr><th>공고명</th><td>${result.recrutPbancTtl || "정보 없음"}</td></tr>
-                                        <tr><th>공시기관</th><td>${result.instNm || "정보 없음"}</td></tr>
-                                        <tr><th>시작일</th><td>${result.pbancBgngYmd || "정보 없음"}</td></tr>
-                                        <tr><th>종료일</th><td>${result.pbancEndYmd || "정보 없음"}</td></tr>
-                                        <tr><th>채용분야</th><td>${result.ncsCdNmLst || "정보 없음"}</td></tr>
-                                        <tr><th>고용형태</th><td>${result.hireTypeNmLst || "정보 없음"}</td></tr>
-                                        <tr><th>근무지</th><td>${result.workRgnNmLst || "정보 없음"}</td></tr>
-                                        <tr><th>채용구분</th><td>${result.recrutSeNm || "정보 없음"}</td></tr>
-                                        <tr><th>채용인원</th><td>${result.recrutNope || "정보 없음"}</td></tr>
-                                    </table>
-                                </div>
-                                
-                                <div class="section">
-                                    <h2 class="section-title">지원 자격 및 조건</h2>
-                                    <table>
-                                        <tr><th>우대조건</th><td>${result.prefCondCn || "정보 없음"}</td></tr>
-                                        <tr><th>지원 자격</th><td>${result.aplyQlfcCn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
-                                        <tr><th>결격 사유</th><td>${result.disqlfcRsn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
-                                    </table>
-                                </div>
+                            <div class="section">
+                                <h2 class="section-title">첨부파일</h2>
+                                <ul>
+                                    ${result.files.map(file => `
+                                        <li><a href="${file.url}" target="_blank">${file.atchFileNm}</a></li>
+                                    `).join("")}
+                                </ul>
+                            </div>
 
-                                <div class="section">
-                                    <h2 class="section-title">전형방법</h2>
-                                    <table>
-                                        <tr><th>방법</th><td>${result.scrnprcdrMthdExpln.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
-                                        <tr><th>우대사항</th><td>${result.prefCn || "정보 없음"}</td></tr>
-                                    </table>
-                                </div>
-
-                                <div class="section">
-                                    <h2 class="section-title">첨부파일</h2>
-                                    <ul>
-                                        ${result.files.map(file => `
-                                            <li><a href="${file.url}" target="_blank">${file.atchFileNm}</a></li>
-                                        `).join("")}
-                                    </ul>
-                                </div>
-
-                                <div class="section">
-                                    <h2 class="section-title">단계별 정보</h2>
-                                    <table>
-                                        <thead>
+                            <div class="section">
+                                <h2 class="section-title">단계별 정보</h2>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>단계</th>
+                                            <th>공고명</th>
+                                            <th>경쟁률</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${result.steps.map(step => `
                                             <tr>
-                                                <th>단계</th>
-                                                <th>공고명</th>
-                                                <th>경쟁률</th>
+                                                <td>${step.sortNo + 1 || "정보 없음"}</td>
+                                                <td>${step.recrutPbancTtl || "정보 없음"}</td>
+                                                <td>${step.cmpttRt || "정보 없음"}</td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            ${result.steps.map(step => `
-                                                <tr>
-                                                    <td>${step.sortNo + 1 || "정보 없음"}</td>
-                                                    <td>${step.recrutPbancTtl || "정보 없음"}</td>
-                                                    <td>${step.cmpttRt || "정보 없음"}</td>
-                                                </tr>
-                                            `).join("")}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            `;
-                        } else {
-                            container.innerHTML = "<p>상세정보를 찾을 수 없습니다.</p>";
-                        }
-                    } catch (error) {
-                        console.error("JSON 파싱 에러:", error.message);
-                        document.getElementById("detailContainer").innerHTML = `<p>JSON 파싱 실패: ${error.message}</p>`;
+                                        `).join("")}
+                                    </tbody>
+                                </table>
+                            </div>
+                        `;
+                    } else {
+                        container.innerHTML = "<p>상세정보를 찾을 수 없습니다.</p>";
                     }
                 })
                 .catch(error => {
-                    console.error("API 요청 에러:", error.message);
                     document.getElementById("detailContainer").innerHTML = `<p>API 요청 실패: ${error.message}</p>`;
                 });
         } else {
