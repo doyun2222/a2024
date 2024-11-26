@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +8,35 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 20px;
         }
         header {
             margin-bottom: 20px;
         }
-        .detail-section {
-            margin-bottom: 20px;
-        }
-        .detail-section h2 {
+        h1 {
             color: #007bff;
         }
-        .detail-section ul {
-            list-style: none;
-            padding: 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-        .detail-section li {
-            margin: 10px 0;
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #007bff;
         }
         a {
             color: #007bff;
@@ -33,12 +44,6 @@
         }
         a:hover {
             color: #0056b3;
-        }
-        .file-list {
-            margin-top: 10px;
-        }
-        .step-table {
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -48,12 +53,10 @@
         <a href="javascript:history.back()">뒤로가기</a>
     </header>
     <main>
-        <section id="detail">
-            <h1>채용공고 상세정보</h1>
-            <div id="detailContainer">
-                <p>데이터를 불러오는 중입니다...</p>
-            </div>
-        </section>
+        <h1>채용공고 상세정보</h1>
+        <div id="detailContainer">
+            <p>데이터를 불러오는 중입니다...</p>
+        </div>
     </main>
 
     <script>
@@ -74,50 +77,62 @@
 
                     if (result) {
                         container.innerHTML = `
-                            <div class="detail-section">
-                                <h2>${result.recrutPbancTtl || "제목 없음"}</h2>
+                            <div class="section">
+                                <h2 class="section-title">공고 기본정보</h2>
+                                <table>
+                                    <tr><th>공고명</th><td>${result.recrutPbancTtl || "정보 없음"}</td></tr>
+                                    <tr><th>공시기관</th><td>${result.instNm || "정보 없음"}</td></tr>
+                                    <tr><th>시작일</th><td>${result.pbancBgngYmd || "정보 없음"}</td></tr>
+                                    <tr><th>종료일</th><td>${result.pbancEndYmd || "정보 없음"}</td></tr>
+                                    <tr><th>채용분야</th><td>${result.ncsCdNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>고용형태</th><td>${result.hireTypeNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>근무지</th><td>${result.workRgnNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>채용구분</th><td>${result.recrutSeNm || "정보 없음"}</td></tr>
+                                    <tr><th>채용인원</th><td>${result.recrutNope || "정보 없음"}</td></tr>
+                                </table>
+                            </div>
+                            
+                            <div class="section">
+                                <h2 class="section-title">지원 자격 및 조건</h2>
+                                <table>
+                                    <tr><th>우대조건</th><td>${result.prefCondCn || "정보 없음"}</td></tr>
+                                    <tr><th>지원 자격</th><td>${result.aplyQlfcCn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
+                                    <tr><th>결격 사유</th><td>${result.disqlfcRsn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="section">
+                                <h2 class="section-title">전형방법</h2>
+                                <table>
+                                    <tr><th>방법</th><td>${result.scrnprcdrMthdExpln.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
+                                    <tr><th>우대사항</th><td>${result.prefCn || "정보 없음"}</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="section">
+                                <h2 class="section-title">첨부파일</h2>
                                 <ul>
-                                    <li><strong>공시기관:</strong> ${result.instNm || "정보 없음"}</li>
-                                    <li><strong>공고 시작일:</strong> ${result.pbancBgngYmd || "정보 없음"}</li>
-                                    <li><strong>공고 종료일:</strong> ${result.pbancEndYmd || "정보 없음"}</li>
-                                    <li><strong>채용분야:</strong> ${result.ncsCdNmLst || "정보 없음"}</li>
-                                    <li><strong>고용형태:</strong> ${result.hireTypeNmLst || "정보 없음"}</li>
-                                    <li><strong>근무지:</strong> ${result.workRgnNmLst || "정보 없음"}</li>
-                                    <li><strong>채용구분:</strong> ${result.recrutSeNm || "정보 없음"}</li>
-                                    <li><strong>채용인원:</strong> ${result.recrutNope || "정보 없음"}</li>
-                                    <li><strong>우대조건:</strong> ${result.prefCondCn || "정보 없음"}</li>
-                                    <li><strong>지원 자격:</strong><br>${result.aplyQlfcCn.replace(/\n/g, "<br>") || "정보 없음"}</li>
-                                    <li><strong>결격 사유:</strong><br>${result.disqlfcRsn.replace(/\n/g, "<br>") || "정보 없음"}</li>
-                                    <li><strong>전형방법:</strong><br>${result.scrnprcdrMthdExpln.replace(/\n/g, "<br>") || "정보 없음"}</li>
-                                    <li><strong>우대사항:</strong> ${result.prefCn || "정보 없음"}</li>
-                                    <li><strong>원문 링크:</strong> <a href="${result.srcUrl}" target="_blank">채용 공고 원문</a></li>
+                                    ${result.files.map(file => `
+                                        <li><a href="${file.url}" target="_blank">${file.atchFileNm}</a></li>
+                                    `).join("")}
                                 </ul>
                             </div>
 
-                            <div class="detail-section">
-                                <h2>첨부파일</h2>
-                                <div class="file-list">
-                                    ${result.files.map(file => `
-                                        <a href="${file.url}" target="_blank">${file.atchFileNm}</a>
-                                    `).join("<br>")}
-                                </div>
-                            </div>
-
-                            <div class="detail-section">
-                                <h2>채용 단계 정보</h2>
-                                <table border="1" cellpadding="10" class="step-table">
+                            <div class="section">
+                                <h2 class="section-title">단계별 정보</h2>
+                                <table>
                                     <thead>
                                         <tr>
-                                            <th>채용공고명</th>
                                             <th>단계</th>
+                                            <th>공고명</th>
                                             <th>경쟁률</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         ${result.steps.map(step => `
                                             <tr>
-                                                <td>${step.recrutPbancTtl || "정보 없음"}</td>
                                                 <td>${step.sortNo + 1 || "정보 없음"}</td>
+                                                <td>${step.recrutPbancTtl || "정보 없음"}</td>
                                                 <td>${step.cmpttRt || "정보 없음"}</td>
                                             </tr>
                                         `).join("")}
