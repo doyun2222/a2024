@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채용공고 상세정보</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5.4.4/dist/css/tabulator.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        .detail-section {
+            margin-bottom: 20px;
+        }
+        .detail-section h2 {
+            color: #007bff;
+        }
+        .detail-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .detail-section li {
+            margin: 10px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .file-list {
+            margin-top: 10px;
+        }
+        .step-table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://doyun2222.github.io/a2024/" target="_blank">Home</a> | 
+        <a href="javascript:history.back()">뒤로가기</a>
+    </header>
+    <main>
+        <section id="detail">
+            <h1>채용공고 상세정보</h1>
+            <div id="detailContainer">
+                <p>데이터를 불러오는 중입니다...</p>
+            </div>
+        </section>
+    </main>
 
+    <script>
+        const apiUrl = "https://apis.data.go.kr/1051000/recruitment/detail";
+        const serviceKey = "pKNkTBCcfio+4XDb3xpeAScbhWpzcdlcXlYBMywYpX+u0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw==";
+
+        // URL에서 sn 파라미터 추출
+        const urlParams = new URLSearchParams(window.location.search);
+        const sn = urlParams.get("sn");
+
+        // API 호출 및 데이터 표시
+        if (sn) {
+            fetch(`${apiUrl}?serviceKey=${serviceKey}&resultType=json&sn=${sn}`)
+                .then(response => response.json())
+                .then(data => {
+                    const result = data.result;
+                    const container = document.getElementById("detailContainer");
+
+                    if (result) {
+                        container.innerHTML = `
+                            <div class="detail-section">
+                                <h2>${result.recrutPbancTtl || "제목 없음"}</h2>
+                                <ul>
+                                    <li><strong>공시기관:</strong> ${result.instNm || "정보 없음"}</li>
+                                    <li><strong>공고 시작일:</strong> ${result.pbancBgngYmd || "정보 없음"}</li>
+                                    <li><strong>공고 종료일:</strong> ${result.pbancEndYmd || "정보 없음"}</li>
+                                    <li><strong>채용분야:</strong> ${result.ncsCdNmLst || "정보 없음"}</li>
+                                    <li><strong>고용형태:</strong> ${result.hireTypeNmLst || "정보 없음"}</li>
+                                    <li><strong>근무지:</strong> ${result.workRgnNmLst || "정보 없음"}</li>
+                                    <li><strong>채용구분:</strong> ${result.recrutSeNm || "정보 없음"}</li>
+                                    <li><strong>채용인원:</strong> ${result.recrutNope || "정보 없음"}</li>
+                                    <li><strong>우대조건:</strong> ${result.prefCondCn || "정보 없음"}</li>
+                                    <li><strong>지원 자격:</strong><br>${result.aplyQlfcCn.replace(/\n/g, "<br>") || "정보 없음"}</li>
+                                    <li><strong>결격 사유:</strong><br>${result.disqlfcRsn.replace(/\n/g, "<br>") || "정보 없음"}</li>
+                                    <li><strong>전형방법:</strong><br>${result.scrnprcdrMthdExpln.replace(/\n/g, "<br>") || "정보 없음"}</li>
+                                    <li><strong>우대사항:</strong> ${result.prefCn || "정보 없음"}</li>
+                                    <li><strong>원문 링크:</strong> <a href="${result.srcUrl}" target="_blank">채용 공고 원문</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h2>첨부파일</h2>
+                                <div class="file-list">
+                                    ${result.files.map(file => `
+                                        <a href="${file.url}" target="_blank">${file.atchFileNm}</a>
+                                    `).join("<br>")}
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h2>채용 단계 정보</h2>
+                                <table border="1" cellpadding="10" class="step-table">
+                                    <thead>
+                                        <tr>
+                                            <th>채용공고명</th>
+                                            <th>단계</th>
+                                            <th>경쟁률</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${result.steps.map(step => `
+                                            <tr>
+                                                <td>${step.recrutPbancTtl || "정보 없음"}</td>
+                                                <td>${step.sortNo + 1 || "정보 없음"}</td>
+                                                <td>${step.cmpttRt || "정보 없음"}</td>
+                                            </tr>
+                                        `).join("")}
+                                    </tbody>
+                                </table>
+                            </div>
+                        `;
+                    } else {
+                        container.innerHTML = "<p>상세정보를 찾을 수 없습니다.</p>";
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("detailContainer").innerHTML = `<p>API 요청 실패: ${error.message}</p>`;
+                });
+        } else {
+            document.getElementById("detailContainer").innerHTML = "<p>유효하지 않은 요청입니다.</p>";
+        }
+    </script>
+</body>
+</html>
