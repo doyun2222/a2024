@@ -85,13 +85,15 @@
 
                     if (result) {
                         // 단계별 채용 정보 생성
-                        const stageInfoHtml = result.steps.map((step, index) => `
+                        const stageInfoHtml = result.steps.map(step => `
                             <div class="stage-info">
-                                <h3>${index + 1}단계: ${step.recrutPbancTtl || "정보 없음"}</h3>
+                                <h3>${step.recrutPbancTtl || "정보 없음"}</h3>
                                 <ul>
-                                    <li>선발 인원: ${step.recrutNope || "정보 없음"}</li>
-                                    <li>응시 인원: ${step.aplyNope || "정보 없음"}</li>
-                                    <li>경쟁률: ${step.cmpttRt || "정보 없음"}</li>
+                                    <li>단계: ${step.sortNo + 1 || "정보 없음"}</li>
+                                    <li>공고명: ${step.recrutPbancTtl || "정보 없음"}</li>
+                                    <li>선발 인원: ${step.recrutNope !== null ? step.recrutNope : "정보 없음"}</li>
+                                    <li>응시 인원: ${step.aplyNope !== null ? step.aplyNope : "정보 없음"}</li>
+                                    <li>경쟁률: ${step.cmpttRt !== null ? step.cmpttRt : "정보 없음"}</li>
                                 </ul>
                             </div>
                         `).join("");
