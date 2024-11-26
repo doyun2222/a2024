@@ -37,22 +37,6 @@
             margin-bottom: 10px;
             color: #007bff;
         }
-        .stage-info {
-            margin-bottom: 20px;
-        }
-        .stage-info h3 {
-            margin: 0;
-            font-size: 1rem;
-            color: #333;
-        }
-        .stage-info ul {
-            margin: 10px 0;
-            padding-left: 20px;
-            list-style-type: none;
-        }
-        .stage-info ul li {
-            margin-bottom: 5px;
-        }
     </style>
 </head>
 <body>
@@ -77,25 +61,24 @@
         if (sn) {
             const fullUrl = `${apiUrl}?serviceKey=${serviceKey}&resultType=json&sn=${sn}`;
 
-            fetch(fullUrl)
+            fetch(fullUrl, {
+                method: "GET", // 명시적으로 GET 메서드를 설정
+            })
                 .then(response => response.json())
                 .then(data => {
                     const result = data.result;
                     const container = document.getElementById("detailContainer");
 
                     if (result) {
-                        // 단계별 채용 정보 생성
+                        // 단계별 채용 정보 HTML 생성
                         const stageInfoHtml = result.steps.map(step => `
-                            <div class="stage-info">
-                                <h3>${step.recrutPbancTtl || "정보 없음"}</h3>
-                                <ul>
-                                    <li>단계: ${step.sortNo + 1 || "정보 없음"}</li>
-                                    <li>공고명: ${step.recrutPbancTtl || "정보 없음"}</li>
-                                    <li>선발 인원: ${step.recrutNope !== null ? step.recrutNope : "정보 없음"}</li>
-                                    <li>응시 인원: ${step.aplyNope !== null ? step.aplyNope : "정보 없음"}</li>
-                                    <li>경쟁률: ${step.cmpttRt !== null ? step.cmpttRt : "정보 없음"}</li>
-                                </ul>
-                            </div>
+                            <tr>
+                                <td>${step.sortNo + 1 || "정보 없음"}</td>
+                                <td>${step.recrutPbancTtl || "정보 없음"}</td>
+                                <td>${step.recrutNope !== null ? step.recrutNope : "정보 없음"}</td>
+                                <td>${step.aplyNope !== null ? step.aplyNope : "정보 없음"}</td>
+                                <td>${step.cmpttRt !== null ? step.cmpttRt : "정보 없음"}</td>
+                            </tr>
                         `).join("");
 
                         // 전체 HTML 구성
@@ -116,34 +99,21 @@
                             </div>
                             
                             <div class="section">
-                                <h2 class="section-title">지원 자격 및 조건</h2>
-                                <table>
-                                    <tr><th>우대조건</th><td>${result.prefCondCn || "정보 없음"}</td></tr>
-                                    <tr><th>지원 자격</th><td>${result.aplyQlfcCn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
-                                    <tr><th>결격 사유</th><td>${result.disqlfcRsn.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
-                                    <tr><th>우대사항</th><td>${result.prefCn || "정보 없음"}</td></tr>
-                                </table>
-                            </div>
-
-                            <div class="section">
-                                <h2 class="section-title">전형방법</h2>
-                                <table>
-                                    <tr><th>방법</th><td>${result.scrnprcdrMthdExpln.replace(/\n/g, "<br>") || "정보 없음"}</td></tr>
-                                </table>
-                            </div>
-
-                            <div class="section">
                                 <h2 class="section-title">단계별 채용정보</h2>
-                                ${stageInfoHtml || "<p>단계별 정보가 없습니다.</p>"}
-                            </div>
-
-                            <div class="section">
-                                <h2 class="section-title">첨부파일</h2>
-                                <ul>
-                                    ${result.files.map(file => `
-                                        <li><a href="${file.url}" target="_blank">${file.atchFileNm}</a></li>
-                                    `).join("")}
-                                </ul>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>단계</th>
+                                            <th>공고명</th>
+                                            <th>선발 인원</th>
+                                            <th>응시 인원</th>
+                                            <th>경쟁률</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${stageInfoHtml || "<tr><td colspan='5'>단계별 정보가 없습니다.</td></tr>"}
+                                    </tbody>
+                                </table>
                             </div>
                         `;
                     } else {
