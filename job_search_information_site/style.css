@@ -141,6 +141,49 @@ button:hover {
     text-decoration: underline;
 }
 
+input[list] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#companyTable {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#companyTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#companyTable th, #companyTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#companyTable th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+#companyTable td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#companyTable td a:hover {
+    text-decoration: underline;
+}
+
 
 #tips {
     padding: 40px;
