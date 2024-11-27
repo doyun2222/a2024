@@ -27,7 +27,7 @@ body {
 
 .portfolio-banner.shrink {
     height: 40px;
-    background: linear-gradient(to right, #0056b3, #004080);
+    background: #0056b3, 
 }
 
 .menu {
@@ -68,13 +68,33 @@ section h1, section h2 {
     font-weight: 700;
     margin-bottom: 20px;
     text-transform: uppercase;
-    color: #007bff;
+    color: #007bff; /* 기본 색상 */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
 }
 
+/* 섹션 스타일 */
+#resume {
+    border-left: 10px solid #ffca28;
+}
+
+#cv {
+    border-left: 10px solid #4caf50;
+    background: linear-gradient(to bottom, #ffffff, #e8f5e9);
+}
+
+#intro {
+    border-left: 10px solid #8e24aa;
+}
+
+#projects {
+    border-left: 10px solid #007bff;
+    background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+}
+
 #home h1 {
     font-size: 2.5rem;
+    color: #333;
 }
 
 #home p {
@@ -83,11 +103,6 @@ section h1, section h2 {
     color: #555;
 }
 
-/* 섹션 스타일 */
-#resume, #cv, #intro, #projects {
-    border-left: 10px solid #007bff;
-    background: linear-gradient(to bottom, #ffffff, #f7f9fc);
-}
 .inner-table {
     width: 100%;
     border-collapse: collapse;
@@ -103,7 +118,6 @@ section h1, section h2 {
     background-color: #e0f7fa;
     font-weight: bold;
 }
-
 /* 테이블 스타일 (기존 유지) */
 table {
     width: 100%;
@@ -115,7 +129,7 @@ table {
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: center;
+    text-align: left;
 }
 
 /* 버튼 스타일 */
@@ -155,7 +169,7 @@ a:hover {
 }
 
 .project-link:hover {
-    color: #0056b3;
+    color: #1565c0;
     text-decoration: underline;
 }
 
@@ -167,81 +181,4 @@ a:hover {
 
 #projects ul li strong {
     color: #007bff;
-}
-
-
-/* --- 반응형 미디어 쿼리 --- */
-
-/* 태블릿  */
-@media (min-width: 601px) and (max-width: 1024px) {
-    .menu {
-        align-items: center;
-    }
-
-    .portfolio-banner {
-        height: 50px;
-    }
-
-    #home h1 {
-        font-size: 1.8rem;
-    }
-
-    #home p {
-        font-size: 1rem;
-    }
-
-    #resume .table,
-    #intro .table {
-        font-size: 12px;
-    }
-
-    #resume .table th, #resume .table td,
-    #intro .table th, #intro .table td {
-        padding: 6px;
-    }
-}
-
-/* 모바일 */
-@media (max-width: 600px) {
-    .menu {
-        font-size: 14px;
-    }
-
-    .menu a {
-        font-size: 14px;
-        padding: 5px;
-    }
-
-    .portfolio-banner {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
-
-    #home h1 {
-        font-size: 1.5rem;
-    }
-
-    #home p {
-        font-size: 0.9rem;
-    }
-
-    #resume .table,
-    #intro .table {
-        font-size: 10px;
-    }
-
-    #resume .table th, #resume .table td,
-    #intro .table th, #intro .table td {
-        padding: 4px;
-    }
-
-    #resume .title,
-    #intro .title {
-        font-size: 18px;
-    }
-
-    .photo {
-        width: 80px;
-    }
 }
