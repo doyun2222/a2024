@@ -9,14 +9,14 @@ window.addEventListener('scroll', () => {
     }
 });
 
-const reqUrl = "https://apis.data.go.kr/1051000/recruitment/list";
-const serviceKey = "pKNkTBCcfio+4XDb3xpeAScbhWpzcdlcXlYBMywYpX+u0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw==";
+// 채용 정보 API URL 및 인증키
+const recruitmentUrl = "https://apis.data.go.kr/1051000/recruitment/list";
 
-// Tabulator 테이블 설정
-const table = new Tabulator("#resultTable", {
+// 채용정보 테이블 설정
+const recruitmentTable = new Tabulator("#resultTable", {
     layout: "fitDataStretch",
-    pagination: "local", // 데이터를 로컬로 페이징 처리
-    paginationSize: 5, // 한 페이지에 표시할 행 수
+    pagination: "local",
+    paginationSize: 10,
     columns: [
         { title: "#", field: "recrutPblntSn" },
         { title: "상태", field: "ongoingYn" },
@@ -25,11 +25,11 @@ const table = new Tabulator("#resultTable", {
             title: "제목",
             field: "recrutPbancTtl",
             formatter: function (cell) {
-                const id = cell.getRow().getData().recrutPblntSn; // 해당 행의 ID 가져오기 //이걸로 채용공고 detail 나타내는 페이지로 이동시킬예정입니다.
+                const id = cell.getRow().getData().recrutPblntSn;
                 if (id) {
                     return `<a href="https://doyun2222.github.io/a2024/job_search_information_site/detail.html?sn=${id}" target="_blank" style="text-decoration: underline; color: blue;">${cell.getValue()}</a>`;
                 }
-                return cell.getValue(); // ID가 없으면 일반 텍스트 반환
+                return cell.getValue();
             }
         },
         { title: "시작일", field: "pbancBgngYmd" },
@@ -42,10 +42,10 @@ const table = new Tabulator("#resultTable", {
     ],
 });
 
-// 검색 버튼 클릭 시 API 요청 및 테이블 데이터 설정
+// 채용정보 검색 버튼 이벤트
 document.getElementById("searchBtn").addEventListener("click", () => {
     const params = {
-        serviceKey,
+        serviceKey: "pKNkTBCcfio+4XDb3xpeAScbhWpzcdlcXlYBMywYpX+u0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw==",
         acbgCondLst: document.getElementById("acbgCondLst").value || "",
         hireTypeLst: document.getElementById("hireTypeLst").value || "",
         instClsf: document.getElementById("instClsf").value || "",
@@ -64,13 +64,13 @@ document.getElementById("searchBtn").addEventListener("click", () => {
         workRgnLst: document.getElementById("workRgnLst").value || "",
     };
 
-    fetchData(params);
+    fetchRecruitmentData(params);
 });
 
-// API 데이터를 가져와서 Tabulator 테이블에 반영
-function fetchData(params) {
+// 채용정보 API 호출 및 데이터 반영
+function fetchRecruitmentData(params) {
     const queryString = new URLSearchParams(params).toString();
-    const fullUrl = `${reqUrl}?${queryString}`;
+    const fullUrl = `${recruitmentUrl}?${queryString}`;
 
     fetch(fullUrl, {
         method: "GET",
@@ -96,13 +96,87 @@ function fetchData(params) {
                     recrutNope: item.recrutNope || "정보 없음",
                     workRgnNmLst: item.workRgnNmLst || "정보 없음",
                 }));
-                table.setData(tableData); // Tabulator에 데이터 설정
+                recruitmentTable.setData(tableData);
             } else {
-                document.getElementById("error").textContent = "조건에 맞는 데이터가 없습니다.";
-                table.clearData(); // 테이블 데이터 초기화
+                recruitmentTable.clearData();
+                alert("조건에 맞는 데이터가 없습니다.");
             }
         })
         .catch((error) => {
-            document.getElementById("error").textContent = `API 요청 실패: ${error.message}`;
+            alert(`API 요청 실패: ${error.message}`);
         });
 }
+
+const companyUrl = "https://apis.data.go.kr/1051000/public_inst/list";
+const serviceKey = "pKNkTBCcfio+4XDb3xpeAScbhWpzcdlcXlYBMywYpX+u0h9nUw1m3WekTcTneCAnG4KgnpW14Z7dXAjbT6tRmw==";
+
+// 회사 정보 테이블 초기화
+const companyTable = new Tabulator("#companyTable", {
+    layout: "fitDataStretch", // 테이블 레이아웃
+    pagination: "local", // 페이지네이션 활성화
+    paginationSize: 10, // 페이지 당 데이터 수
+    columns: [
+        { title: "기관코드", field: "instCd" }, // 기관코드
+        { title: "기관명", field: "instNm" }, // 기관명
+        { title: "기관유형", field: "instTypeNm" }, // 기관유형
+        { title: "주소", field: "roadNmAddr" }, // 주소
+        { title: "대표 전화", field: "rprsTelno" }, // 대표 전화
+        {
+            title: "홈페이지",
+            field: "siteUrl",
+            formatter: "link", // 링크 형식으로 표시
+            formatterParams: { target: "_blank" }, // 새 창으로 열기
+        },
+    ],
+});
+
+// 회사 정보 데이터 호출
+function fetchCompanyData(params) {
+    const queryString = new URLSearchParams(params).toString();
+    const fullUrl = `${companyUrl}?${queryString}`;
+
+    fetch(fullUrl, {
+        method: "GET",
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            if (data.result && data.result.length > 0) {
+                const tableData = data.result.map((item) => ({
+                    instCd: item.instCd || "정보 없음",
+                    instNm: item.instNm || "정보 없음",
+                    instTypeNm: item.instTypeNm || "정보 없음",
+                    roadNmAddr: item.roadNmAddr || "정보 없음",
+                    rprsTelno: item.rprsTelno || "정보 없음",
+                    siteUrl: item.siteUrl || "정보 없음",
+                }));
+                companyTable.setData(tableData);
+            } else {
+                alert("조건에 맞는 데이터가 없습니다.");
+            }
+        })
+        .catch((error) => {
+            alert(`API 요청 실패: ${error.message}`);
+        });
+}
+
+// 검색 버튼 이벤트 리스너 추가
+document.getElementById("searchCompanyBtn").addEventListener("click", () => {
+    const params = {
+        serviceKey,
+        instNm: document.getElementById("instNm").value || "",
+        ctpvNm: document.getElementById("ctpvNm").value || "",
+        sggNm: document.getElementById("sggNm").value || "",
+        instType: document.getElementById("instType").value || "",
+        instClsf: document.getElementById("instClsf").value || "",
+        numOfRows: 1000, // 한 번에 불러올 데이터 수
+        pageNo: 1, // 페이지 번호
+        resultType: "json", // 결과 형식
+    };
+
+    fetchCompanyData(params);
+});
