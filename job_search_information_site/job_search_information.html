@@ -11,14 +11,14 @@
     <header class="portfolio-banner">
         <nav class="menu">
             <a href="https://doyun2222.github.io/a2024/" target="_blank">Home</a>
-            <a href="#recruitment">채용 공고</a>
-            <a href="#jobinfo">회사정보</a>
+            <a href="#recruitment">채용정보</a>
+            <a href="#jobinfo">공공기관 정보</a>
             <a href="#tips">꿀팁</a>
         </nav>
     </header>
     <main>
         <section id="recruitment">
-            <h1>공공기관 채용정보 조회</h1>
+            <h1>공공기관 채용정보</h1>
             <div class="filter-container">
                 <!-- 기관유형 -->
                 <select id="instType" name="instType">
@@ -997,8 +997,77 @@
         </section>
 
         <section id="jobinfo">
-            <h2>회사정보</h2>
-            <p>회사정보 추가하기.</p>
+            <h2>공공기관 정보</h2>
+            <div class="filter-container">
+                <!-- 기존 필터 유지 -->
+                <select id="instClsf">
+                    <option value="">기관분류 (전체)</option>
+                    <option value="01">SOC</option>
+                    <option value="02">금융</option>
+                    <option value="03">에너지</option>
+                    <option value="04">고용보건복지</option>
+                    <option value="05">문화예술외교법무</option>
+                    <option value="06">농림수산환경</option>
+                    <option value="07">산업진흥정보화</option>
+                    <option value="08">연구교육</option>
+                    <option value="99">기타</option>
+                </select>
+
+                <select id="instType">
+                    <option value="">기관유형 (전체)</option>
+                    <option value="A2001">공기업(시장형)</option>
+                    <option value="A2002">공기업(준시장형)</option>
+                    <option value="A2003">준정부기관(기금관리형)</option>
+                    <option value="A2004">준정부기관(위탁집행형)</option>
+                    <option value="A2005">기타공공기관</option>
+                </select>
+
+                <!-- 기관명 검색 필드 추가 -->
+                <input type="text" id="instNm" placeholder="기관명 (포함 조건)">
+                
+                <!-- 시도명 검색 -->
+                <input list="ctpvOptions" id="ctpvNm" placeholder="시도명 (포함 조건)">
+                <datalist id="ctpvOptions">
+                    <option value="강원도">강원도</option>
+                    <option value="경기도">경기도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="서울특별시">서울특별시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="제주특별자치도">제주특별자치도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="충청북도">충청북도</option>
+                </datalist>
+
+                <input type="text" id="sggNm" placeholder="시군구명 (포함 조건)">
+                <button id="searchCompanyBtn">검색</button>
+            </div>
+
+            <!-- 회사 정보 테이블 -->
+            <div id="companyTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>기관명</th>
+                            <th>기관유형</th>
+                            <th>도로명 주소</th>
+                            <th>대표 전화</th>
+                            <th>홈페이지</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 데이터는 JavaScript에서 동적으로 삽입 -->
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section id="tips">
