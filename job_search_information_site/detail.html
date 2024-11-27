@@ -7,63 +7,46 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 20px;
+            color: #333;
         }
-        header {
+        .section {
             margin-bottom: 20px;
         }
-        h1 {
-            color: #007bff;
+        .section-title {
+            font-size: 1.5rem;
+            color: #0056b3;
+            margin-bottom: 10px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        table th, table td {
+        th, td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
-        table th {
+        th {
             background-color: #f4f4f4;
             font-weight: bold;
         }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-        ul.file-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul.file-list li {
-            margin-bottom: 5px;
-        }
-        ul.file-list li a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        ul.file-list li a:hover {
+        a {
+            color: #0056b3;
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="https://doyun2222.github.io/a2024/" target="_blank">Home</a> | 
         <a href="javascript:history.back()">뒤로가기</a>
     </header>
-    <main>
-        <h1>채용공고 상세정보</h1>
-        <div id="detailContainer">
-            <p>데이터를 불러오는 중입니다...</p>
-        </div>
-    </main>
+    <h1>채용공고 상세정보</h1>
+    <div id="detailContainer">
+        <p>데이터를 불러오는 중입니다...</p>
+    </div>
 
     <script>
         const apiUrl = "https://apis.data.go.kr/1051000/recruitment/detail";
@@ -74,100 +57,53 @@
 
         if (sn) {
             const fullUrl = `${apiUrl}?serviceKey=${serviceKey}&resultType=json&sn=${sn}`;
-
-            fetch(fullUrl, {
-                method: "GET",
-            })
+            fetch(fullUrl)
                 .then(response => response.json())
                 .then(data => {
                     const result = data.result;
                     const container = document.getElementById("detailContainer");
 
                     if (result) {
-                        // 단계별 채용 정보 HTML 생성
-                        const stageInfoHtml = result.steps.map(step => `
-                            <tr>
-                                <td>${step.sortNo + 1 || "정보 없음"}</td>
-                                <td>${step.recrutPbancTtl || "정보 없음"}</td>
-                                <td>${step.recrutNope !== null ? step.recrutNope : "정보 없음"}</td>
-                                <td>${step.aplyNope !== null ? step.aplyNope : "정보 없음"}</td>
-                                <td>${step.cmpttRt !== null ? step.cmpttRt : "정보 없음"}</td>
-                            </tr>
-                        `).join("");
-
-                        // 첨부파일 목록 HTML 생성
-                        const fileInfoHtml = result.files.map(file => `
-                            <li>
-                                <a href="${file.url}" target="_blank">${file.atchFileNm}</a>
-                                (${file.atchFileType === 'A' ? '공고문' : '기타'})
-                            </li>
-                        `).join("");
-
-                        // 전체 HTML 구성
+                        // HTML 생성
                         container.innerHTML = `
                             <div class="section">
                                 <h2 class="section-title">공고 기본정보</h2>
                                 <table>
                                     <tr><th>공고명</th><td>${result.recrutPbancTtl || "정보 없음"}</td></tr>
                                     <tr><th>공시기관</th><td>${result.instNm || "정보 없음"}</td></tr>
-                                    <tr><th>시작일</th><td>${result.pbancBgngYmd || "정보 없음"}</td></tr>
-                                    <tr><th>종료일</th><td>${result.pbancEndYmd || "정보 없음"}</td></tr>
-                                    <tr><th>채용분야</th><td>${result.ncsCdNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>공고기간</th><td>${result.pbancBgngYmd || "정보 없음"} ~ ${result.pbancEndYmd || "정보 없음"}</td></tr>
                                     <tr><th>고용형태</th><td>${result.hireTypeNmLst || "정보 없음"}</td></tr>
+                                    <tr><th>채용분야</th><td>${result.ncsCdNmLst || "정보 없음"}</td></tr>
                                     <tr><th>근무지</th><td>${result.workRgnNmLst || "정보 없음"}</td></tr>
                                     <tr><th>채용구분</th><td>${result.recrutSeNm || "정보 없음"}</td></tr>
                                     <tr><th>채용인원</th><td>${result.recrutNope || "정보 없음"}</td></tr>
                                 </table>
                             </div>
-
                             <div class="section">
                                 <h2 class="section-title">응시자격</h2>
                                 <p>${result.aplyQlfcCn.replace(/\r\n/g, "<br>") || "정보 없음"}</p>
                             </div>
-
-                            <div class="section">
-                                <h2 class="section-title">우대조건</h2>
-                                <p>${result.prefCondCn.replace(/\r\n/g, "<br>") || "정보 없음"}</p>
-                            </div>
-
-                            <div class="section">
-                                <h2 class="section-title">우대내용</h2>
-                                <p>${result.prefCn.replace(/\r\n/g, "<br>") || "정보 없음"}</p>
-                            </div>
-
                             <div class="section">
                                 <h2 class="section-title">결격사유</h2>
                                 <p>${result.disqlfcRsn.replace(/\r\n/g, "<br>") || "정보 없음"}</p>
                             </div>
-
+                            <div class="section">
+                                <h2 class="section-title">우대조건</h2>
+                                <p>${result.prefCn.replace(/\r\n/g, "<br>") || "정보 없음"}</p>
+                            </div>
                             <div class="section">
                                 <h2 class="section-title">전형절차</h2>
                                 <p>${result.scrnprcdrMthdExpln.replace(/\r\n/g, "<br>") || "정보 없음"}</p>
                             </div>
-
-                            <div class="section">
-                                <h2 class="section-title">단계별 채용정보</h2>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>단계</th>
-                                            <th>공고명</th>
-                                            <th>선발 인원</th>
-                                            <th>응시 인원</th>
-                                            <th>경쟁률</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${stageInfoHtml || "<tr><td colspan='5'>단계별 정보가 없습니다.</td></tr>"}
-                                    </tbody>
-                                </table>
-                            </div>
-
                             <div class="section">
                                 <h2 class="section-title">첨부파일</h2>
-                                <ul class="file-list">
-                                    ${fileInfoHtml || "<li>첨부파일이 없습니다.</li>"}
-                                </ul>
+                                ${result.files && result.files.length > 0 ? `
+                                    <ul>
+                                        ${result.files.map(file => `
+                                            <li><a href="${file.url}" target="_blank">${file.atchFileNm}</a></li>
+                                        `).join("")}
+                                    </ul>
+                                ` : "첨부파일 없음"}
                             </div>
                         `;
                     } else {
