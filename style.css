@@ -59,8 +59,33 @@ body {
     height: auto;
     width: auto;
     opacity: 1;
-    transform: translateX(0);
     transition: transform 0.3s ease-in-out, opacity 0.1s linear; /* 부드러운 확대와 기존 이동 효과 */
+}
+
+.description-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+    z-index: 1000;
+}
+
+/* 첫 번째 섹션: 오른쪽 도형 */
+.description-box.right {
+    right: 10%;
+    transform: translateY(-50%);
+}
+
+/* 두 번째 섹션: 왼쪽 도형 */
+.description-box.left {
+    left: 10%;
+    transform: translateY(-50%);
 }
 
 .image.left {
@@ -69,9 +94,9 @@ body {
 }
 
 .image.right {
-    transform: translateX(50%);
+    transform: translateX(200%);
     margin-left: auto;
-    margin-right: 15%;
+    margin-right: 20%;
 }
 
 .image img {
