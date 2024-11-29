@@ -1,3 +1,4 @@
+/* 기본 설정 */
 * {
     margin: 0;
     padding: 0;
@@ -5,33 +6,38 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
+/* 포트폴리오 배너 */
 .portfolio-banner {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: #007bff;
+    background: linear-gradient(to right, #007bff, #0056b3);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    transition: height 0.3s ease;
+    transition: height 0.3s ease, background-color 0.3s ease;
 }
 
 .portfolio-banner.shrink {
     height: 40px;
+    background-color: #0056b3;
 }
 
+/* 메뉴 스타일 */
 .menu {
     display: flex;
     gap: 20px;
@@ -42,40 +48,59 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
-    transition: color 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .menu a:hover {
-    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
 main {
-    padding-top: 80px; 
+    padding-top: 80px;
 }
 
-#recruitment {
+section {
+    margin-bottom: 40px;
     padding: 40px;
-    min-height: 100vh;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h1, section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #007bff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+#resume, #cv, #intro, #projects, #recruitment, #jobinfo, #tips {
+    padding: 40px;
     border-left: 8px solid #007bff;
 }
 
-#recruitment h1 {
-    font-size: 2rem;
-    color: #007bff;
-}
+#resume { border-left-color: #ffca28; }
+#cv { border-left-color: #4caf50; }
+#intro { border-left-color: #8e24aa; }
+#projects { background: linear-gradient(to bottom, #ffffff, #e3f2fd); }
+#recruitment { border-left-color: #007bff; }
+#jobinfo { border-left-color: #bba500; }
+#tips { border-left-color: #ffa500; }
 
-#recruitment p {
-    font-size: 1.1rem;
-    color: #333;
-}
 .filter-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-select,input,button {
+select, input, button {
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ddd;
@@ -83,35 +108,47 @@ select,input,button {
 }
 
 button {
+    background: #007bff;
     color: white;
-    background-color: #007bff;
+    font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: #0056b3;
+    transform: translateY(-2px);
 }
 
-#resultTable {
-    margin-top: 20px;
+/* 테이블 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
-#jobinfo {
-    padding: 40px;
-    min-height: 100vh;
-    border-left: 8px solid #bba500;
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
-#jobinfo h2 {
-    font-size: 1.8rem;
-    color: #bba500;
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
 }
 
-#jobinfo p {
-    font-size: 1.1rem;
-    color: #333;
+td a {
+    color: #007bff;
+    text-decoration: none;
 }
 
+td a:hover {
+    text-decoration: underline;
+}
+
+/* 직업 정보 */
 .job-item {
     border: 1px solid #ddd;
     padding: 20px;
@@ -125,92 +162,21 @@ button:hover {
     color: #007bff;
 }
 
-.job-item p {
-    margin: 5px 0;
-    font-size: 1rem;
-    color: #333;
-}
-
 .job-item a {
     color: #007bff;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .job-item a:hover {
     text-decoration: underline;
 }
 
-input[list] {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-#companyTable {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-#companyTable table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#companyTable th, #companyTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-#companyTable th {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-}
-
-#companyTable td a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-#companyTable td a:hover {
-    text-decoration: underline;
-}
-
-
-#tips {
-    padding: 40px;
-    border-left: 8px solid #ffa500;
-    min-height: 100vh;
-}
-
-#tips h2 {
-    font-size: 2rem;
-    color: #ffa500;
-    margin-bottom: 20px;
-}
-
-.tip-section {
-    margin-bottom: 50px;
-}
-
-.tip-section h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
+/* 비디오 섹션 */
 .video-container {
     display: flex;
-    overflow-x: auto;
     gap: 20px;
+    overflow-x: auto;
     padding: 10px 0;
 }
 
