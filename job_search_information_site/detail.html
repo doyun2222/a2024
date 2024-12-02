@@ -10,32 +10,131 @@
             line-height: 1.6;
             margin: 20px;
             color: #333;
+            background: linear-gradient(135deg, #e8f0ff, #ffffff);
+            overflow: hidden;
         }
-        .section {
+
+        .animated-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(0, 86, 179, 0.2);
+            animation: move 20s infinite linear;
+        }
+
+        .circle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+        }
+
+        .circle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 70%;
+            animation-delay: -5s;
+        }
+
+        .circle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 80%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        .circle:nth-child(4) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 80%;
+            animation-delay: -15s;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, -30px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        header {
             margin-bottom: 20px;
         }
+
+        header a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            font-size: 2rem;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         .section-title {
             font-size: 1.5rem;
             color: #0056b3;
             margin-bottom: 10px;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
         }
+
         th, td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
+
         th {
             background-color: #f4f4f4;
             font-weight: bold;
         }
+
         a {
             color: #0056b3;
             text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -46,6 +145,12 @@
     <h1>채용공고 상세정보</h1>
     <div id="detailContainer">
         <p>데이터를 불러오는 중입니다...</p>
+    </div>   
+    <div class="animated-bg">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
     </div>
 
     <script>
