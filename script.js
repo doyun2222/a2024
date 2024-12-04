@@ -1,51 +1,34 @@
-const leftImage = document.querySelector('.image.left');
-const rightImage = document.querySelector('.image.right');
-const leftDescriptionBox = document.querySelector('.description-box.right');
-const rightDescriptionBox = document.querySelector('.description-box.left');
 const banner = document.querySelector('.fixed-banner');
 
-function hasScrollbar() {
-    return document.body.scrollHeight > window.innerHeight;
-}
+// 모든 이미지와 설명 도형 요소 선택
+const images = document.querySelectorAll('.image');
+const descriptionBoxes = document.querySelectorAll('.description-box');
 
-window.addEventListener('scroll', () => {
-    if (!hasScrollbar()) return;
+// Intersection Observer 설정
+const observerOptions = {
+    root: null, // 뷰포트를 기준으로 관찰
+    threshold: 0.1 // 요소가 10% 이상 보일 때 콜백 호출
+};
 
-    const scrollY = window.scrollY;
-    const scrollHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollProgress = scrollY / scrollHeight;
+// Observer 콜백 함수
+const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            // 요소가 화면에 보이면 'visible' 클래스 추가
+            entry.target.classList.add('visible');
+        } else {
+            // 요소가 화면에서 사라지면 'visible' 클래스 제거
+            entry.target.classList.remove('visible');
+        }
+    });
+};
 
-    // 첫 번째 섹션 동작: 왼쪽 이미지, 오른쪽 설명 도형
-    if (scrollProgress < 0.5) {
-        const progress = scrollProgress / 0.5;
+// Intersection Observer 생성
+const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        // 왼쪽 이미지: 왼쪽으로 사라짐
-        leftImage.style.opacity = 1 - progress;
-        leftImage.style.transform = `translateX(${-50 - progress * 50}%)`;
-
-        // 오른쪽 설명 도형: 오른쪽에서 나타남
-        leftDescriptionBox.style.opacity = 1 - progress
-        leftDescriptionBox.style.transform = `translateX(${0 + progress * 50}%) translateY(-50%)`;
-    } else {
-        leftImage.style.opacity = 0;
-        leftDescriptionBox.style.opacity = 0;
-    }
-
-    // 두 번째 섹션 동작: 오른쪽 이미지, 왼쪽 설명 도형
-    if (scrollProgress > 0.5) {
-        const progress = (scrollProgress - 0.5) / 0.5;
-
-        // 오른쪽 이미지: 오른쪽으로 사라짐
-        rightImage.style.opacity = Math.min(progress, 1);
-        rightImage.style.transform = `translateX(${200 - progress * 50}%)`;
-
-        // 왼쪽 설명 도형: 왼쪽에서 나타남
-        rightDescriptionBox.style.opacity = progress;
-        rightDescriptionBox.style.transform = `translateX(${-100 + progress * 100}%) translateY(-50%)`;
-    } else {
-        rightImage.style.opacity = 0;
-        rightDescriptionBox.style.opacity = 0;
-    }
+// 이미지와 설명 도형에 Observer 연결
+[...images, ...descriptionBoxes].forEach((element) => {
+    observer.observe(element);
 });
 
 // 배너 크기 조정 애니메이션
