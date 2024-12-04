@@ -15,6 +15,19 @@ body {
     color: #333;
 }
 
+/* 기본 상태 */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* 화면에 보일 때 */
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .animated-bg {
     position: fixed;
     width: 100%;
