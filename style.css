@@ -54,92 +54,113 @@ body {
     text-align: center;
 }
 
-.image {
-    position: relative;
-    height: auto;
-    width: auto;
-    opacity: 1;
-    transition: transform 0.3s ease-in-out, opacity 0.1s linear; /* 부드러운 확대와 기존 이동 효과 */
+/* 기본 상태: 요소가 화면에 나타나지 않았을 때 */
+.image, .description-box {
+    opacity: 0;
+    transform: translateY(30px); /* 화면 아래쪽에서 올라오는 효과 */
+    transition: opacity 1s ease, transform 1s ease; /* 부드러운 애니메이션 */
 }
 
+/* 화면에 나타날 때 적용되는 상태 */
+.image.visible, .description-box.visible {
+    opacity: 1;
+    transform: translateY(0); /* 원래 위치로 이동 */
+}
+
+/* 이미지 크기 조정 */
+
+.image-container {
+    position: relative; /* 부모 요소를 기준으로 위치를 설정 */
+    width: 100%; /* 컨테이너가 화면 전체를 차지하도록 */
+    height: auto; /* 내용물에 따라 높이가 조정되도록 */
+}
+
+/* 첫 번째 이미지 */
+.image-1 {
+    position: absolute; /* 부모 요소 기준으로 위치를 설정 */
+    left: 5%; /* 화면 왼쪽에서 10% 위치 */
+    top: 50%; /* 컨테이너의 세로 중앙 */
+    transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
+}
+
+.image-1 img {
+    width: 130%; /* 부모 컨테이너 크기를 따름 */
+    height: auto; /* 비율 유지 */
+    object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+}
+
+/* 두 번째 이미지 */
+.image-2 {
+    position: absolute; /* 부모 요소 기준으로 위치를 설정 */
+    right: 30%; /* 화면 왼쪽에서 10% 위치 */
+    top: 50%; /* 컨테이너의 세로 중앙 */
+    transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
+}
+
+.image-2 img {
+    width: 200%; /* 부모 컨테이너 크기를 따름 */
+    height: auto; /* 비율 유지 */
+    object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+}
+
+.image img:hover {
+    transform: scale(1.05); /* 호버 시 확대 효과 */
+}
+
+/* 오버레이 텍스트 스타일 */
+.overlay-text {
+    position: absolute;
+    top: 50%; /* 세로 중앙 */
+    left: 50%; /* 가로 중앙 */
+    transform: translate(-50%, -50%); /* 정확히 중앙 정렬 */
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* 부드러운 나타나는 효과 */
+    z-index: 2; /* 이미지 위에 표시 */
+    white-space: nowrap; /* 한 줄로 표시, 줄바꿈 방지 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    text-overflow: ellipsis; /* 넘치는 텍스트 생략(...) */
+}
+
+
+/* 이미지에 마우스를 올릴 때 오버레이 텍스트 표시 */
+.image:hover .overlay-text {
+    opacity: 1; /* 텍스트가 나타남 */
+}
+
+
+/* 설명 도형 스타일 */
 .description-box {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 250px;
-    padding: 20px;
+    padding: 15px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 1;
-    z-index: 1000;
+    opacity: 0; /* 기본적으로 숨김 */
+    transition: transform 1s ease, opacity 1s ease;
+    z-index: 1
 }
 
 /* 첫 번째 섹션: 오른쪽 도형 */
 .description-box.right {
     right: 10%;
-    transform: translateY(-50%);
 }
 
 /* 두 번째 섹션: 왼쪽 도형 */
 .description-box.left {
     left: 10%;
-    transform: translateY(-50%);
 }
 
-.image.left {
-    transform: translateX(-50%);
-    margin-left: -20%;
-}
-
-.image.right {
-    transform: translateX(200%);
-    margin-left: auto;
-    margin-right: 20%;
-}
-
-.image img {
-
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease-in-out;
-}
-
-.image.right img {
-    width: 130%;
-    height: auto;
-}
-
-.image.left img:hover {
-    transform: scale(1.05);
-}
-
-.image.right img:hover {
-    transform: scale(1.05); 
-}
-.image-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.text-content {
-    position: absolute;
-    top: 62%;
-    left: 63%;
-    transform: translate(-50%, -50%);
-    font-size: 26px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    white-space: nowrap;
-}
-
-
+/* 푸터 스타일 */
 .footer {
     background-color: #333;
     color: #ddd;
@@ -183,6 +204,12 @@ body {
     }
 
     .image-wrapper {
+        width: 90%;
+        height: auto;
+    }
+
+    .description-box {
+        max-width: 90%;
         padding: 10px;
     }
 
@@ -191,18 +218,13 @@ body {
         height: auto;
     }
 
-    .text-content {
-        font-size: 18px;
-        left: 50%;
-    }
-
     .footer {
         font-size: 12px;
         padding: 10px;
     }
 }
 
-/* 테블릿 화면 */
+/* 태블릿 화면 */
 @media (min-width: 601px) and (max-width: 1024px) {
     .fixed-banner {
         height: 45px;
@@ -222,16 +244,13 @@ body {
     }
 
     .image-wrapper {
-        padding: 15px;
-    }
-
-    .image img {
-        max-width: 80%;
+        width: 80%;
         height: auto;
     }
 
-    .text-content {
-        font-size: 22px;
+    .description-box {
+        max-width: 70%;
+        padding: 15px;
     }
 
     .footer {
