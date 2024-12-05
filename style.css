@@ -1,9 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+    background: linear-gradient(135deg, #f0f8ff, #f9f9f9, #e6e6fa);
+    background-size: 400% 400%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .content {
@@ -12,18 +22,6 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background-size: cover;
-    background-position: center;
-}
-
-.content.top {
-    background-image: url('https://github.com/doyun2222/a2024/blob/main/image1.jpg?raw=true');
-    background-size: cover;
-    background-position: center;
-}
-
-.content.bottom {
-    background-image: url('https://github.com/doyun2222/a2024/blob/main/image2.jpg?raw=true');
     background-size: cover;
     background-position: center;
 }
@@ -53,6 +51,7 @@ body {
     font-weight: bold;
     text-align: center;
 }
+
 
 /* 기본 상태: 요소가 화면에 나타나지 않았을 때 */
 .image, .description-box {
@@ -159,6 +158,85 @@ body {
 .description-box.left {
     left: 10%;
 }
+
+
+/* 소개 섹션 스타일 */
+.intro {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.intro h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #555;
+}
+
+.gallery {
+    text-align: center;
+    padding: 50px;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 두 열로 구성 */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+}
+
+.gallery-container img {
+    width: 100%; /* 부모 컨테이너에 맞춤 */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease; /* 애니메이션 추가 */
+    opacity: 0; /* 기본적으로 숨김 */
+    transform: scale(0.9); /* 작게 시작 */
+}
+
+/* 이미지가 화면에 보일 때 */
+.gallery-container img.visible {
+    opacity: 1;
+    transform: scale(1); /* 원래 크기로 */
+}
+
+/* 오버레이 텍스트 */
+.gallery-item .overlay-text {
+    position: absolute;
+    top: 50%; /* 세로 중앙 */
+    left: 50%; /* 가로 중앙 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+}
+
+/* 이미지 위에 마우스를 올리면 텍스트 표시 */
+.gallery-item:hover .overlay-text {
+    opacity: 1;
+}
+
 
 /* 푸터 스타일 */
 .footer {
