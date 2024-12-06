@@ -41,138 +41,126 @@ body {
 }
 
 
-/* 기본 상태: 요소가 화면에 나타나지 않았을 때 */
+
 .image, .description-box {
     opacity: 0;
-    transform: translateY(30px); /* 화면 아래쪽에서 올라오는 효과 */
-    transition: opacity 1s ease, transform 1s ease; /* 부드러운 애니메이션 */
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-/* 화면에 나타날 때 적용되는 상태 */
+
 .image.visible, .description-box.visible {
     opacity: 1;
-    transform: translateY(0); /* 원래 위치로 이동 */
+    transform: translateY(0);
 }
-
-/* 이미지 크기 조정 */
 
 .image-container {
-    position: relative; /* 부모 요소를 기준으로 위치를 설정 */
-    width: 100%; /* 컨테이너가 화면 전체를 차지하도록 */
-    height: auto; /* 내용물에 따라 높이가 조정되도록 */
+    position: relative; 
+    width: 100%; 
+    height: auto;
 }
 
-/* 첫 번째 이미지 */
-.image-1 {
-    position: absolute; /* 부모 요소 기준으로 위치를 설정 */
-    left: 0%; /* 화면 왼쪽에서 10% 위치 */
-    top: 50%; /* 컨테이너의 세로 중앙 */
-    transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
-}
+
 
 .image-1 img {
-    width: 130%; /* 부모 컨테이너 크기를 따름 */
-    height: auto; /* 비율 유지 */
-    object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+    width: 130%;
+    height: auto; 
+    object-fit: cover; 
     transition: transform 0.3s ease;
 }
 
-/* 두 번째 이미지 */
-.image-2 {
-    position: absolute; /* 부모 요소 기준으로 위치를 설정 */
-    right: 20%; 
-    top: 50%; /* 컨테이너의 세로 중앙 */
-    transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
 
-}
 
 .image-2 img {
-    width: 200%; /* 부모 컨테이너 크기를 따름 */
-    height: auto; /* 비율 유지 */
-    object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+    width: 200%; 
+    height: auto;
+    object-fit: cover; 
     transition: transform 0.3s ease;
 }
 
 .image img:hover {
-    transform: scale(1.05); /* 호버 시 확대 효과 */
+    transform: scale(1.05);
 }
 
-/* 오버레이 텍스트 스타일 */
 .overlay-text {
     position: absolute;
-    top: 50%; /* 세로 중앙 */
-    left: 50%; /* 가로 중앙 */
-    transform: translate(-50%, -50%); /* 정확히 중앙 정렬 */
-    background-color: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 */
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
     color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
+    z-index: 2;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out; /* 부드러운 나타나는 효과 */
-    z-index: 2; /* 이미지 위에 표시 */
-    white-space: nowrap; /* 한 줄로 표시, 줄바꿈 방지 */
-    overflow: hidden; /* 넘치는 텍스트 숨김 */
-    text-overflow: ellipsis; /* 넘치는 텍스트 생략(...) */
 }
 
 
-/* 이미지에 마우스를 올릴 때 오버레이 텍스트 표시 */
 .image:hover .overlay-text {
-    opacity: 1; /* 텍스트가 나타남 */
+    opacity: 1; 
 }
 
+.content.merged {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 20px;
+    background-image: linear-gradient(to bottom, rgba(255, 182, 193, 0.5), rgba(173, 216, 230, 0.5));
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-/* 설명 도형 스타일 */
+.image-container {
+    flex: 1 1 45%;
+    margin: 20px;
+    position: relative;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .description-box {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 250px;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0; /* 기본적으로 숨김 */
-    transition: transform 1s ease, opacity 1s ease;
-    z-index: 1
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    font-size: 14px;
 }
 
 .description-box h3 {
-    font-size: 24px; /* 제목 크기 */
-    font-weight: bold; /* 강조 */
-    color: #333; /* 제목 색상 */
-    margin-bottom: 10px; /* 제목과 리스트 간격 */
+    font-size: 24px; 
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-/* 설명 도형 안의 리스트 */
 .description-box ul {
-    color: #555; /* 리스트 색상 */
-    font-size: 18px; /* 리스트 글자 크기 */
-    line-height: 1.6; /* 줄 간격 */
-    margin: 0; /* 기본 여백 제거 */
-    padding: 0; /* 기본 패딩 제거 */
-    list-style: none; /* 점 제거 */
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6; 
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
 }
 
 .description-box ul li {
-    margin-bottom: 5px; /* 리스트 항목 간격 */
-}
-
-/* 첫 번째 섹션: 오른쪽 도형 */
-.description-box.right {
-    right: 10%;
-}
-
-/* 두 번째 섹션: 왼쪽 도형 */
-.description-box.left {
-    left: 10%;
+    margin-bottom: 5px;
 }
 
 
-/* 소개 섹션 스타일 */
 .intro {
     text-align: center;
     padding: 50px;
@@ -196,22 +184,22 @@ body {
     position: relative;
 }
 .gallery h1 {
-    position: absolute; /* 부모를 기준으로 배치 */
-    top: 0; /* 상단으로 이동 */
-    left: 50%; /* 가로 중앙 정렬 */
-    transform: translate(-50%); /* 정확히 중앙에 정렬 */
-    margin: 0; /* 기본 여백 제거 */
-    font-size: 24px; /* 필요에 따라 크기 조정 */
-    background: rgba(153, 219, 255, 0.8); /* 필요시 배경 추가 */
-    padding: 10px 20px; /* 텍스트에 패딩 추가 */
-    border-radius: 8px; /* 모서리 둥글게 (선택사항) */
-    z-index: 10; /* 다른 요소 위로 배치 */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%); 
+    margin: 0; 
+    font-size: 24px; 
+    background: rgba(153, 219, 255, 0.8); 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    z-index: 10; 
 }
 
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 두 열로 구성 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -223,13 +211,13 @@ body {
 }
 
 .gallery-container img {
-    width: 100%; /* 부모 컨테이너에 맞춤 */
+    width: 100%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, opacity 0.3s ease; /* 애니메이션 추가 */
-    opacity: 0; /* 기본적으로 숨김 */
-    transform: scale(0.9); /* 작게 시작 */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
 }
 
 /* 이미지가 화면에 보일 때 */
@@ -241,10 +229,10 @@ body {
 /* 오버레이 텍스트 */
 .gallery-item .overlay-text {
     position: absolute;
-    top: 50%; /* 세로 중앙 */
-    left: 50%; /* 가로 중앙 */
-    transform: translate(-50%, -50%); /* 중앙 정렬 */
-    background-color: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -261,37 +249,13 @@ body {
     opacity: 1;
 }
 
-/* 상단 섹션 스타일 */
-.content.top {
-    background-image: linear-gradient(to right, rgba(255, 182, 193, 0.5), rgba(173, 216, 230, 0.5)); /* 그라데이션 추가 */
-    background-size: cover;
-    background-position: center;
-    padding: 50px 20px; /* 패딩 조정 */
-    border-radius: 10px; /* 둥근 모서리 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
-    position: relative;
-    overflow: hidden;
-}
-
-/* 하단 섹션 스타일 */
-.content.bottom {
-    background-image: linear-gradient(to left, rgba(240, 240, 240, 0.8), rgba(173, 216, 230, 0.8)); /* 그라데이션 추가 */
-    background-size: cover;
-    background-position: center;
-    padding: 50px 20px; /* 패딩 조정 */
-    border-radius: 10px; /* 둥근 모서리 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
-    position: relative;
-    overflow: hidden;
-}
-
 /* 장식 요소 */
 .decorative-circle {
     position: absolute;
-    background: rgba(135, 206, 250, 0.3); /* 반투명한 하늘색 */
+    background: rgba(135, 206, 250, 0.3);
     border-radius: 50%;
-    z-index: 0; /* 배경에 배치 */
-    animation: float 6s ease-in-out infinite; /* 부드럽게 떠오르는 애니메이션 */
+    z-index: 0;
+    animation: float 6s ease-in-out infinite;
 }
 
 .decorative-circle-1 {
