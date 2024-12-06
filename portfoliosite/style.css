@@ -263,12 +263,17 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 프로젝트 섹션 */
-#projects ul li {
-    margin-bottom: 20px;
-    list-style: none;
+#projects ul li strong {
+    font-size: 1.2rem;
+    color: #007bff;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-#projects ul li strong {
-    color: #007bff;
+#projects ul li p {
+    font-size: 0.8rem;
+    color: #555;
+    margin-left: 10px;
+    line-height: 1.5;
 }
