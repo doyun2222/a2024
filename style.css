@@ -1,19 +1,5 @@
 body {
-    background: linear-gradient(135deg, #f0f8ff, #f9f9f9, #e6e6fa);
-    background-size: 400% 400%;
-    animation: gradient-animation 10s ease infinite;
-}
-
-@keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    background: #edf6f7
 }
 
 .content {
@@ -24,7 +10,9 @@ body {
     position: relative;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
+
 
 .fixed-banner {
     position: fixed;
@@ -77,7 +65,7 @@ body {
 /* 첫 번째 이미지 */
 .image-1 {
     position: absolute; /* 부모 요소 기준으로 위치를 설정 */
-    left: 5%; /* 화면 왼쪽에서 10% 위치 */
+    left: 0%; /* 화면 왼쪽에서 10% 위치 */
     top: 50%; /* 컨테이너의 세로 중앙 */
     transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
 }
@@ -86,20 +74,23 @@ body {
     width: 130%; /* 부모 컨테이너 크기를 따름 */
     height: auto; /* 비율 유지 */
     object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+    transition: transform 0.3s ease;
 }
 
 /* 두 번째 이미지 */
 .image-2 {
     position: absolute; /* 부모 요소 기준으로 위치를 설정 */
-    right: 30%; /* 화면 왼쪽에서 10% 위치 */
+    right: 20%; 
     top: 50%; /* 컨테이너의 세로 중앙 */
     transform: translateY(-50%); /* 정확히 세로 중앙 정렬 */
+
 }
 
 .image-2 img {
     width: 200%; /* 부모 컨테이너 크기를 따름 */
     height: auto; /* 비율 유지 */
     object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+    transition: transform 0.3s ease;
 }
 
 .image img:hover {
@@ -149,6 +140,27 @@ body {
     z-index: 1
 }
 
+.description-box h3 {
+    font-size: 24px; /* 제목 크기 */
+    font-weight: bold; /* 강조 */
+    color: #333; /* 제목 색상 */
+    margin-bottom: 10px; /* 제목과 리스트 간격 */
+}
+
+/* 설명 도형 안의 리스트 */
+.description-box ul {
+    color: #555; /* 리스트 색상 */
+    font-size: 18px; /* 리스트 글자 크기 */
+    line-height: 1.6; /* 줄 간격 */
+    margin: 0; /* 기본 여백 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+    list-style: none; /* 점 제거 */
+}
+
+.description-box ul li {
+    margin-bottom: 5px; /* 리스트 항목 간격 */
+}
+
 /* 첫 번째 섹션: 오른쪽 도형 */
 .description-box.right {
     right: 10%;
@@ -182,6 +194,18 @@ body {
     padding: 50px;
     background-color: #f2f2f2;
     position: relative;
+}
+.gallery h1 {
+    position: absolute; /* 부모를 기준으로 배치 */
+    top: 0; /* 상단으로 이동 */
+    left: 50%; /* 가로 중앙 정렬 */
+    transform: translate(-50%); /* 정확히 중앙에 정렬 */
+    margin: 0; /* 기본 여백 제거 */
+    font-size: 24px; /* 필요에 따라 크기 조정 */
+    background: rgba(153, 219, 255, 0.8); /* 필요시 배경 추가 */
+    padding: 10px 20px; /* 텍스트에 패딩 추가 */
+    border-radius: 8px; /* 모서리 둥글게 (선택사항) */
+    z-index: 10; /* 다른 요소 위로 배치 */
 }
 
 
@@ -235,6 +259,63 @@ body {
 /* 이미지 위에 마우스를 올리면 텍스트 표시 */
 .gallery-item:hover .overlay-text {
     opacity: 1;
+}
+
+/* 상단 섹션 스타일 */
+.content.top {
+    background-image: linear-gradient(to right, rgba(255, 182, 193, 0.5), rgba(173, 216, 230, 0.5)); /* 그라데이션 추가 */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px; /* 패딩 조정 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 하단 섹션 스타일 */
+.content.bottom {
+    background-image: linear-gradient(to left, rgba(240, 240, 240, 0.8), rgba(173, 216, 230, 0.8)); /* 그라데이션 추가 */
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px; /* 패딩 조정 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 장식 요소 */
+.decorative-circle {
+    position: absolute;
+    background: rgba(135, 206, 250, 0.3); /* 반투명한 하늘색 */
+    border-radius: 50%;
+    z-index: 0; /* 배경에 배치 */
+    animation: float 6s ease-in-out infinite; /* 부드럽게 떠오르는 애니메이션 */
+}
+
+.decorative-circle-1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+}
+
+.decorative-circle-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -30px;
+    right: -30px;
+}
+
+/* 부드러운 애니메이션 효과 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 
