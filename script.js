@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Intersection Observer 설정
     const observerOptions = {
-        root: null, // 뷰포트를 기준으로 관찰
-        threshold: 0.1, // 요소가 10% 이상 보일 때 콜백 호출
+        root: null,
+        threshold: 0.1,
     };
 
     // Observer 콜백 함수
@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 if (entry.target.classList.contains('gallery-container')) {
-                    // 갤러리 이미지 애니메이션
                     entry.target.classList.add('gallery-visible');
                 } else {
-                    // 일반 이미지와 설명 박스
                     entry.target.classList.add('visible');
                 }
             } else {
