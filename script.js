@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryImages = document.querySelectorAll('.gallery-container img');
 
     // 모든 이미지와 설명 도형 요소 선택
-    const images = document.querySelectorAll('.image');
-    const descriptionBoxes = document.querySelectorAll('.description-box');
+    const images = document.querySelectorAll('.merged .image');
+    const descriptionBoxes = document.querySelectorAll('.merged .description-box');
 
     // Intersection Observer 설정
     const observerOptions = {
         root: null,
-        threshold: 0.1,
+        threshold: 0.2,
     };
 
     // Observer 콜백 함수
