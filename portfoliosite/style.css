@@ -279,8 +279,12 @@ a:hover {
 /* 모바일 화면 (600px 이하) */
 @media (max-width: 600px) {
     .menu {
-        flex-direction: column; 
-        gap: 10px; 
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .menu a {
