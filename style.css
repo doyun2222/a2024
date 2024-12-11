@@ -13,7 +13,6 @@ body {
     overflow: hidden;
 }
 
-
 .fixed-banner {
     position: fixed;
     top: 0;
@@ -40,8 +39,6 @@ body {
     text-align: center;
 }
 
-
-
 .image, .description-box {
     opacity: 0;
     transform: translateY(30px);
@@ -59,8 +56,6 @@ body {
     width: 100%; 
     height: auto;
 }
-
-
 
 .image-1 img {
     width: 130%;
@@ -310,25 +305,22 @@ body {
 /* 모바일 화면 */
 @media (max-width: 600px) {
     .fixed-banner {
-        height: 40px;
-    }
-
-    .fixed-banner.shrink {
-        height: 25px;
+        height: 50px;
     }
 
     .banner-content {
-        font-size: 14px;
+        font-size: 3vw;
     }
 
     .content {
         min-height: auto;
-        padding: 20px;
+        padding: 10px;
     }
 
     .image-wrapper {
         width: 90%;
         height: auto;
+        margin: 0 auto;
     }
 
     .description-box {
@@ -336,9 +328,8 @@ body {
         padding: 10px;
     }
 
-    .image img {
-        width: 100%;
-        height: auto;
+    .gallery-container {
+        grid-template-columns: 1fr;
     }
 
     .footer {
@@ -353,27 +344,28 @@ body {
         height: 45px;
     }
 
-    .fixed-banner.shrink {
-        height: 30px;
-    }
-
     .banner-content {
         font-size: 16px;
     }
 
     .content {
         height: auto;
-        padding: 20px;
+        padding: 15px;
     }
 
     .image-wrapper {
         width: 80%;
         height: auto;
+        margin: 0 auto;
     }
 
     .description-box {
         max-width: 70%;
         padding: 15px;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer {
