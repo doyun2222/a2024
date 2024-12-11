@@ -252,3 +252,92 @@ td a:hover {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
+
+@media (max-width: 600px) {
+    .menu {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .menu a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .portfolio-banner {
+        height: 50px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    select, input, button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .filter-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .video-container iframe {
+        width: 250px;
+        height: 150px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .menu {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .menu a {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .portfolio-banner {
+        height: 55px;
+    }
+
+    section {
+        padding: 30px;
+    }
+
+    select, input, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .filter-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .video-container iframe {
+        width: 300px;
+        height: 180px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
