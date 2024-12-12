@@ -189,6 +189,7 @@ body {
     padding: 10px 20px; 
     border-radius: 8px; 
     z-index: 10; 
+    white-space: nowrap;
 }
 
 
@@ -328,6 +329,11 @@ body {
         padding: 10px;
     }
 
+    .gallery h1 {
+        font-size: 18px;
+        padding: 5px 10px;
+    }
+
     .gallery-container {
         grid-template-columns: 1fr;
     }
@@ -362,6 +368,11 @@ body {
     .description-box {
         max-width: 70%;
         padding: 15px;
+    }
+
+    .gallery h1 {
+        font-size: 20px;
+        padding: 8px 15px;
     }
 
     .gallery-container {
