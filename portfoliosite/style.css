@@ -392,9 +392,4 @@ a:hover {
     a {
         font-size: 15px;
     }
-
-    .gallery-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
 }
